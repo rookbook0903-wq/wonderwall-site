@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ｜Wonderwall株式会社</title>
+  <meta name="description" content="Wonderwall株式会社からのお知らせ。研修報告・登壇情報・活動報告など最新情報をお届けします。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="お知らせ｜Wonderwall株式会社">
+  <meta property="og:description" content="Wonderwall株式会社からのお知らせ。研修報告・登壇情報・活動報告など最新情報をお届けします。">
+  <meta property="og:url" content="https://wonderwall-oita.co.jp/news.html">
+  <meta property="og:site_name" content="Wonderwall株式会社">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="お知らせ｜Wonderwall株式会社">
+  <meta name="twitter:description" content="Wonderwall株式会社からのお知らせ。研修報告・登壇情報・活動報告など最新情報をお届けします。">
+  <meta property="og:image" content="https://wonderwall-oita.co.jp/Hijoshiki.png">
+  <meta name="twitter:image" content="https://wonderwall-oita.co.jp/Hijoshiki.png">
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">Wonder<span>wall</span>.inc</a>
+    <nav class="nav">
+      <a href="index.html">TOP</a>
+      <a href="services.html">Services</a>
+      <a href="cases.html">Cases</a>
+      <a href="about.html">About</a>
+      <a href="care.html">Care</a>
+      <a href="news.html" class="active">News</a>
+      <a href="contact.html" class="btn-nav">相談する</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">TOP</a>
+  <a href="services.html">Services</a>
+  <a href="cases.html">Cases</a>
+  <a href="about.html">About</a>
+  <a href="care.html">Care</a>
+  <a href="news.html">News</a>
+  <a href="contact.html" class="btn-nav">相談する（無料）</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__label">News</div>
+    <h1 class="page-hero__title">お知らせ</h1>
+    <p class="page-hero__sub">研修報告・登壇情報・活動報告など、最新情報をお届けします。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:760px;">
+
+    <!-- タブ -->
+    <div class="news-tabs">
+      <button class="news-tab-btn is-active" onclick="switchTab(event, 'tab-latest')">最新のお知らせ</button>
+      <button class="news-tab-btn" onclick="switchTab(event, 'tab-archive')">過去のお知らせ</button>
+    </div>
+
+    <!-- 最新タブ（ここに最大5件追加） -->
+    <div id="tab-latest" class="news-tab-panel is-active">
+      <div class="news-list">
+
+        <div class="news-item">
+          <div class="news-item__date">2026.03.05</div>
+          <div class="news-item__body">
+            <span class="news-item__tag news-item__tag--info">お知らせ</span>
+            <div class="news-item__title">Wonderwall株式会社 公式サイトを立ち上げました！</div>
+            <div class="news-item__text">この度、Wonderwall株式会社の公式Webサイトを開設いたしました。<br><br>「介護の現場に、仕組みと余白を。」というミッションのもと、ICT伴走支援・業務効率化・組織運営改善など、介護事業所の皆さまへの支援情報を順次発信してまいります。<br><br>研修・講演のご依頼、ICT活用のご相談など、まずはお気軽にお問い合わせください。</div>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-item__date">2026.03.09</div>
+          <div class="news-item__body">
+            <span class="news-item__tag news-item__tag--report">新サービス</span>
+            <div class="news-item__title">非常識ケアマネLabo、始めます。</div>
+            <div class="news-item__text">ケアマネジャーという仕事を、もう一度哲学するための場をつくりました。<br><br>「思い込みの壁」「自立の再定義」「5感を大切にするケア」——業務効率化の前に、この仕事の本質と向き合う。そんなLaboです。<br><br>研修・ワークショップ・対話セッションなど、ご依頼内容に合わせて設計します。ご興味のある方はお気軽にご相談ください。</div>
+          </div>
+        </div>
+
+        <!-- 新しいお知らせはここに追加（最大5件） -->
+
+      </div>
+    </div>
+
+    <!-- 過去タブ（古い記事をここに移動） -->
+    <div id="tab-archive" class="news-tab-panel">
+      <div class="news-list">
+        <div style="padding: 48px 0; text-align:center; color:var(--text-sub); font-size:14px;">
+          過去のお知らせはまだありません。
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:52px; padding-top:40px; border-top:1px solid var(--border);">
+      <p style="font-size:14px; color:var(--text-sub); margin-bottom:20px;">研修・講演のご依頼、お問い合わせはこちら</p>
+      <a href="contact.html" class="btn btn--primary">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function switchTab(e, id) {
+  document.querySelectorAll('.news-tab-btn').forEach(b => b.classList.remove('is-active'));
+  document.querySelectorAll('.news-tab-panel').forEach(p => p.classList.remove('is-active'));
+  e.currentTarget.classList.add('is-active');
+  document.getElementById(id).classList.add('is-active');
+}
+</script>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">Wonder<span>wall</span></div>
+        <p class="footer__desc">介護の現場に、仕組みと余白を。</p>
+        <div class="footer__sns">
+          <a href="https://x.com/Wonderwall_0801" target="_blank" rel="noopener" aria-label="X（旧Twitter）"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.instagram.com/wonderwall40801/?hl=ja" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">サービス</div>
+        <ul class="footer__links">
+          <li><a href="services.html#ict-support">ICT伴走支援</a></li>
+          <li><a href="services.html#training">ICT活用講座／研修</a></li>
+          <li><a href="services.html#efficiency">業務効率化支援</a></li>
+          <li><a href="services.html#organization">組織運営改善</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">サイト</div>
+        <ul class="footer__links">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="cases.html">支援事例</a></li>
+          <li><a href="about.html">会社について</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copyright">© 2025 Wonderwall株式会社. All rights reserved.</div>
+      <a href="privacy.html" class="footer__policy-link">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('is-open');
+}
+</script>
+</body>
+</html>
