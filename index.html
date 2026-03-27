@@ -30,7 +30,14 @@
   <meta property="og:image" content="https://wonderwall-oita.co.jp/Hijoshiki.png">
   <meta name="twitter:image" content="https://wonderwall-oita.co.jp/Hijoshiki.png">
 </head>
-<body>
+<body class="page-index">
+
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg-wrap" aria-hidden="true">
+  <video id="bgVideo" class="video-bg" autoplay muted playsinline>
+    <source src="203449-921267347.mp4" type="video/mp4">
+  </video>
+</div>
 
 <!-- HEADER -->
 <header class="header">
@@ -115,7 +122,7 @@
 
 
 <!-- CATCHCOPY -->
-<div class="js-fade" style="background:#0c1108; min-height:60vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:80px 40px; border-top:1px solid rgba(255,255,255,0.06);">
+<div class="catchcopy-section js-fade" style="background:rgba(12,17,8,0.72); min-height:60vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:80px 40px; border-top:1px solid rgba(255,255,255,0.06);">
   <div>
     <p style="font-size:clamp(28px, 6vw, 72px); font-weight:900; color:#fff; letter-spacing:0.08em; line-height:1.2;">非常識を、<span style="color:#8fbc5a;">カタチ</span>に。</p>
     <p style="font-size:13px; color:rgba(255,255,255,0.35); margin-top:24px; letter-spacing:0.12em;">Wonderwall株式会社</p>
@@ -123,7 +130,7 @@
 </div>
 
 <!-- NEWS -->
-<div style="background:#0c1108; border-top:1px solid rgba(255,255,255,0.08); padding:48px 0;">
+<div style="background:rgba(12,17,8,0.85); border-top:1px solid rgba(255,255,255,0.08); padding:48px 0;">
   <div class="container">
     <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:28px;">
       <span style="font-size:11px; font-weight:700; letter-spacing:0.14em; color:rgba(255,255,255,0.35); text-transform:uppercase;">News</span>
@@ -189,6 +196,20 @@
     </div>
   </div>
 </footer>
+
+<script>
+// Video playlist: play both videos in sequence, loop
+(function() {
+  const bgVideo = document.getElementById('bgVideo');
+  const videoList = ['203449-921267347.mp4', '86172-593601016.mp4'];
+  let videoIndex = 0;
+  bgVideo.addEventListener('ended', function() {
+    videoIndex = (videoIndex + 1) % videoList.length;
+    bgVideo.src = videoList[videoIndex];
+    bgVideo.play();
+  });
+})();
+</script>
 
 <script>
 function toggleMenu() {
