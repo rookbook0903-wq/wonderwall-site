@@ -711,6 +711,7 @@ a:hover { opacity: 0.72; }
 .news-item__tag--report { background: var(--green-light); color: var(--green-dark); }
 .news-item__tag--event  { background: #f0f0ed; color: #5a5a50; }
 .news-item__tag--info   { background: #eef0f3; color: #5c6470; }
+.news-item__tag--column { background: #f5f0ea; color: #7a5c3a; }
 .news-item__title { font-size: 15.5px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.55; font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif; }
 .news-item__text { font-size: 13.5px; color: var(--text-sub); line-height: 1.85; }
 
