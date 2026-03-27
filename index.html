@@ -34,10 +34,7 @@
 
 <!-- VIDEO BACKGROUND -->
 <div class="video-bg-wrap" aria-hidden="true">
-  <video id="bgVideo0" class="video-bg" autoplay muted playsinline preload="auto" style="opacity:0.35; transition:opacity 1s ease;">
-    <source src="203449-921267347.mp4" type="video/mp4">
-  </video>
-  <video id="bgVideo1" class="video-bg" muted playsinline preload="auto" style="opacity:0; transition:opacity 1s ease; position:absolute; top:0; left:0;">
+  <video class="video-bg" autoplay muted playsinline loop preload="auto" style="opacity:0.35;">
     <source src="86172-593601016.mp4" type="video/mp4">
   </video>
 </div>
@@ -199,25 +196,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-// Video crossfade: preload both, switch seamlessly
-(function() {
-  const v = [document.getElementById('bgVideo0'), document.getElementById('bgVideo1')];
-  let cur = 0;
-
-  function switchTo(next) {
-    v[next].currentTime = 0;
-    v[next].play();
-    v[next].style.opacity = '0.35';
-    v[cur].style.opacity = '0';
-    cur = next;
-  }
-
-  v[0].addEventListener('ended', function() { switchTo(1); });
-  v[1].addEventListener('ended', function() { switchTo(0); });
-})();
-</script>
 
 <script>
 function toggleMenu() {
