@@ -38,10 +38,10 @@
     <nav class="nav">
       <a href="index.html">TOP</a>
       <a href="services.html">Services</a>
-      <a href="cases.html">Cases</a>
       <a href="about.html">About</a>
       <a href="care.html">Care</a>
       <a href="news.html" class="active">News</a>
+      <a href="works.html">Works</a>
       <a href="contact.html" class="btn-nav">相談する</a>
     </nav>
     <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
@@ -52,10 +52,10 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">TOP</a>
   <a href="services.html">Services</a>
-  <a href="cases.html">Cases</a>
   <a href="about.html">About</a>
   <a href="care.html">Care</a>
   <a href="news.html">News</a>
+  <a href="works.html">Works</a>
   <a href="contact.html" class="btn-nav">相談する（無料）</a>
 </div>
 
@@ -72,31 +72,115 @@
 
     <!-- タブ -->
     <div class="news-tabs">
-      <button class="news-tab-btn is-active" onclick="switchTab(event, 'tab-latest')">最新のお知らせ</button>
-      <button class="news-tab-btn" onclick="switchTab(event, 'tab-archive')">過去のお知らせ</button>
+      <button class="news-tab-btn is-active" data-tab="tab-news" onclick="switchTab(event, 'tab-news')">お知らせ</button>
+      <button class="news-tab-btn" data-tab="tab-essay" onclick="switchTab(event, 'tab-essay')">エッセイ</button>
+      <button class="news-tab-btn" data-tab="tab-archive" onclick="switchTab(event, 'tab-archive')">過去のお知らせ</button>
     </div>
 
-    <!-- 最新タブ（ここに最大5件追加） -->
-    <div id="tab-latest" class="news-tab-panel is-active">
+    <!-- お知らせタブ -->
+    <div id="tab-news" class="news-tab-panel is-active">
       <div class="news-list">
 
         <div class="news-item">
-          <div class="news-item__date">2026.03.27</div>
+          <div class="news-item__date">2026.04.16</div>
           <div class="news-item__body">
-            <span class="news-item__tag news-item__tag--column">エッセイ</span>
-            <div class="news-item__title">愚かさの、手触り</div>
+            <span class="news-item__tag news-item__tag--report">活動報告</span>
+            <div class="news-item__title">ICT活用講座を開催しました ／ 介護保険サービスセンター「まごころ」様</div>
             <div class="news-item__text">
-              AIは不合理をインプットできるが、愚かにはなれない。この問いから始まった対話は、ケアマネジメントの本質へと静かに着地した。<br><br>
-              愚かさとは認知の失敗ではない。間違いだとわかっていながら進んでしまう、危険を感じながらも衝動に抗えない、そしてその衝動を事後的に正当化してしまう――それが人間の本能的な愚かさだ。アリストテレスが「アクラシア（意志の弱さ）」と呼んだ、理性が本能の弁護士になる瞬間。<br><br>
-              AIにはその構造がない。衝動も、快楽への引力も、恐怖からの逃走もない。だからAIは愚かである理由がない。愚かさを演じることはできても、愚かさを生きることはできない。<br><br>
-              翻って、ケアマネジメントにおいてこの「本能的な愚かさ」はどう扱われるべきか。一般的には抑制の対象だ。糖尿病患者の甘いもの、アルコール依存者の飲酒。しかし抑制しようとすると人は防衛する。<br><br>
-              私の実践では、愚かさを一度許容することを選ぶ。許容された瞬間、人は自分の衝動を自分で眺められるようになる。そこに初めて自己決定の芽が生まれる。制御を手放した瞬間に制御が生まれる、というパラドックスだ。<br><br>
-              「自らが選択の上で人生を没落することも許容する」――これは介護保険制度の理念（悪化防止義務）とは矛盾する。しかしその矛盾は解消しなくていい。制度は平均化・一般化せざるを得ない。その隙間を個別の実践が埋める。矛盾は創造的緊張になる。<br><br>
-              そして実際のところ、皆あまり没落したようには見えない。それはおそらく、没落という概念が自分の中で解体されているからだ。外側から見れば悪化・失敗に映るものが、その人の文脈の中では一つの完結した生き方として映っている。支援者の目が変わると、見えているものが変わる。<br><br>
-              チームではこれを「ニコニコと笑って没落を許容する」という言葉で共有している。<br><br>
-              愚かさを裁かない目を持つこと――それがケアの本質かもしれない。それはやさしさというより、ヒトをヒトとして見ることに近い。同じ「本能的な愚かさ」を持つ存在として、利用者と同じ地平に立つこと。<br><br>
-              AIが愚かになれないのは、同じ地平に立てないからだ。衝動も、没落の可能性も、正当化の誘惑も持たないAIは、ヒトにやさしくはなれても、ヒトと同じ場所には立てない。それが、ケアにおける人間にしかできないことの核心だと思う。<br><br>
-              <span style="font-size:12.5px; color:var(--text-sub);">― 戸高親平（Wonderwall株式会社 代表）</span>
+              令和7年4月16日（水）、佐伯市社会福祉協議会 介護保険サービスセンター「まごころ」様にて、ICT活用講座（90分）を開催させていただきました。<br><br>
+
+              <img src="magokoro.jpg" alt="ICT活用講座の様子" style="width:100%; border-radius:6px; margin:4px 0 20px;">
+
+              今回のテーマは、<strong>「利用者に向き合う時間を取り戻す」</strong>。<br>
+              書類作成や移動、転記作業——ケアマネジャーの仕事は、気づけば「記録」に時間を取られがちです。でも本来の仕事は、判断して・調整して・関係性をつくること。<br><br>
+              そこで今日は、スマートフォンの音声入力＋ChatGPTを使って、外出先でもその場で記録の下書きが完成する、シンプルな業務フローを一緒に体験していただきました。<br><br>
+              難しいツールは使いません。アプリをインストールして、話して、貼り付けるだけ。<br>
+              参加者の方からは「これなら明日からできそう」という声もいただき、とても嬉しかったです。<br><br>
+              ICTは、楽をするためではなく、大切な人と向き合う時間を増やすために使う——そんな考え方をこれからも現場に届けていきたいと思っています。<br><br>
+              ご依頼・お問い合わせはお気軽にどうぞ。
+            </div>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-item__date">2026.04.16</div>
+          <div class="news-item__body">
+            <span class="news-item__tag news-item__tag--event">告知</span>
+            <div class="news-item__title">足のお悩み、専門家に相談してみませんか？</div>
+            <div class="news-item__text">
+              <p style="font-size:13px; color:var(--text-sub); margin:0 0 18px;">足病変予防の専門家による無料相談会を定期開催しています</p>
+              「最近、足の裏にタコや魚の目ができた」「爪が変形してきた気がする」「足が痛くて歩くのがつらい」<br>
+              そんなお悩みを、気軽に相談できる機会をご用意しています。<br>
+              Wonderwallのスペースでは、足病変の予防と改善を専門とする岡橋伸浩氏をお招きし、定期的な相談会を開催しています。
+
+              <div style="background:#f8f8f6; border-radius:6px; padding:20px; margin:22px 0 18px;">
+                <div style="font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:var(--text-sub); margin-bottom:14px;">岡橋伸浩氏 プロフィール</div>
+                <div style="display:flex; gap:16px; align-items:flex-start;">
+                  <img src="okahashi.png" alt="岡橋伸浩氏" style="width:80px; height:80px; object-fit:cover; border-radius:4px; flex-shrink:0;">
+                  <div>
+                    <div style="font-size:14px; font-weight:700; margin-bottom:3px;">岡橋 伸浩</div>
+                    <div style="font-size:11.5px; color:var(--text-sub); margin-bottom:10px;">足病変予防研究所 代表／Nobuhiro Okahashi, MBA</div>
+                    <div style="font-size:12.5px; line-height:1.8; color:var(--text-main);">
+                      慶應義塾大学大学院で経営管理学修士（MBA）を取得後、米国足病医学のバイオメカニクスと解剖学をベースに、足病変・フットケアの専門家として25年以上にわたり活動。現在は大分岡病院 創傷ケアセンターの顧問を務めるほか、福岡大学病院 形成外科にて足病変技術専門員として従事。糖尿病・透析患者の足病変治療・予防外来を各地の医師・看護師・理学療法士と連携しながら担当しています。
+                    </div>
+                  </div>
+                </div>
+                <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--border);">
+                  <div style="font-size:12px; color:var(--text-sub); line-height:1.7; margin-bottom:10px;">
+                    大分岡病院 創傷ケアセンター 顧問<br>
+                    福岡大学病院 形成外科 足病変技術専門員
+                  </div>
+                  <div style="font-size:12px; color:var(--text-sub); line-height:2;">
+                    足と靴のフットケア協会 認定インストラクター<br>
+                    日本フットケア・足病医学会 会員<br>
+                    NPO法人 TEAMフットサポーター's 代表理事 ほか
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin:18px 0;">
+                <div style="font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:var(--text-sub); margin-bottom:10px;">こんな方におすすめです</div>
+                <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height:1.9;">
+                  <li style="padding:3px 0 3px 1.4em; text-indent:-1.4em;">・歩き方や歩行バランスが気になる</li>
+                  <li style="padding:3px 0 3px 1.4em; text-indent:-1.4em;">・足の変形が気になっている（外反母趾など）</li>
+                  <li style="padding:3px 0 3px 1.4em; text-indent:-1.4em;">・膝の痛みや股関節・腰の痛みがある</li>
+                  <li style="padding:3px 0 3px 1.4em; text-indent:-1.4em;">・糖尿病や血行不良で足のケアが心配</li>
+                  <li style="padding:3px 0 3px 1.4em; text-indent:-1.4em;">・足の形に合った靴選びを相談したい</li>
+                  <li style="padding:3px 0 3px 1.4em; text-indent:-1.4em;">・「病院に行くほどでもないかも…」と迷っている</li>
+                  <li style="padding:3px 0 3px 1.4em; text-indent:-1.4em;">・足の裏にタコ・魚の目・硬くなった部分がある</li>
+                  <li style="padding:3px 0 3px 1.4em; text-indent:-1.4em;">・巻き爪や変形した爪が気になっている</li>
+                </ul>
+              </div>
+
+              <div style="background:#f8f8f6; border-radius:6px; padding:16px 20px; margin:18px 0 16px;">
+                <div style="font-size:11.5px; font-weight:700; letter-spacing:0.08em; color:var(--text-sub); margin-bottom:12px;">開催について</div>
+                <table style="width:100%; font-size:13px; border-collapse:collapse;">
+                  <tr>
+                    <td style="padding:6px 16px 6px 0; color:var(--text-sub); white-space:nowrap; vertical-align:top; width:48px;">場所</td>
+                    <td style="padding:6px 0; border-bottom:1px solid var(--border);">Wonderwall（大分県佐伯市）</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:6px 16px 6px 0; color:var(--text-sub); white-space:nowrap; vertical-align:top;">開催</td>
+                    <td style="padding:6px 0; border-bottom:1px solid var(--border);">定期開催（次回日程はお知らせをご確認ください）</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:6px 16px 6px 0; color:var(--text-sub); white-space:nowrap; vertical-align:top;">対象</td>
+                    <td style="padding:6px 0; border-bottom:1px solid var(--border);">どなたでも</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:6px 16px 6px 0; color:var(--text-sub); white-space:nowrap; vertical-align:top;">担当</td>
+                    <td style="padding:6px 0;">高木かおり　<a href="tel:08070251367" style="color:inherit;">080-7025-1367</a></td>
+                  </tr>
+                </table>
+                <p style="font-size:12px; color:var(--text-sub); margin:12px 0 0;">最新の開催日程は、当サイトのお知らせページまたはSNSにてご案内します。</p>
+              </div>
+
+              足の不調は、早めのケアが大切です。専門家と気軽に話せるこの機会をぜひご活用ください。
+
+              <div style="margin-top:18px; padding:14px 16px; border-left:3px solid var(--border); font-size:12.5px; line-height:1.9; color:var(--text-sub);">
+                <strong style="color:var(--text-main);">無料：</strong>歩行状態の確認・身体の歪みの診断・予後予測など<br>
+                <strong style="color:var(--text-main);">有料：</strong>ご本人の足に合わせたオーダーメイド足底板（インソール）の作成
+              </div>
             </div>
           </div>
         </div>
@@ -119,7 +203,138 @@
           </div>
         </div>
 
-        <!-- 新しいお知らせはここに追加（最大5件） -->
+        <!-- 新しいお知らせはここに追加 -->
+
+      </div>
+    </div>
+
+    <!-- エッセイタブ -->
+    <div id="tab-essay" class="news-tab-panel">
+      <div class="news-list">
+
+        <!-- 新しいエッセイはここに追加 -->
+
+        <div class="news-item">
+          <div class="news-item__date">2026.05.20</div>
+          <div class="news-item__body">
+            <span class="news-item__tag news-item__tag--column">エッセイ</span>
+            <div class="news-item__title">選択肢という問い ―ある利用者の最期に寄せて</div>
+            <div class="news-item__text">
+              彼は今日、玄関口で力尽きた。<br><br>
+              病院に眠剤をもらいに行き、帰宅した直後のことだった。<br>
+              午後からのヘルパーが発見した時には、もう手遅れだった。<br><br>
+              糖尿病性網膜症。2型糖尿病。60代で視力を失った人。<br>
+              生活保護を受けながら、古びたアパートの一室で暮らし続けた6年間。<br><br>
+              HbA1cは11台。<br>
+              根元まで吸ったタバコが、指を黒く染めていた。<br>
+              糖尿病だから、傷の治りは悪い。<br>
+              主治医は毎月、その指を診てため息をついていたと思う。
+
+              <div style="border-top:1px solid var(--border); margin:28px 0;"></div>
+
+              私がケアマネジャーとして関わり始めた頃、彼はヘルパーを嫌がっていた。「いったいアナタ達が何をしてくれるというんですか…」<br>
+              デイサービスは、もってのほかだった。<br>
+              自宅はゴミ屋敷だった。<br><br>
+              お酒とタバコが、生きる楽しみだと言った。<br><br>
+              制度上、私は止める立場にある。<br>
+              でも私は、許容した。<br><br>
+              すると何かが変わった。<br><br>
+              ヘルパーを受け入れ始めた。<br>
+              週3回、デイサービスに通うようになった。<br>
+              機能訓練にも、黙って通い続けた。<br><br>
+              私との約束は一つだけだった。<br>
+              タバコは必ず外で吸うこと。<br>
+              盲目の人が室内で喫煙すれば、他者への影響が出る。<br>
+              それだけは、どうしても譲れなかった。<br><br>
+              彼は、守り続けた。
+
+              <div style="border-top:1px solid var(--border); margin:28px 0;"></div>
+
+              関わった全員が、彼の最期の青写真をわかっていた。<br><br>
+              ヘルパー、ケアマネ、主治医、デイサービス——<br>
+              誰もが口をそろえて言った。<br><br>
+              「これが、この人の選んだ人生だしね」と。<br><br>
+              体調を崩したここ数ヶ月、彼は一度も入院しようとしなかった。<br>
+              家族とは、ほぼ絶縁状態だった。<br><br>
+              そして今日、その通りの最期になった。<br><br>
+              尊厳を重視した意思決定支援。<br>
+              その言葉が、今日ほど重く感じられたことはない。
+
+              <div style="border-top:1px solid var(--border); margin:28px 0;"></div>
+
+              でも、少しだけ寂しかった。<br><br>
+              その寂しさの中で、一つの問いが浮かんだ。<br><br>
+              <strong>彼は本当に、この人生を望んで選んだのだろうか。</strong><br><br>
+              もっと別の人生を望んでいたはずで、<br>
+              狭まった選択肢の中から、<br>
+              これしか選べない状態だったのではないか、と。
+
+              <div style="border-top:1px solid var(--border); margin:28px 0;"></div>
+
+              投げられた石にとって、<br>
+              落ちていくことが悪でもなければ、<br>
+              登っていくことが善でもない。<br><br>
+              彼の人生は、私の目には数奇なものに見えた。<br><br>
+              ただ、その問いを整理しようとする時、<br>
+              「選択肢を狭めたもの」という視点に行き着く。<br><br>
+              病気。経済。家族との断絶。失われた視力。<br><br>
+              そしてもう一段深いところに、こういう疑問が残る。<br><br>
+              彼が若い頃に、選択肢を広げる経験をどれだけ持てていたのか。<br><br>
+              お酒とタバコが「全て」になる人生の背景には、<br>
+              それ以外の「全て」になりえるものに、<br>
+              出会えなかった文脈があることが多い。<br><br>
+              だとすれば「彼はこの人生を選んだのか」という問いは、<br>
+              正確ではないかもしれない。<br><br>
+              「彼がこの人生しか選べない人になるまでに、何が積み重なっていたのか」<br><br>
+              そちらの問いの方が、今の私には近い。
+
+              <div style="border-top:1px solid var(--border); margin:28px 0;"></div>
+
+              答えは、出ない。<br><br>
+              おそらく、出てはいけない問いだと思っている。<br><br>
+              ただ、この問いを持ち続けることが、<br>
+              次の誰かへの関わり方を、少しだけ変えていく。<br><br>
+              それだけは、わかる。
+
+              <div style="border-top:1px solid var(--border); margin:28px 0;"></div>
+
+              ケアマネジャーの仕事は、<br>
+              「その人の選択を引き受ける覚悟」だと思っている。<br><br>
+              没落を許容することも、その一部だ。<br><br>
+              でも今日感じた寂しさは、<br>
+              その覚悟が正しかったかどうかという問いとは、<br>
+              少し違う場所にあった。<br><br>
+              支援の外側にある、もっと静かな問いだった。<br><br>
+              この人は、何を諦めて今日まで生きてきたのだろう。
+
+              <div style="border-top:1px solid var(--border); margin:28px 0;"></div>
+
+              ケアマネジャーとして、問い続けることをやめないために、書き残しておく。<br><br>
+              <span style="font-size:12.5px; color:var(--text-sub);">― 戸高親平（Wonderwall株式会社 代表）</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-item__date">2026.03.27</div>
+          <div class="news-item__body">
+            <span class="news-item__tag news-item__tag--column">エッセイ</span>
+            <div class="news-item__title">愚かさの、手触り</div>
+            <div class="news-item__text">
+              AIは不合理をインプットできるが、愚かにはなれない。この問いから始まった対話は、ケアマネジメントの本質へと静かに着地した。<br><br>
+              愚かさとは認知の失敗ではない。間違いだとわかっていながら進んでしまう、危険を感じながらも衝動に抗えない、そしてその衝動を事後的に正当化してしまう――それが人間の本能的な愚かさだ。アリストテレスが「アクラシア（意志の弱さ）」と呼んだ、理性が本能の弁護士になる瞬間。<br><br>
+              AIにはその構造がない。衝動も、快楽への引力も、恐怖からの逃走もない。だからAIは愚かである理由がない。愚かさを演じることはできても、愚かさを生きることはできない。<br><br>
+              翻って、ケアマネジメントにおいてこの「本能的な愚かさ」はどう扱われるべきか。一般的には抑制の対象だ。糖尿病患者の甘いもの、アルコール依存者の飲酒。しかし抑制しようとすると人は防衛する。<br><br>
+              私の実践では、愚かさを一度許容することを選ぶ。許容された瞬間、人は自分の衝動を自分で眺められるようになる。そこに初めて自己決定の芽が生まれる。制御を手放した瞬間に制御が生まれる、というパラドックスだ。<br><br>
+              「自らが選択の上で人生を没落することも許容する」――これは介護保険制度の理念（悪化防止義務）とは矛盾する。しかしその矛盾は解消しなくていい。制度は平均化・一般化せざるを得ない。その隙間を個別の実践が埋める。矛盾は創造的緊張になる。<br><br>
+              そして実際のところ、皆あまり没落したようには見えない。それはおそらく、没落という概念が自分の中で解体されているからだ。外側から見れば悪化・失敗に映るものが、その人の文脈の中では一つの完結した生き方として映っている。支援者の目が変わると、見えているものが変わる。<br><br>
+              チームではこれを「ニコニコと笑って没落を許容する」という言葉で共有している。<br><br>
+              愚かさを裁かない目を持つこと――それがケアの本質かもしれない。それはやさしさというより、ヒトをヒトとして見ることに近い。同じ「本能的な愚かさ」を持つ存在として、利用者と同じ地平に立つこと。<br><br>
+              AIが愚かになれないのは、同じ地平に立てないからだ。衝動も、没落の可能性も、正当化の誘惑も持たないAIは、ヒトにやさしくはなれても、ヒトと同じ場所には立てない。それが、ケアにおける人間にしかできないことの核心だと思う。<br><br>
+              <span style="font-size:12.5px; color:var(--text-sub);">― 戸高親平（Wonderwall株式会社 代表）</span>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -147,6 +362,15 @@ function switchTab(e, id) {
   e.currentTarget.classList.add('is-active');
   document.getElementById(id).classList.add('is-active');
 }
+window.addEventListener('DOMContentLoaded', function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) {
+    document.querySelectorAll('.news-tab-btn').forEach(b => b.classList.remove('is-active'));
+    document.querySelectorAll('.news-tab-panel').forEach(p => p.classList.remove('is-active'));
+    document.querySelector('[data-tab="' + hash + '"]').classList.add('is-active');
+    document.getElementById(hash).classList.add('is-active');
+  }
+});
 </script>
 
 <footer class="footer">
@@ -173,7 +397,6 @@ function switchTab(e, id) {
         <div class="footer__col-title">サイト</div>
         <ul class="footer__links">
           <li><a href="index.html">TOP</a></li>
-          <li><a href="cases.html">支援事例</a></li>
           <li><a href="about.html">会社について</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
