@@ -704,7 +704,12 @@ a:hover { opacity: 0.72; }
 
 /* ===== NEWS PAGE ===== */
 .news-list { display: flex; flex-direction: column; }
-.news-item { display: flex; flex-direction: column; gap: 4px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+
+/* 一覧ビュー */
+.news-item { display: flex; flex-direction: column; gap: 4px; padding: 24px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.15s; }
+.news-item:hover { opacity: 0.65; }
+.news-item.is-open { cursor: default; }
+.news-item.is-open:hover { opacity: 1; }
 .news-item__date { font-size: 12px; color: var(--text-sub); letter-spacing: 0.05em; }
 .news-item__body { width: 100%; }
 @media (min-width: 641px) {
@@ -718,7 +723,11 @@ a:hover { opacity: 0.72; }
 .news-item__tag--info   { background: #eef0f3; color: #5c6470; }
 .news-item__tag--column { background: #f5f0ea; color: #7a5c3a; }
 .news-item__title { font-size: 15.5px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.55; font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif; }
-.news-item__text { font-size: 13.5px; color: var(--text-sub); line-height: 1.85; }
+.news-item__text { display: none; font-size: 13.5px; color: var(--text-sub); line-height: 1.85; }
+
+/* 一覧に戻るボタン */
+#news-back-btn { background: none; border: none; padding: 0; margin-bottom: 40px; font-size: 13.5px; color: var(--text-sub); cursor: pointer; font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif; letter-spacing: 0.04em; transition: color 0.2s; }
+#news-back-btn:hover { color: var(--text); }
 
 /* ===== NEWS TABS ===== */
 .news-tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 40px; }
