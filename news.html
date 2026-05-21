@@ -82,7 +82,7 @@
     <div id="tab-news" class="news-tab-panel is-active">
       <div class="news-list">
 
-        <div class="news-item">
+        <div class="news-item" id="article-magokoro">
           <div class="news-item__date">2026.04.16</div>
           <div class="news-item__body">
             <span class="news-item__tag news-item__tag--report">活動報告</span>
@@ -103,7 +103,7 @@
           </div>
         </div>
 
-        <div class="news-item">
+        <div class="news-item" id="article-foot">
           <div class="news-item__date">2026.04.16</div>
           <div class="news-item__body">
             <span class="news-item__tag news-item__tag--event">告知</span>
@@ -186,7 +186,7 @@
           </div>
         </div>
 
-        <div class="news-item">
+        <div class="news-item" id="article-labo">
           <div class="news-item__date">2026.03.09</div>
           <div class="news-item__body">
             <span class="news-item__tag news-item__tag--report">新サービス</span>
@@ -195,7 +195,7 @@
           </div>
         </div>
 
-        <div class="news-item">
+        <div class="news-item" id="article-launch">
           <div class="news-item__date">2026.03.05</div>
           <div class="news-item__body">
             <span class="news-item__tag news-item__tag--info">お知らせ</span>
@@ -215,7 +215,7 @@
 
         <!-- 新しいエッセイはここに追加 -->
 
-        <div class="news-item">
+        <div class="news-item" id="article-yoroi">
           <div class="news-item__date">2026.05.21</div>
           <div class="news-item__body">
             <span class="news-item__tag news-item__tag--column">エッセイ</span>
@@ -266,7 +266,7 @@
           </div>
         </div>
 
-        <div class="news-item">
+        <div class="news-item" id="article-sentakushi">
           <div class="news-item__date">2026.05.20</div>
           <div class="news-item__body">
             <span class="news-item__tag news-item__tag--column">エッセイ</span>
@@ -367,7 +367,7 @@
           </div>
         </div>
 
-        <div class="news-item">
+        <div class="news-item" id="article-oroka">
           <div class="news-item__date">2026.03.27</div>
           <div class="news-item__body">
             <span class="news-item__tag news-item__tag--column">エッセイ</span>
@@ -455,10 +455,11 @@ window.addEventListener('hashchange', showView);
 window.addEventListener('DOMContentLoaded', function() {
   // 各記事にIDを付与してクリックイベントを設定
   document.querySelectorAll('.news-item').forEach(function(item, index) {
-    item.id = 'article-' + index;
+    if (!item.id) item.id = 'article-' + index;
+    var id = item.id;
     item.style.cursor = 'pointer';
     item.addEventListener('click', function() {
-      window.location.hash = 'article-' + index;
+      window.location.hash = id;
     });
   });
   // 本文をすべて非表示にして一覧モードで開始
