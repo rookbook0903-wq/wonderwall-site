@@ -34,7 +34,7 @@
 
 <!-- VIDEO BACKGROUND -->
 <div class="video-bg-wrap" aria-hidden="true">
-  <video class="video-bg" autoplay muted playsinline loop preload="auto" style="opacity:0.35;">
+  <video class="video-bg" autoplay muted playsinline loop preload="auto" style="opacity:0.65;">
     <source src="86172-593601016.mp4" type="video/mp4">
   </video>
 </div>
@@ -72,7 +72,7 @@
   <div class="story-line" aria-hidden="true"></div>
   <div class="story-block js-fade">
     <h1 class="story-en">WHAT IS WONDERWALL</h1>
-    <p class="story-text">Wonderwallという名前には、少しだけ意味があります。<br>Wonderwall。直訳すれば「不思議な壁」。<br>でも私たちはこう考えています。<br><br>思い込みの壁。</p>
+    <p class="story-text">Wonderwallという名前には、<br class="sp-br">少しだけ意味があります。<br>Wonderwall。直訳すれば「不思議な壁」。<br>でも私たちはこう考えています。<br><br>思い込みの壁。</p>
   </div>
   <div class="story-block js-fade">
     <h1 class="story-en">THE WALL</h1>
@@ -80,7 +80,7 @@
   </div>
   <div class="story-block js-fade">
     <h1 class="story-en">CARE MANAGEMENT</h1>
-    <p class="story-text">ケアマネという仕事。<br>ケアマネジャーの仕事はサービスを並べることではありません。<br>その人の人生を支える関係の糸を編む仕事です。<br><br>一本の糸が切れても他の細い糸が支え合い生活が続く。<br>Wonderwallが考える自立とは、そんな状態です。</p>
+    <p class="story-text">ケアマネという仕事。<br>ケアマネジャーの仕事は<br class="sp-br">サービスを並べることではありません。<br>その人の人生を支える関係の糸を編む仕事です。<br><br>一本の糸が切れても他の細い糸が支え合い生活が続く。<br>Wonderwallが考える自立とは、そんな状態です。</p>
   </div>
   <div class="story-block js-fade">
     <h1 class="story-en">CARE IS CREATIVE</h1>
@@ -228,63 +228,74 @@ const fadeObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 document.querySelectorAll('.js-fade').forEach(el => fadeObserver.observe(el));
 (function() {
-  const section = document.querySelector('.story-section');
-  const container = document.querySelector('.story-line');
-  if (!section || !container) return;
-  container.innerHTML = '';
+  let scrollHandler = null;
 
-  const blocks = Array.from(section.querySelectorAll('.story-block'));
-  const firstBlock = blocks[0];
-  const startOffset = firstBlock.offsetTop + firstBlock.offsetHeight;
-  const dest = section.querySelector('.story-dest');
-  const totalH = (dest ? dest.offsetTop : section.offsetHeight) - startOffset;
-  const PAD = 72;
+  function buildStoryLine() {
+    const section = document.querySelector('.story-section');
+    const container = document.querySelector('.story-line');
+    if (!section || !container) return;
+    container.innerHTML = '';
+    if (scrollHandler) window.removeEventListener('scroll', scrollHandler);
 
-  // Build gradient: white in empty spaces, transparent at text zones
-  const stops = [];
-  let cursor = 0;
+    const blocks = Array.from(section.querySelectorAll('.story-block'));
+    const firstBlock = blocks[0];
+    const startOffset = firstBlock.offsetTop + firstBlock.offsetHeight;
+    const dest = section.querySelector('.story-dest');
+    const totalH = (dest ? dest.offsetTop : section.offsetHeight) - startOffset;
+    const PAD = 88;
 
-  blocks.forEach((block, i) => {
-    if (i === 0) return;
-    const en = block.querySelector('.story-en');
-    const txt = block.querySelector('.story-text');
-    if (!en) return;
-    const relTop = block.offsetTop - startOffset;
-    const zoneTop = relTop + Math.max(0, en.offsetTop - PAD);
-    const lastEl = txt || en;
-    const zoneBottom = relTop + lastEl.offsetTop + lastEl.offsetHeight + PAD;
+    const stops = [];
+    let cursor = 0;
 
-    if (zoneTop > cursor) {
-      stops.push(`rgba(255,255,255,0.5) ${cursor}px`, `rgba(255,255,255,0.5) ${zoneTop}px`);
-    }
-    stops.push(`transparent ${zoneTop}px`, `transparent ${zoneBottom}px`);
-    cursor = zoneBottom;
-  });
-  stops.push(`rgba(255,255,255,0.5) ${cursor}px`, `rgba(255,255,255,0.5) 100%`);
+    blocks.forEach((block, i) => {
+      if (i === 0) return;
+      const en = block.querySelector('.story-en');
+      const txt = block.querySelector('.story-text');
+      if (!en) return;
+      const relTop = block.offsetTop - startOffset;
+      const zoneTop = relTop + Math.max(0, en.offsetTop - PAD);
+      const lastEl = txt || en;
+      const zoneBottom = relTop + lastEl.offsetTop + lastEl.offsetHeight + PAD;
 
-  const el = document.createElement('div');
-  el.style.cssText = [
-    'position:absolute',
-    `left:calc(50% - 0.5px)`,
-    `top:${startOffset}px`,
-    'width:1px',
-    'height:0',
-    `background:linear-gradient(to bottom,${stops.join(',')})`,
-    'pointer-events:none',
-    'will-change:height',
-    'z-index:0'
-  ].join(';');
-  container.appendChild(el);
+      if (zoneTop > cursor) {
+        stops.push(`rgba(255,255,255,0.5) ${cursor}px`, `rgba(255,255,255,0.5) ${zoneTop}px`);
+      }
+      stops.push(`transparent ${zoneTop}px`, `transparent ${zoneBottom}px`);
+      cursor = zoneBottom;
+    });
+    stops.push(`rgba(255,255,255,0.5) ${cursor}px`, `rgba(255,255,255,0.5) 100%`);
 
-  function update() {
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-    const scrolledPast = window.scrollY + window.innerHeight - (sectionTop + startOffset);
-    const h = Math.min(Math.max(scrolledPast, 0), totalH);
-    el.style.height = h + 'px';
+    const el = document.createElement('div');
+    el.style.cssText = [
+      'position:absolute',
+      `left:calc(50% - 0.5px)`,
+      `top:${startOffset}px`,
+      'width:1px',
+      'height:0',
+      `background:linear-gradient(to bottom,${stops.join(',')})`,
+      'pointer-events:none',
+      'will-change:height',
+      'z-index:0'
+    ].join(';');
+    container.appendChild(el);
+
+    scrollHandler = function() {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const scrolledPast = window.scrollY + window.innerHeight - (sectionTop + startOffset);
+      const h = Math.min(Math.max(scrolledPast, 0), totalH);
+      el.style.height = h + 'px';
+    };
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    scrollHandler();
   }
 
-  window.addEventListener('scroll', update, { passive: true });
-  update();
+  document.fonts.ready.then(buildStoryLine);
+
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildStoryLine, 200);
+  });
 })();
 function toggleFaq(btn) {
   btn.closest('.faq-item').classList.toggle('open');
