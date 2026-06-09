@@ -126,6 +126,10 @@
                 <span>非常識ケアマネLaboの依頼</span>
               </label>
               <label class="radio-item">
+                <input type="radio" name="お問い合わせ種別" value="テストパートナー応募（ケアマネ向け共同開発ツール）">
+                <span>テストパートナー応募（ケアマネ向け共同開発ツール）</span>
+              </label>
+              <label class="radio-item">
                 <input type="radio" name="お問い合わせ種別" value="その他">
                 <span>その他</span>
               </label>
@@ -263,9 +267,17 @@ function handleSubmit(e) {
 
 const params = new URLSearchParams(window.location.search);
 const type = params.get('type');
-if (type === 'training') {
-  const r = document.querySelector('input[value="ICT活用講座／研修の依頼"]');
-  if (r) r.checked = true;
+const typeMap = {
+  'training': 'ICT活用講座／研修の依頼',
+  'partner': 'テストパートナー応募（ケアマネ向け共同開発ツール）',
+  'monisapo': 'テストパートナー応募（ケアマネ向け共同開発ツール）'
+};
+if (typeMap[type]) {
+  const r = document.querySelector('input[value="' + typeMap[type] + '"]');
+  if (r) {
+    r.checked = true;
+    r.closest('.radio-item').scrollIntoView({ block: 'center' });
+  }
 }
 </script>
 </body>

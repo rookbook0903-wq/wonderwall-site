@@ -65,7 +65,7 @@
   <div class="container">
     <div class="page-hero__label">Services</div>
     <h1 class="page-hero__title">サービス</h1>
-    <p class="page-hero__sub">介護事業所の課題に応じて、複数の支援メニューをご用意しています。<br>単独でも、組み合わせてもご利用いただけます。</p>
+    <p class="page-hero__sub">「企業向け」「個人向け」「システム開発・アプリ」の3つの領域で支援メニューをご用意しています。<br>単独でも、組み合わせてもご利用いただけます。</p>
   </div>
 </section>
 
@@ -130,13 +130,32 @@
 <section class="section">
   <div class="container">
 
-    <!-- A. 介護事業所向け -->
-    <div class="service-category" id="care-facilities">
+    <!-- カテゴリインデックス -->
+    <div class="category-index">
+      <a href="#enterprise" class="category-index__card">
+        <span class="category-index__num">01</span>
+        <span class="category-index__title">企業向け</span>
+        <span class="category-index__desc">ICT伴走支援・業務効率化・組織づくり・仕事と介護の両立（顧問・コンサルティング）</span>
+      </a>
+      <a href="#individual" class="category-index__card">
+        <span class="category-index__num">02</span>
+        <span class="category-index__title">個人向け</span>
+        <span class="category-index__desc">キャリア相談・独立サポート・DX／AIスキルアップ・非常識ケアマネLabo</span>
+      </a>
+      <a href="#system" class="category-index__card">
+        <span class="category-index__num">03</span>
+        <span class="category-index__title">システム開発・アプリ<span class="category-index__tag">準備中</span></span>
+        <span class="category-index__desc">ケアマネのためのAIアシスタントを共同開発中。テストパートナー募集中。</span>
+      </a>
+    </div>
+
+    <!-- A. 企業向け -->
+    <div class="service-category" id="enterprise">
       <div class="category-header category-header--main">
-        <span class="category-badge category-badge--main">介護事業所向け（メイン）</span>
-        <span class="category-title">介護事業所向け支援</span>
+        <span class="category-badge category-badge--main">企業向け</span>
+        <span class="category-title">企業向け支援</span>
       </div>
-      <p style="font-size:14.5px; color:var(--text-sub); margin-bottom:32px; line-height:1.9;">介護現場のICT活用・業務改善・組織づくりを、現場の実態に合わせて支援します。「何から始めればいいかわからない」という状態からご相談いただけます。</p>
+      <p style="font-size:14.5px; color:var(--text-sub); margin-bottom:32px; line-height:1.9;">介護事業所のICT活用・業務改善・組織づくりから、一般企業の「仕事と介護の両立」まで。現場の実態に合わせて、組織に伴走します。「何から始めればいいかわからない」という状態からご相談いただけます。</p>
 
       <div class="service-detail-card" id="ict-support">
         <div class="service-detail-card__header">
@@ -241,8 +260,34 @@
         </div>
       </div>
 
+      <div class="service-detail-card" id="work-care">
+        <div class="service-detail-card__header">
+          <div class="service-detail-card__title">仕事と介護の両立支援（顧問・コンサルティング）</div>
+        </div>
+        <div class="service-detail-rows">
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">対象</div>
+            <p>介護離職リスクが気になる人事担当者、従業員の「仕事と介護の両立」を支える文化を社内に根づかせたい企業</p>
+          </div>
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">支援内容</div>
+            <ul>
+              <li>顧問として継続的に関わる両立支援アドバイザリー</li>
+              <li>企業向け「仕事と介護の両立」研修・セミナー</li>
+              <li>介護に直面した従業員への個別相談サポート</li>
+              <li>社内制度・相談窓口の整備、情報提供のサポート</li>
+              <li>人事・管理職向けの対応力研修</li>
+            </ul>
+          </div>
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">得られる変化</div>
+            <p>介護を理由とした離職リスクを低減し、ベテラン社員が安心して働き続けられる職場をつくります。「介護があっても働ける」文化が社内に根づき、従業員エンゲージメントの向上にもつながります。</p>
+          </div>
+        </div>
+      </div>
+
       <div class="category-cta">
-        <p>介護事業所向け支援についてのご相談・お見積もりは無料です。まずはお気軽にどうぞ。</p>
+        <p>企業向け支援についてのご相談・お見積もりは無料です。まずはお気軽にどうぞ。</p>
         <a href="contact.html" class="btn btn--primary btn--sm">相談する</a>
       </div>
     </div>
@@ -253,6 +298,7 @@
         <span class="category-badge category-badge--personal">個人向け</span>
         <span class="category-title">個人向け</span>
       </div>
+      <p style="font-size:14.5px; color:var(--text-sub); margin-bottom:32px; line-height:1.9;">介護職・ケアマネとして働く一人ひとりに向けて。キャリアの相談から独立・開業、デジタルスキルの底上げ、そして「ケアマネとは何か」を問い直すLaboまで。</p>
 
       <div class="service-detail-card" id="career">
         <div class="service-detail-card__header">
@@ -279,66 +325,64 @@
         </div>
       </div>
 
-      <div class="category-cta">
-        <p>一人で悩まず、まず話してみてください。</p>
-        <a href="contact.html" class="btn btn--outline btn--sm">キャリア相談を申し込む</a>
-      </div>
-    </div>
-
-    <!-- C. 企業向け -->
-    <div class="service-category" id="enterprise">
-      <div class="category-header">
-        <span class="category-badge category-badge--biz">企業向け</span>
-        <span class="category-title">企業向け支援</span>
-      </div>
-
-      <div class="service-detail-card" id="work-care">
+      <div class="service-detail-card" id="independence">
         <div class="service-detail-card__header">
-          <div class="service-detail-card__title">仕事と介護の選択支援</div>
+          <div class="service-detail-card__title">独立・開業サポート</div>
         </div>
         <div class="service-detail-rows">
           <div class="service-detail-row">
             <div class="service-detail-row__label">対象</div>
-            <p>介護離職リスクが気になる人事担当者、従業員のケアに取り組みたい企業</p>
+            <p>ケアマネ・介護職として独立や開業を考えている方、フリーランス・法人設立を視野に入れている方</p>
           </div>
           <div class="service-detail-row">
             <div class="service-detail-row__label">支援内容</div>
             <ul>
-              <li>企業向け「仕事と介護の両立」研修・セミナー</li>
-              <li>介護に直面した従業員への個別相談サポート</li>
-              <li>社内制度整備・情報提供のサポート</li>
-              <li>人事・管理職向けの対応力研修</li>
+              <li>独立・開業に向けた構想の整理と壁打ち</li>
+              <li>事業計画・収支シミュレーションの相談</li>
+              <li>開業手続き・必要な準備のサポート</li>
+              <li>ICT・AI活用による少人数運営の仕組みづくり</li>
             </ul>
           </div>
           <div class="service-detail-row">
             <div class="service-detail-row__label">得られる変化</div>
-            <p>介護を理由とした離職リスクを低減し、ベテラン社員が安心して働き続けられる職場環境をつくります。従業員エンゲージメントの向上にもつながります。</p>
+            <p>「やってみたいけど不安」という状態から、具体的な一歩を踏み出せます。一人でも無理なく回せる事業の形が見えてきます。</p>
           </div>
         </div>
       </div>
 
-      <div class="category-cta">
-        <p>介護離職対策・従業員支援について、まずはご相談ください。</p>
-        <a href="contact.html" class="btn btn--outline btn--sm">問い合わせる</a>
+      <div class="service-detail-card" id="personal-dx">
+        <div class="service-detail-card__header">
+          <div class="service-detail-card__title">DX・AIスキルアップ支援</div>
+        </div>
+        <div class="service-detail-rows">
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">対象</div>
+            <p>AI・ICTを自分の仕事に活かしたい個人、デジタルが苦手で一歩を踏み出せずにいる方</p>
+          </div>
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">支援内容</div>
+            <ul>
+              <li>ChatGPT等のAIツールの使い方レクチャー（マンツーマン）</li>
+              <li>日々の業務・記録へのAI活用サポート</li>
+              <li>個人のデジタルスキル診断とステップアップ提案</li>
+            </ul>
+          </div>
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">得られる変化</div>
+            <p>「難しそう」が「これなら使える」に変わります。自分の業務時間を、自分の手で減らせるようになります。</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- D. 非常識ケアマネラボ -->
-    <div class="service-category" id="lab" style="border-top:2px solid var(--green); padding-top:48px; margin-top:16px;">
-      <div class="category-header">
-        <span class="category-badge" style="background:#1a2e10; color:#8fbc5a; border:1px solid #8fbc5a;">ケアマネ向け</span>
-        <span class="category-title">非常識ケアマネLabo</span>
-      </div>
-      <p style="font-size:14.5px; color:var(--text-sub); margin-bottom:32px; line-height:1.9;">「ケアマネとは何か」を問い直す場。業務の効率化より前に、この仕事の本質を哲学する。思い込みの壁を壊し、ケアマネジャーという職種のクリエイティビティを取り戻すためのLaboです。</p>
 
       <div class="service-detail-card" id="careman-lab">
         <div class="service-detail-card__header">
           <div class="service-detail-card__title">非常識ケアマネLabo</div>
         </div>
+        <p style="font-size:13.5px; color:var(--text-sub); margin:-8px 0 22px; line-height:1.85;">「ケアマネとは何か」を問い直す場。業務の効率化より前に、この仕事の本質を哲学する。思い込みの壁を壊し、ケアマネジャーとしての素質・クリエイティビティを取り戻したい人のためのLaboです。</p>
         <div class="service-detail-rows">
           <div class="service-detail-row">
             <div class="service-detail-row__label">対象</div>
-            <p>ケアマネジャーとしての仕事に行き詰まりを感じている方、「便利屋」ではない本来の姿を取り戻したい方、この仕事をもっと面白くしたいと思っているすべてのケアマネ</p>
+            <p>ケアマネジャーとしての仕事に行き詰まりを感じている方、自分の素質や本来の姿を見直したい方、この仕事をもっと面白くしたいと思っているすべてのケアマネ</p>
           </div>
           <div class="service-detail-row">
             <div class="service-detail-row__label">テーマ</div>
@@ -352,18 +396,56 @@
           </div>
           <div class="service-detail-row">
             <div class="service-detail-row__label">形式</div>
-            <p>研修・ワークショップ・対話セッションなど、ご依頼内容に合わせて設計します。単発の講演から、連続プログラムまで対応可能です。</p>
-          </div>
-          <div class="service-detail-row">
-            <div class="service-detail-row__label">得られる変化</div>
-            <p>「こんな仕事がしたかった」という感覚が戻ってくる。ケアマネという仕事の可能性を自分の言葉で語れるようになる。現場に戻ったとき、見える景色が少し変わる。</p>
+            <p>研修・ワークショップ・対話セッションなど、ご要望に合わせて設計します。単発の講演から連続プログラムまで対応可能です。</p>
           </div>
         </div>
       </div>
 
       <div class="category-cta">
-        <p>詳細・ご依頼はお気軽にご相談ください。内容はご要望に合わせてカスタマイズします。</p>
-        <a href="contact.html" class="btn btn--primary btn--sm">ラボについて相談する</a>
+        <p>一人で悩まず、まず話してみてください。内容はご要望に合わせてカスタマイズします。</p>
+        <a href="contact.html" class="btn btn--outline btn--sm">個人向けの相談を申し込む</a>
+      </div>
+    </div>
+
+    <!-- C. システム開発・アプリ -->
+    <div class="service-category" id="system">
+      <div class="category-header">
+        <span class="category-badge" style="background:#f0f0ed; color:#5a5a50;">準備中</span>
+        <span class="category-title">システム開発・アプリケーション</span>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-sub); margin-bottom:32px; line-height:1.9;">介護現場の声から生まれたシステム・アプリケーションを開発・提供していきます。現在、ケアマネジャーのためのAIアシスタントを共同開発中です。</p>
+
+      <div class="service-detail-card" id="monisapo">
+        <div class="service-detail-card__header">
+          <div class="service-detail-card__title">ケアマネのためのAIアシスタント（共同開発中）</div>
+        </div>
+        <div class="service-detail-rows">
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">対象</div>
+            <p>居宅介護支援事業所、日々の記録・転記業務に追われているケアマネジャー</p>
+          </div>
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">内容</div>
+            <ul>
+              <li>高精度の音声認識による記録の効率化</li>
+              <li>基幹システムへの自動転記</li>
+              <li>FAXのOCR・通知機能</li>
+              <li>本来のケア業務に集中できる環境づくり</li>
+            </ul>
+          </div>
+          <div class="service-detail-row">
+            <div class="service-detail-row__label">現在の状況</div>
+            <p>テストパートナー（試験導入にご協力いただける事業所）を募集しています。一緒に「現場で本当に使えるAI」を育てていただける方を歓迎します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-cta">
+        <p>テストパートナー募集の詳細・ご応募はこちらから。</p>
+        <div class="btn-group">
+          <a href="care-partner.html" class="btn btn--outline btn--sm">詳しく見る</a>
+          <a href="contact.html?type=partner" class="btn btn--primary btn--sm">テストパートナーに応募する</a>
+        </div>
       </div>
     </div>
 
@@ -395,11 +477,11 @@
       <div>
         <div class="footer__col-title">サービス</div>
         <ul class="footer__links">
-          <li><a href="#ict-support">ICT伴走支援</a></li>
-          <li><a href="#training">ICT活用講座／研修</a></li>
-          <li><a href="#efficiency">業務効率化支援</a></li>
-          <li><a href="#organization">組織運営改善</a></li>
-          <li><a href="#work-care">仕事と介護の選択支援</a></li>
+          <li><a href="#enterprise">企業向け支援</a></li>
+          <li><a href="#individual">個人向け</a></li>
+          <li><a href="#careman-lab">非常識ケアマネLabo</a></li>
+          <li><a href="#system">システム開発・アプリ</a></li>
+          <li><a href="care-partner.html">テストパートナー募集</a></li>
         </ul>
       </div>
       <div>
