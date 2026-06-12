@@ -303,7 +303,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--green-dark);
+      background: #f97316;
       color: var(--white);
       font-size: 15px;
       font-weight: 700;
@@ -313,11 +313,11 @@
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
     .lp-hero__cta:hover {
-      background: var(--green-deep);
+      background: #ea580c;
       opacity: 1;
       color: var(--white);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(52,72,48,0.22);
+      box-shadow: 0 6px 20px rgba(249,115,22,0.40);
     }
     .lp-hero__cta svg { flex-shrink: 0; }
 
@@ -588,9 +588,25 @@
       .tool-card__body { grid-template-columns: 1fr; gap: 20px; }
       .tool-card__head { padding: 18px 20px; }
       .tool-card__body { padding: 22px 20px; }
-      .tool-intro { padding: 20px 20px; }
+      .tool-intro { padding: 20px; font-size: 15px !important; }
       .cocreate-box { padding: 40px 24px; }
       .lp-form-card { padding: 28px 20px; }
+
+      /* フォントサイズ調整 */
+      .lp-hero__catch { font-size: clamp(30px, 8.5vw, 44px); }
+      .lp-hero__sub { font-size: 14px; max-width: 100%; }
+      .section-title { font-size: clamp(20px, 5.5vw, 28px); }
+      .tool-card__title { font-size: 15px; line-height: 1.5; }
+      .cocreate-title { font-size: clamp(17px, 4.8vw, 22px); }
+      .lp-complete__title { font-size: 20px; }
+
+      /* PC用の強制改行をモバイルでは非表示 */
+      .section-title br,
+      .cocreate-title br,
+      .cocreate-text br,
+      .lp-hero__catch br { display: none; }
+      .cocreate-text { font-size: 14px; line-height: 1.9; text-align: left; }
+      .section-lead { text-align: left; }
     }
   </style>
 </head>
