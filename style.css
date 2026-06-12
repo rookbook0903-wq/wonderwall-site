@@ -672,8 +672,12 @@ a:hover { opacity: 0.72; }
 .service-detail-card:hover { box-shadow: var(--shadow); }
 .service-detail-card:last-of-type { margin-bottom: 24px; }
 
-.service-detail-card__header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+.service-detail-card__header { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
 .service-detail-card__title { font-size: 18px; font-weight: 700; color: var(--text); }
+.service-price { display: inline-flex; align-items: baseline; gap: 4px; background: var(--green-light); border: 1px solid var(--border); border-radius: 4px; padding: 5px 14px; white-space: nowrap; }
+.service-price__num { font-size: 17px; font-weight: 900; color: var(--green-deep); letter-spacing: -0.01em; }
+.service-price__unit { font-size: 11px; color: var(--text-sub); font-weight: 500; }
+.service-price__note { font-size: 11px; color: var(--text-sub); margin-top: 4px; text-align: right; }
 
 .service-detail-rows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .service-detail-row__label { font-size: 11px; font-weight: 700; color: var(--green); margin-bottom: 10px; letter-spacing: 0.10em; font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif; text-transform: uppercase; }
