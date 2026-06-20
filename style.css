@@ -247,7 +247,7 @@ a:hover { opacity: 0.72; }
       rgba(36, 56, 30, 0.46) 68%,
       rgba(48, 72, 40, 0.32) 100%
     ),
-    url('footer-bg.jpg');
+    url('images/footer-bg.jpg');
   background-size: cover;
   background-position: center 35%;
   overflow: hidden;
@@ -554,7 +554,7 @@ a:hover { opacity: 0.72; }
 
 /* ===== PAGE HERO ===== */
 .page-hero {
-  background-image: linear-gradient(rgba(26,42,24,0.68), rgba(26,42,24,0.60)), url('hero.jpg');
+  background-image: linear-gradient(rgba(26,42,24,0.68), rgba(26,42,24,0.60)), url('images/hero.jpg');
   background-size: cover;
   background-position: center 40%;
   color: var(--white);
@@ -865,7 +865,7 @@ textarea.form-control { min-height: 140px; resize: vertical; line-height: 1.8; }
 .complete-screen__info p { font-size: 13.5px; color: var(--text-sub); line-height: 2.0; }
 
 /* ===== FOOTER ===== */
-.footer { position: relative; z-index: 1; background: #1a2419; color: rgba(255,255,255,0.65); padding: 56px 0 28px; background-image: linear-gradient(rgba(26,36,25,0.72), rgba(26,36,25,0.60)), url('footer-bg.jpg'); background-size: cover; background-position: center; }
+.footer { position: relative; z-index: 1; background: #1a2419; color: rgba(255,255,255,0.65); padding: 56px 0 28px; background-image: linear-gradient(rgba(26,36,25,0.72), rgba(26,36,25,0.60)), url('images/footer-bg.jpg'); background-size: cover; background-position: center; }
 .footer__inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
 .footer__logo { font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 14px; }
 .footer__logo span { color: var(--green-mid); }

@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(ls ~/.ssh/id_*.pub)"
+      "Bash(ls ~/.ssh/id_*.pub)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
