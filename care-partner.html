@@ -64,12 +64,15 @@
     img, svg { max-width: 100%; }
     a { color: inherit; text-decoration: none; }
     p, h1, h2, h3, ul { margin: 0; }
+    br.m-break { display: none; }
+    .nowrap { white-space: nowrap; }
     ul { padding: 0; }
     table { font-family: inherit; }
 
     .container {
       width: min(100% - 48px, 1200px);
       margin: 0 auto;
+      padding: 0;
     }
 
     .header {
@@ -123,24 +126,29 @@
 
     .hamburger {
       display: none;
+      position: relative;
       width: 40px;
       height: 40px;
       border: 0;
       background: transparent;
       cursor: pointer;
-      padding: 8px;
+      padding: 0;
     }
     .hamburger span {
       display: block;
+      position: absolute;
+      left: 9px;
       width: 22px;
       height: 2px;
-      margin: 5px auto;
       background: var(--green-deep);
-      transition: transform 0.2s, opacity 0.2s;
+      transition: transform 0.2s, opacity 0.2s, top 0.2s;
     }
-    .hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger span:nth-child(1) { top: 12px; }
+    .hamburger span:nth-child(2) { top: 19px; }
+    .hamburger span:nth-child(3) { top: 26px; }
+    .hamburger.is-open span:nth-child(1) { top: 19px; transform: rotate(45deg); }
     .hamburger.is-open span:nth-child(2) { opacity: 0; }
-    .hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .hamburger.is-open span:nth-child(3) { top: 19px; transform: rotate(-45deg); }
 
     .mobile-menu {
       display: none;
@@ -472,17 +480,22 @@
     .flow-step__title { font-weight: 700; font-size: 14.5px; margin-bottom: 8px; line-height: 1.5; }
     .flow-step__text { font-size: 12.5px; color: var(--text-sub); line-height: 1.8; }
 
-    .flow-shots {
+    /* flow-shots と service-shots は共通のレイアウトを持つ（figcaption の色のみ異なる） */
+    .flow-shots,
+    .service-shots {
       display: flex;
       justify-content: center;
       gap: 28px;
-      margin-top: 52px;
       flex-wrap: wrap;
     }
-    .flow-shots figure { margin: 0; width: 220px; }
-    .flow-shots figcaption {
-      margin-top: 12px; text-align: center; font-size: 12.5px; font-weight: 700; color: var(--green-deep);
+    .flow-shots { margin-top: 52px; }
+    .flow-shots figure,
+    .service-shots figure { margin: 0; width: 220px; }
+    .flow-shots figcaption,
+    .service-shots figcaption {
+      margin-top: 12px; text-align: center; font-size: 12.5px; font-weight: 700;
     }
+    .flow-shots figcaption { color: var(--green-deep); }
 
     /* ===== 3点セット表・機能表・重要事項表（共通） ===== */
     .table-scroll { overflow-x: auto; margin-top: 8px; }
@@ -507,15 +520,8 @@
       line-height: 1.9;
     }
 
-    .service-shots {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      margin: 44px 0 8px;
-      flex-wrap: wrap;
-    }
-    .service-shots figure { margin: 0; width: 220px; }
-    .service-shots figcaption { margin-top: 12px; text-align: center; font-size: 12.5px; font-weight: 700; color: var(--text); }
+    .service-shots { margin: 44px 0 8px; }
+    .service-shots figcaption { color: var(--text); }
 
     /* ===== 3点カスタマイズ ===== */
     .trio-grid {
@@ -753,35 +759,72 @@
       .trio-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
+      /* ---------- ヒーロー ---------- */
       .lp-hero { padding: 52px 0 0; }
       .hero-visual { margin-top: 40px; padding: 0 16px; }
+      .lp-credit { font-size: 11px; letter-spacing: 0.01em; white-space: nowrap; }
+      .lp-hero__catch-main { font-size: clamp(24px, 8vw, 46px); }
+      .lp-hero__cta { font-size: 14px; padding: 15px 26px; }
+
+      /* ---------- 見出し・本文の共通調整 ---------- */
+      .section-title { font-size: clamp(20px, 5.5vw, 28px); }
+      .section-lead { text-align: left; }
+      .cocreate-title { font-size: clamp(17px, 4.8vw, 22px); }
+      .cocreate-text { font-size: 14px; line-height: 1.9; text-align: left; }
+      .tool-card__title { font-size: 15px; line-height: 1.5; }
+
+      /* 見出しを1行に収めたい場合はこのクラスを追加する（.section-title のフォントサイズを上書き） */
+      .section-title--fit { font-size: clamp(15px, 4.5vw, 18px); white-space: normal; }
+
+      /* PC用の強制改行はモバイルで非表示、逆にモバイル専用の改行(m-break)はここで有効化 */
+      .cocreate-title br,
+      .cocreate-text br { display: none; }
+      br.m-break { display: inline; }
+
+      /* ---------- グリッドを1カラムに ---------- */
       .pain-grid { grid-template-columns: 1fr; }
       .compare-grid { grid-template-columns: 1fr; }
       .compare-arrow { transform: rotate(90deg); padding: 4px 0; }
-      .flow-steps { grid-template-columns: 1fr; gap: 28px; }
-      .flow-shots, .service-shots { gap: 18px; }
-      .flow-shots figure, .service-shots figure { width: 42%; min-width: 140px; }
+      .flow-steps { grid-template-columns: 1fr; gap: 20px; }
       .req-grid { grid-template-columns: 1fr; }
       .security-grid { grid-template-columns: 1fr; }
       .principles-row { flex-direction: column; align-items: stretch; }
       .principle-chip { text-align: center; }
+
+      /* ---------- カード内：アイコン/番号をタイトルの横に並べる ----------
+         pain-item・flow-step・trio-grid の子要素は同じ「アイコン+タイトルを横並び、
+         本文はその下にフル幅」というグリッドパターンを使う（列幅のみ要素ごとに異なる） */
+      .pain-item,
+      .flow-step,
+      .trio-grid > div {
+        display: grid;
+        column-gap: 12px;
+        align-items: center;
+      }
+      .pain-item { grid-template-columns: 40px 1fr; column-gap: 14px; }
+      .flow-step { grid-template-columns: 32px 1fr; }
+      .trio-grid > div { grid-template-columns: auto 1fr; column-gap: 10px; }
+
+      .pain-item__icon,
+      .flow-step__num,
+      .trio-item__num { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+      .pain-item__title,
+      .flow-step__title,
+      .trio-item__title { grid-column: 2; grid-row: 1; margin-bottom: 0; }
+      .pain-item__text,
+      .flow-step__text,
+      .trio-item__text { grid-column: 1 / -1; grid-row: 2; margin-top: 8px; }
+      .pain-item__text { margin-top: 12px; }
+
+      /* ---------- カード余白の調整 ---------- */
+      .flow-shots, .service-shots { gap: 18px; }
+      .flow-shots figure, .service-shots figure { width: 42%; min-width: 140px; }
       .tool-card__body { padding: 22px 20px; }
       .tool-card__head { padding: 18px 20px; }
       .lp-form-card { padding: 28px 20px; }
       .cocreate-box { padding: 40px 24px; }
 
-      /* フォントサイズ調整 */
-      .section-title { font-size: clamp(20px, 5.5vw, 28px); }
-      .tool-card__title { font-size: 15px; line-height: 1.5; }
-      .cocreate-title { font-size: clamp(17px, 4.8vw, 22px); }
-
-      /* PC用の強制改行をモバイルでは非表示 */
-      .cocreate-title br,
-      .cocreate-text br { display: none; }
-      .cocreate-text { font-size: 14px; line-height: 1.9; text-align: left; }
-      .section-lead { text-align: left; }
-
-      /* 比較テーブルはスクロールさせず、カード形式に積み替える */
+      /* ---------- 比較テーブルはスクロールさせず、カード形式に積み替える ---------- */
       .table-scroll { overflow-x: visible; }
       .spec-table { min-width: 0; width: 100%; display: block; }
       .spec-table thead { display: none; }
@@ -798,6 +841,7 @@
         border-bottom: none;
       }
       .spec-table td:last-child { padding-bottom: 0; }
+      .spec-table td:first-child { white-space: normal; }
       .spec-table td[data-label]::before {
         content: attr(data-label);
         display: block;
@@ -849,7 +893,7 @@
     </div>
     <p class="lp-credit">Wonderwallが、システム開発企業とタッグを組んで開発中のアプリ</p>
     <h1 class="lp-hero__catch">
-      <span class="lp-hero__catch-lead">介護記録の入力から、介護ソフトへの転記までを、</span>
+      <span class="lp-hero__catch-lead">介護記録の入力から、<br class="m-break">介護ソフトへの転記までを、</span>
       <span class="lp-hero__catch-main">まるごと、自動化する。</span>
     </h1>
     <p class="lp-hero__sub">
@@ -958,7 +1002,7 @@
 <section class="section">
   <div class="container" style="max-width:1040px;">
     <span class="section-label">Workflow</span>
-    <h2 class="section-title">職員の操作は、「話す・確認する」だけ。</h2>
+    <h2 class="section-title section-title--fit">職員の操作は、「話す・確認する」だけ。</h2>
     <p class="section-lead">
       入力からAI整形、職員の確認、自動転記、結果確認まで。5つのステップで記録が完結します。
     </p>
@@ -1017,7 +1061,7 @@
 <section class="section section--gray">
   <div class="container" style="max-width:1080px;">
     <span class="section-label">Product Sets</span>
-    <h2 class="section-title">2つの記録方法と、共通の転記アドオン。</h2>
+    <h2 class="section-title section-title--fit">2つの記録方法と、共通の転記アドオン。</h2>
     <p class="section-lead">
       音声で記録する方法と、フォームで入力する方法。どちらも同じ仕組みで介護ソフトへ自動入力できます。事業所ごとに、使う構成を選べます。
     </p>
@@ -1106,7 +1150,7 @@
 <section class="section section--gray">
   <div class="container" style="max-width:1040px;">
     <span class="section-label">Customization</span>
-    <h2 class="section-title">事業所ごとに、見た目を合わせられます。</h2>
+    <h2 class="section-title section-title--fit">事業所ごとに、見た目を合わせられます。</h2>
     <p class="section-lead">職員が毎日開く画面の色・ロゴ・アプリ名を、事業所に合わせて設定できます。設定は当社にて承ります。</p>
 
     <div class="device-frame" style="margin-top:36px;">
@@ -1138,7 +1182,7 @@
 <section class="section">
   <div class="container" style="max-width:1040px;">
     <span class="section-label">Option</span>
-    <h2 class="section-title">AIが自動でタスクを作る、タスク管理。</h2>
+    <h2 class="section-title section-title--fit">AIが自動でタスクを作る、タスク管理。</h2>
     <p class="section-lead">標準セットには含まれません。ご契約に応じて事業所単位で有効化します。</p>
 
     <ul class="tool-feature-list" style="margin-top:28px; display:grid; gap:12px; grid-template-columns:1fr 1fr;">
@@ -1344,7 +1388,7 @@
 <section class="section">
   <div class="container" style="max-width:1000px;">
     <span class="section-label">その他の開発中ツール</span>
-    <h2 class="section-title">記録まわりの他の"面倒"にも取り組んでいます</h2>
+    <h2 class="section-title">記録まわりの他の"面倒"にも<br class="m-break">取り組んでいます</h2>
     <p class="section-lead">
       介護ソフトへの転記だけでなく、FAXや紙書類の処理も、あわせて開発を進めています。
     </p>
@@ -1352,13 +1396,13 @@
     <div class="tool-card" style="margin-top:36px;">
       <div class="tool-card__head">
         <div class="tool-card__num">Tool ／ FAX-OCR</div>
-        <div class="tool-card__title">FAXが届いたら、中身を読み取って自動でお知らせ</div>
+        <div class="tool-card__title">FAXが届いたら、<br class="m-break">中身を読み取って自動でお知らせ</div>
       </div>
       <div class="tool-card__body">
         <ul class="tool-feature-list">
           <li>届いたFAXを、AIが自動で読み取り（OCR）</li>
-          <li>「誰から・何の用件か」を要約して、チャットへ通知</li>
-          <li>ファイル名のつけ方は、事業所のルールに合わせて設定可能（LINE WORKSやGoogle Chatなど、お使いのチャットへ通知できます）</li>
+          <li>「誰から・何の用件か」を要約して、<span class="nowrap">チャットへ通知</span></li>
+          <li>ファイル名のつけ方は、事業所のルールに合わせて設定可能（LINE WORKSやGoogle Chatなど、お使いの<span class="nowrap">チャットへ通知</span>できます）</li>
         </ul>
       </div>
     </div>
@@ -1366,7 +1410,7 @@
     <div class="tool-card">
       <div class="tool-card__head">
         <div class="tool-card__num">Tool ／ 分割アプリ</div>
-        <div class="tool-card__title">まとめて届いたFAXを、指定した範囲ごとに分割</div>
+        <div class="tool-card__title">まとめて届いたFAXを、<br class="m-break">指定した範囲ごとに分割</div>
       </div>
       <div class="tool-card__body">
         <ul class="tool-feature-list">
