@@ -53,7 +53,15 @@ a:hover { opacity: 0.72; }
 .container { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
 .section { padding: 88px 0; }
 .section--gray { background: var(--bg); }
-.section--dark { background: var(--green-deep); color: var(--white); }
+.section--dark {
+  position: relative;
+  z-index: 1;
+  background: var(--green-deep);
+  color: var(--white);
+  background-image: linear-gradient(rgba(26,36,25,0.78), rgba(26,36,25,0.68)), url('images/footer-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
 /* ===== TYPOGRAPHY ===== */
 .section-label {
