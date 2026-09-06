@@ -666,6 +666,10 @@ a:hover { opacity: 0.72; }
 .category-badge--main     { background: var(--green); color: var(--white); }
 .category-badge--personal { background: var(--green-light); color: var(--green-dark); }
 .category-badge--biz      { background: #f0f0ed; color: #5a5a50; }
+.category-badge--feature  { background: #f59e0b; color: var(--white); }
+
+.category-header--feature { border-bottom-color: #f59e0b; }
+.category-index__card--feature::before { background: #f59e0b; }
 
 .category-title { font-size: 20px; font-weight: 700; color: var(--text); }
 
