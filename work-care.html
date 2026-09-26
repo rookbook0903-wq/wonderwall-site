@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M461JNES7D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M461JNES7D');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仕事と介護の両立支援｜Wonderwall株式会社</title>
+  <meta name="description" content="仕事と介護の両立支援。介護に直面したご本人・ご家族への個別相談、企業向けの顧問契約・研修による両立支援体制づくりを行っています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="仕事と介護の両立支援｜Wonderwall株式会社">
+  <meta property="og:description" content="介護に直面したご本人・ご家族への個別相談、企業向けの顧問契約・研修による両立支援体制づくりを行っています。">
+  <meta property="og:url" content="https://wonderwall-oita.co.jp/work-care.html">
+  <meta property="og:site_name" content="Wonderwall株式会社">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="仕事と介護の両立支援｜Wonderwall株式会社">
+  <meta name="twitter:description" content="介護に直面したご本人・ご家族への個別相談、企業向けの顧問契約・研修による両立支援体制づくりを行っています。">
+  <meta property="og:image" content="https://wonderwall-oita.co.jp/images/work-care-hero.jpg">
+  <meta name="twitter:image" content="https://wonderwall-oita.co.jp/images/work-care-hero.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+
+  <style>
+    /* ===== work-care.html 専用スタイル ===== */
+    .wc-hero {
+      position: relative;
+      min-height: 62vh;
+      display: flex;
+      align-items: flex-end;
+      background:
+        linear-gradient(180deg, rgba(20,24,18,0.18) 0%, rgba(15,18,14,0.90) 96%),
+        url('images/work-care-hero.jpg') center 42% / cover no-repeat;
+      padding: 140px 0 64px;
+    }
+    .wc-hero__inner { width: min(100% - 48px, 820px); margin: 0 auto; }
+    .wc-hero__label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.20em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); margin-bottom: 16px;
+      font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+    .wc-hero__title { font-size: clamp(28px, 5.4vw, 44px); font-weight: 700; color: var(--white); line-height: 1.55; margin-bottom: 20px; }
+    .wc-hero__sub { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.95; max-width: 600px; }
+    @media (max-width: 680px) {
+      .wc-hero { min-height: 52vh; padding: 108px 0 40px; }
+    }
+
+    .wc-toggle-wrap { display: flex; justify-content: center; padding: 36px 24px 0; }
+    .wc-toggle { display: inline-flex; gap: 4px; background: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 5px; box-shadow: var(--shadow); }
+    .wc-toggle__btn {
+      border: none; background: none; cursor: pointer; border-radius: 999px;
+      padding: 12px 30px; font-size: 14px; font-weight: 700; color: var(--text-sub);
+      font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .wc-toggle__btn.is-active { background: var(--green-deep); color: var(--white); }
+    @media (max-width: 480px) {
+      .wc-toggle__btn { padding: 10px 18px; font-size: 13px; }
+    }
+
+    .wc-support-panel { margin-top: 36px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); padding: 36px 32px; }
+    .wc-support-panel__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+    .wc-support-panel__title { font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.6; }
+    .wc-support-panel__lead { font-size: 14px; color: var(--text-sub); line-height: 1.9; margin-bottom: 26px; }
+    .wc-support-panel__list { display: flex; flex-direction: column; gap: 13px; margin: 0 0 28px; padding: 0; list-style: none; }
+    .wc-support-panel__list li { display: flex; gap: 12px; font-size: 14px; color: var(--text); line-height: 1.8; }
+    .wc-support-panel__list li::before { content: '✓'; color: var(--green); font-weight: 900; flex-shrink: 0; }
+    .wc-support-panel__highlight { background: var(--green-pale); border-radius: 8px; padding: 20px 24px; font-size: 14px; color: var(--green-dark); line-height: 1.9; }
+
+    .wc-checklist { margin-top: 32px; display: flex; flex-direction: column; gap: 30px; }
+    .wc-checklist__group-title { font-size: 13px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; letter-spacing: 0.03em; }
+    .wc-checklist__item { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; font-size: 14.5px; color: var(--text); line-height: 1.7; cursor: pointer; border-bottom: 1px solid var(--border); }
+    .wc-checklist__group-title + .wc-checklist__item { border-top: 1px solid var(--border); }
+    .wc-checklist__item input[type="checkbox"] {
+      appearance: none; -webkit-appearance: none; width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px;
+      border: 2px solid var(--border); border-radius: 4px; cursor: pointer; position: relative;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .wc-checklist__item input[type="checkbox"]:checked { background: var(--green); border-color: var(--green); }
+    .wc-checklist__item input[type="checkbox"]:checked::after {
+      content: ''; position: absolute; left: 5px; top: 1px; width: 6px; height: 11px;
+      border-right: 2px solid var(--white); border-bottom: 2px solid var(--white); transform: rotate(40deg);
+    }
+    .wc-checklist__item span { flex: 1; }
+    .wc-checklist__item:has(input:checked) span { color: var(--green-dark); font-weight: 700; }
+
+    .wc-check-result {
+      margin-top: 32px; padding: 22px 26px; background: var(--white); border: 1px solid var(--border);
+      border-left: 4px solid var(--green-mid); border-radius: 8px; transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .wc-check-result.is-active { border-left-color: var(--green-deep); background: var(--green-pale); }
+    .wc-check-result__count { font-size: 13px; font-weight: 700; color: var(--text-sub); letter-spacing: 0.02em; }
+    .wc-check-result__count strong { font-size: 20px; color: var(--green-deep); font-weight: 900; margin: 0 2px; }
+    .wc-check-result__message {
+      font-size: 14.5px; color: var(--text); line-height: 1.85; margin-top: 10px;
+      opacity: 1; transition: opacity 0.18s ease;
+    }
+    .wc-check-result__message.is-fading { opacity: 0; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">Wonder<span>wall</span>.inc</a>
+    <nav class="nav">
+      <a href="index.html">TOP</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="about.html">About</a>
+      <a href="care.html">Care</a>
+      <a href="news.html">News</a>
+      <a href="works.html">Works</a>
+      <a href="contact.html" class="btn-nav">相談する</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">TOP</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="care.html">Care</a>
+  <a href="news.html">News</a>
+  <a href="works.html">Works</a>
+  <a href="contact.html" class="btn-nav">相談する（無料）</a>
+</div>
+
+<section class="wc-hero">
+  <div class="wc-hero__inner">
+    <div class="wc-hero__label">Work &amp; Care</div>
+    <h1 class="wc-hero__title">仕事も、介護も、<br>あきらめなくていい。</h1>
+    <p class="wc-hero__sub">大切な家族の介護に直面したとき、一人で・一社で抱え込まなくていい。<br>ご本人・ご家族への相談支援と、企業の両立支援体制づくりを行っています。</p>
+  </div>
+</section>
+
+<div class="wc-toggle-wrap">
+  <div class="wc-toggle">
+    <button class="wc-toggle__btn is-active" onclick="switchWcTab(event, 'wc-tab-family')">ご家族向け</button>
+    <button class="wc-toggle__btn" onclick="switchWcTab(event, 'wc-tab-company')">企業様向け</button>
+  </div>
+</div>
+
+<!-- ========== ご家族向け ========== -->
+<div id="wc-tab-family" class="care-tab-panel is-active">
+
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    <span class="section-label">Check</span>
+    <h2 class="section-title">こんなことありませんか？</h2>
+    <p class="section-lead">〜仕事と介護の両立チェック〜</p>
+    <p style="font-size:14.5px; color:var(--text-sub); line-height:1.9; margin-top:18px; max-width:640px;">
+      「まだ介護というほどではないけれど、最近ちょっと気になる…」<br>
+      そんな段階から相談して大丈夫です。当てはまるものに✓をつけてみてください。
+    </p>
+
+    <div class="wc-checklist" id="wcChecklist">
+      <div>
+        <div class="wc-checklist__group-title">親や家族のこと</div>
+        <label class="wc-checklist__item"><input type="checkbox"><span>親の通院に付き添うことが増えてきた</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>親の体調や物忘れなど、以前と違う様子が気になっている</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>急な呼び出しや対応が必要になるのではないかと心配</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>遠方に住む親のことが気になっている</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>これから介護が必要になったら、どうしたらよいか分からない</span></label>
+      </div>
+      <div>
+        <div class="wc-checklist__group-title">仕事のこと</div>
+        <label class="wc-checklist__item"><input type="checkbox"><span>親の通院や介護のために、有給休暇を使うことがある</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>介護のために仕事を休んだり、遅刻・早退したりすることが増えてきた</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>介護休暇や介護休業など、利用できる制度をよく知らない</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>職場に家族の介護について相談していない</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>介護が始まったら、今の仕事を続けられるか不安</span></label>
+      </div>
+      <div>
+        <div class="wc-checklist__group-title">介護や相談先のこと</div>
+        <label class="wc-checklist__item"><input type="checkbox"><span>介護保険や介護サービスについてよく分からない</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>地域包括支援センターやケアマネジャーに、何を相談できるのか分からない</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>家族の中で、自分に介護の負担が集中しそうで心配</span></label>
+        <label class="wc-checklist__item"><input type="checkbox"><span>どこに相談したらよいのか分からない</span></label>
+      </div>
+    </div>
+
+    <div style="text-align:right; margin-top:14px;">
+      <button type="button" class="btn btn--outline-green btn--sm" id="wcCheckClear">チェックをクリア</button>
+    </div>
+
+    <div class="wc-check-result" id="wcCheckResult">
+      <div class="wc-check-result__count">チェック数：<strong id="wcCheckCount">0</strong> / <span id="wcCheckTotal">14</span></div>
+      <p class="wc-check-result__message" id="wcCheckMessage">気になる項目に、チェックを入れてみてください。</p>
+    </div>
+
+    <div class="wc-support-panel__highlight" style="margin-top:20px;">
+      <strong>✓ 一つでも気になることがあれば、ご相談ください</strong><br><br>
+      「仕事を辞めるか、介護をするか」の二択にする必要はありません。仕事で利用できる制度や働き方と、介護保険サービスや家族との役割分担を一緒に整理しながら、「仕事を続けながら介護する方法」を一緒に考えます。<br><br>
+      介護が始まる前から相談して大丈夫です。
+    </div>
+
+    <p style="font-size:12px; color:var(--text-sub); line-height:1.8; margin-top:18px;">
+      ※厚生労働省「仕事と介護の両立支援」関連資料「親が元気なうちから把握しておくべきこと」チェックリスト、「仕事と介護の両立支援プラン（面談シート兼用）」等を参考に作成
+    </p>
+
+    <div class="problem-footer" style="margin-top:24px;">
+      <p class="problem-footer__text" id="wcCheckCta">まずは今の状況を、一緒に整理するところから始めませんか。</p>
+      <a href="contact.html" class="btn btn--primary btn--sm">相談してみる</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container" style="max-width:820px;">
+    <span class="section-label">Support</span>
+    <h2 class="section-title">ご相談いただける内容</h2>
+    <p class="section-lead" style="max-width:660px;">個別相談と、必要な制度・サービスの情報提供を行います。</p>
+
+    <div class="cards--3" style="margin-top:40px;">
+      <div class="card">
+        <div class="card__title">個別相談</div>
+        <p class="card__text">今の働き方、家族の状態、困っていることを伺いながら、状況を一緒に整理します。オンライン・お電話でのご相談にも対応します。</p>
+      </div>
+      <div class="card">
+        <div class="card__title">制度・サービスの情報提供</div>
+        <p class="card__text">介護保険サービスの使い方、勤務先で使える介護休業・時短勤務などの制度について、分かりやすくお伝えします。</p>
+      </div>
+      <div class="card">
+        <div class="card__title">ケアマネジャーとの連携</div>
+        <p class="card__text">Wonderwallは居宅介護支援事業所も運営しています。必要に応じて、ケアマネジャーへの橋渡しもサポートします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:820px;">
+    <span class="section-label">Flow</span>
+    <h2 class="section-title">ご相談の流れ</h2>
+
+    <div class="process-steps" style="margin-top:40px;">
+      <div class="process-step">
+        <div class="process-step__num">01</div>
+        <div class="process-step__body">
+          <div class="process-step__title">お問い合わせ</div>
+          <p class="process-step__text">フォームまたはお電話でご連絡ください。「何から相談すればいいか分からない」という段階でも構いません。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">02</div>
+        <div class="process-step__body">
+          <div class="process-step__title">ヒアリング</div>
+          <p class="process-step__text">今の働き方、家族の状態、悩んでいることを詳しくお伺いします（オンライン・お電話・対面から選べます）。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">03</div>
+        <div class="process-step__body">
+          <div class="process-step__title">情報提供・アドバイス</div>
+          <p class="process-step__text">使える制度・サービス、今後考えられる選択肢を整理してお伝えします。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">04</div>
+        <div class="process-step__body">
+          <div class="process-step__title">必要に応じた継続フォロー</div>
+          <p class="process-step__text">状況は変化していくものです。その都度、繰り返しご相談いただけます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wc-support-panel__highlight" style="margin-top:32px;">
+      初回のご相談は無料です。2回目以降は5,000円〜／回（内容により応相談）。まずはお気軽にお問い合わせください。
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-section__title">まずは、無料相談からお気軽にどうぞ</h2>
+    <p class="cta-section__sub">「こんなことを聞いてもいいのか分からない」という段階からご相談いただけます。</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="tel:0972288215" class="btn btn--primary">0972-28-8215</a>
+      <a href="contact.html" class="btn btn--outline-white">フォームで問い合わせる</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /#wc-tab-family -->
+
+<!-- ========== 企業様向け ========== -->
+<div id="wc-tab-company" class="care-tab-panel">
+
+<section class="section">
+  <div class="container" style="max-width:820px;">
+    <span class="section-label">Problem</span>
+    <h2 class="section-title">企業が抱える課題</h2>
+    <p class="section-lead">人事・管理職の方からよくいただくご相談です。</p>
+
+    <div class="cards--3" style="margin-top:40px;">
+      <div class="card">
+        <div class="card__title">介護離職のリスク</div>
+        <p class="card__text">経験豊富なベテラン社員が、家族の介護を理由に離職してしまうケースが増えています。</p>
+      </div>
+      <div class="card">
+        <div class="card__title">潜在化する悩み</div>
+        <p class="card__text">介護をしていることを職場で言い出せず、一人で抱え込んでしまう従業員が少なくありません。</p>
+      </div>
+      <div class="card">
+        <div class="card__title">制度はあるが機能していない</div>
+        <p class="card__text">介護休業・時短勤務などの制度があっても、使い方や相談先が周知されておらず活用されていないケースが多くあります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container" style="max-width:820px;">
+    <span class="section-label">Support</span>
+    <h2 class="section-title">支援内容</h2>
+
+    <div class="wc-support-panel">
+      <div class="wc-support-panel__header">
+        <div class="wc-support-panel__title">仕事と介護の両立支援<br>（顧問・コンサルティング）</div>
+        <div>
+          <div class="service-price"><span class="service-price__num">30,000円〜</span><span class="service-price__unit">／月</span></div>
+          <p class="service-price__note">企業規模に応じて応相談</p>
+        </div>
+      </div>
+      <p class="wc-support-panel__lead">介護離職リスクが気になる人事担当者、従業員の「仕事と介護の両立」を支える文化を社内に根づかせたい企業に向けた支援です。</p>
+      <ul class="wc-support-panel__list">
+        <li>顧問として継続的に関わる両立支援アドバイザリー</li>
+        <li>企業向け「仕事と介護の両立」研修・セミナー</li>
+        <li>介護に直面した従業員への個別相談サポート</li>
+        <li>社内制度・相談窓口の整備、情報提供のサポート</li>
+        <li>人事・管理職向けの対応力研修</li>
+      </ul>
+      <div class="wc-support-panel__highlight">
+        介護を理由とした離職リスクを低減し、ベテラン社員が安心して働き続けられる職場をつくります。「介護があっても働ける」文化が社内に根づき、従業員エンゲージメントの向上にもつながります。
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:820px;">
+    <span class="section-label">Flow</span>
+    <h2 class="section-title">導入の流れ</h2>
+
+    <div class="process-steps" style="margin-top:40px;">
+      <div class="process-step">
+        <div class="process-step__num">01</div>
+        <div class="process-step__body">
+          <div class="process-step__title">お問い合わせ・ヒアリング</div>
+          <p class="process-step__text">貴社の現状、課題感、想定している支援範囲についてお伺いします。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">02</div>
+        <div class="process-step__body">
+          <div class="process-step__title">ご提案・お見積もり</div>
+          <p class="process-step__text">企業規模・課題に合わせて、顧問契約または単発の研修・セミナーなど最適な形をご提案します。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">03</div>
+        <div class="process-step__body">
+          <div class="process-step__title">契約・支援開始</div>
+          <p class="process-step__text">内容にご納得いただいた上で契約し、支援を開始します。</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">04</div>
+        <div class="process-step__body">
+          <div class="process-step__title">継続的な伴走</div>
+          <p class="process-step__text">定期的な相談対応、制度整備のフォローアップを継続的に行います。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container" style="max-width:820px;">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">よくある質問</h2>
+
+    <div class="faq-list" style="margin-top:24px;">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q">Q</span>
+          <span class="faq-question__text">顧問契約でなくても、単発の研修だけの依頼は可能ですか？</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">はい、可能です。研修・セミナーのみの単発依頼にも対応しています。まずは貴社の課題をお聞かせください。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q">Q</span>
+          <span class="faq-question__text">対象となる企業の規模に決まりはありますか？</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">特に決まりはありません。中小企業から比較的大きな組織まで、規模に応じた内容をご提案します。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q">Q</span>
+          <span class="faq-question__text">介護業界以外の企業でも依頼できますか？</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">もちろんです。仕事と介護の両立は業種を問わない課題のため、介護業界に限らずご相談いただけます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q">Q</span>
+          <span class="faq-question__text">従業員の個別相談はどこまで対応してもらえますか？</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">顧問契約の中で、介護に直面した従業員お一人おひとりの個別相談にも対応可能です。人事担当者を介さず直接相談できる窓口としてもご利用いただけます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q">Q</span>
+          <span class="faq-question__text">料金体系を教えてください。</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">月額30,000円からの顧問契約を基本とし、企業規模や支援内容に応じてご相談のうえ決定します。単発の研修のみの場合は別途お見積もりします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-section__title">まずは、ご相談・お見積もりからどうぞ</h2>
+    <p class="cta-section__sub">「何から始めればいいか分からない」という段階からご相談いただけます。ご相談・お見積もりは無料です。</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="tel:0972288215" class="btn btn--primary">0972-28-8215</a>
+      <a href="contact.html" class="btn btn--outline-white">フォームで問い合わせる</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /#wc-tab-company -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">Wonder<span>wall</span></div>
+        <p class="footer__desc">介護の現場に、仕組みと余白を。</p>
+        <div class="footer__sns">
+          <a href="https://x.com/Wonderwall_0801" target="_blank" rel="noopener" aria-label="X（旧Twitter）"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.instagram.com/wonderwall40801/?hl=ja" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">サービス</div>
+        <ul class="footer__links">
+          <li><a href="services.html#ict-support">ICT伴走支援</a></li>
+          <li><a href="services.html#training">ICT活用講座／研修</a></li>
+          <li><a href="services.html#efficiency">業務効率化支援</a></li>
+          <li><a href="services.html#organization">組織運営改善</a></li>
+          <li><a href="work-care.html">仕事と介護の両立支援</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">サイト</div>
+        <ul class="footer__links">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="care.html">居宅介護支援事業所</a></li>
+          <li><a href="about.html">会社について</a></li>
+          <li><a href="news.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copyright">© 2026 Wonderwall株式会社. All rights reserved.</div>
+      <a href="privacy.html" class="footer__policy-link">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('is-open');
+}
+function switchWcTab(e, id) {
+  document.querySelectorAll('.wc-toggle__btn').forEach(b => b.classList.remove('is-active'));
+  document.querySelectorAll('.care-tab-panel').forEach(p => p.classList.remove('is-active'));
+  e.currentTarget.classList.add('is-active');
+  document.getElementById(id).classList.add('is-active');
+}
+function toggleFaq(btn) {
+  btn.closest('.faq-item').classList.toggle('open');
+}
+
+(function () {
+  var checklist = document.getElementById('wcChecklist');
+  if (!checklist) return;
+  var boxes = checklist.querySelectorAll('input[type="checkbox"]');
+  var countEl = document.getElementById('wcCheckCount');
+  var totalEl = document.getElementById('wcCheckTotal');
+  var messageEl = document.getElementById('wcCheckMessage');
+  var resultEl = document.getElementById('wcCheckResult');
+  var ctaEl = document.getElementById('wcCheckCta');
+  var clearBtn = document.getElementById('wcCheckClear');
+  totalEl.textContent = boxes.length;
+
+  function messageFor(n) {
+    if (n === 0) return '気になる項目に、チェックを入れてみてください。';
+    if (n <= 2) return 'まだ「ちょっと気になる」段階かもしれません。早めに知っておくと、その分選べる選択肢が増えます。';
+    if (n <= 5) return 'いくつか当てはまるようですね。一度、状況を一緒に整理してみませんか。';
+    return '当てはまる項目が多いようです。一人で・一人きりで抱え込まず、まずはお気軽にご相談ください。';
+  }
+
+  function update() {
+    var checked = 0;
+    boxes.forEach(function (b) { if (b.checked) checked++; });
+    countEl.textContent = checked;
+    resultEl.classList.toggle('is-active', checked > 0);
+    messageEl.classList.add('is-fading');
+    setTimeout(function () {
+      messageEl.textContent = messageFor(checked);
+      messageEl.classList.remove('is-fading');
+    }, 160);
+    if (ctaEl) {
+      ctaEl.textContent = checked > 0
+        ? '今のうちに、一度お話ししてみませんか。'
+        : 'まずは今の状況を、一緒に整理するところから始めませんか。';
+    }
+  }
+
+  boxes.forEach(function (b) { b.addEventListener('change', update); });
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      boxes.forEach(function (b) { b.checked = false; });
+      update();
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1140,7 +1140,7 @@ body.page-index { background: transparent; }
 }
 .story-dest__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   max-width: 900px;
   margin: 0 auto;
@@ -1171,6 +1171,8 @@ body.page-index { background: transparent; }
   color: #fff;
   margin-bottom: 8px;
 }
+.story-dest__card-ja,
+.story-dest__card-text { word-break: keep-all; overflow-wrap: anywhere; }
 .story-dest__card-text {
   font-size: 12px;
   color: rgba(255,255,255,0.45);
@@ -1179,6 +1181,15 @@ body.page-index { background: transparent; }
 @media (max-width: 700px) {
   .story-dest__grid { grid-template-columns: repeat(2, 1fr); }
   .story-dest { padding: 72px 24px 88px; }
+  .story-dest__grid { gap: 12px; }
+  .story-dest__card { padding: 24px 12px; }
+  .story-dest__card-ja { font-size: 15px; }
+}
+@media (max-width: 360px) {
+  .story-dest { padding-left: 16px; padding-right: 16px; }
+  .story-dest__card { padding: 22px 8px; }
+  .story-dest__card-ja { font-size: 14px; }
+  .story-dest__card-text { font-size: 11px; }
 }
 .sp-br { display: none; }
 @media (max-width: 640px) {
