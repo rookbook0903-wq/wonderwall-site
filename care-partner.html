@@ -3325,6 +3325,47 @@ html.js .ms .reveal-copy {
       .lp-hero .fixed-photo, .photo-window .fixed-photo { background-position: 62% center; }
     }
     .footer__powered { margin: 16px 0 18px; }
+
+    /* 02 業務支援：3列×2段（最後のマスはメッセージ） */
+    .ms .feature-triad--six .feature-card { grid-template-rows: auto auto auto 1fr; }
+    .ms .feature-triad--six .editorial-no { grid-row: 1 / 5; }
+    .ms .feature-triad--six .feature-tag { grid-column: 2; }
+    .ms .feature-tag {
+      justify-self: start;
+      margin: 2px 0 6px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--tint);
+      color: var(--blue-deep);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+    .ms .feature-statement {
+      display: grid;
+      place-items: center;
+      padding: 34px 28px;
+      text-align: center;
+    }
+    .ms .feature-statement p {
+      max-width: none;
+      color: var(--blue-deep);
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2vw, 25px);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      line-height: 1.7;
+    }
+    @media (min-width: 961px) {
+      .ms .feature-triad--six > * { border-right: 1px solid var(--line); padding-left: 28px; padding-right: 28px; }
+      .ms .feature-triad--six > :nth-child(3n) { border-right: 0; padding-right: 0; }
+      .ms .feature-triad--six > :nth-child(3n+1) { padding-left: 0; }
+      .ms .feature-triad--six > :nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 960px) {
+      .ms .feature-triad--six .feature-card:last-of-type { border-bottom: 1px solid var(--line); }
+      .ms .feature-statement { padding: 40px 0 32px; }
+    }
   </style>
 </head>
 <body>
@@ -3599,9 +3640,9 @@ html.js .ms .reveal-copy {
               <h3><span class="text-chunk">介護に特化した</span><span class="text-chunk">音声入力</span></h3>
               <p class="description">介護の専門用語に対応。さらに、事業所・職員ごとの用語や名前も辞書登録できます。</p>
               <div class="support-example">
-                <span class="example-label">事業所名の登録例</span>
-                <dl class="term-example"><dt>読み</dt><dd>えばらびょういん</dd><dt>表記</dt><dd>荏原病院</dd></dl>
-                <p class="example-result">読みの難しい病院名も、正しい表記に。</p>
+                <span class="example-label">介護用語の登録例</span>
+                <dl class="term-example"><dt>読み</dt><dd>せいしき</dd><dt>表記</dt><dd>清拭</dd></dl>
+                <p class="example-result">専門用語も、正しい表記に。</p>
               </div>
             </article>
             <article class="support-card text-rise-group" style="--i: 1">
@@ -3637,34 +3678,52 @@ html.js .ms .reveal-copy {
             <span class="num" aria-hidden="true">02</span>
             <h2 class="section-title" id="work-support-title"><span class="text-chunk">それだけじゃない。</span><span class="text-chunk">記録のあとも、業務を止めない。</span></h2>
           </div>
-          <div class="feature-triad">
+          <div class="feature-triad feature-triad--six">
             <article class="feature-card text-rise-group" style="--i: 0">
               <span class="editorial-no" aria-hidden="true">01</span>
-              <h3>やることを整理する</h3>
-              <p class="description"><span class="copy-line">タスクを手動で登録。</span><span class="copy-line">記録内容から自動でタスクを作ることも。</span></p>
-              <ul class="feature-details" aria-label="タスクの作り方">
-                <li>手動で登録</li>
-                <li>記録から自動作成<span class="detail-option">オプション</span></li>
-              </ul>
-            </article>
-            <article class="feature-card text-rise-group" style="--i: 1">
-              <span class="editorial-no" aria-hidden="true">02</span>
               <h3>抜け漏れを見つける</h3>
+              <p class="feature-tag">標準</p>
               <p class="description"><span class="copy-line">まだ記録できていない利用者や、</span><span class="copy-line">対応が必要な業務を一覧で確認。</span></p>
               <ul class="feature-details" aria-label="一覧で確認できる内容">
                 <li>記録状況</li>
                 <li>タスク一覧</li>
               </ul>
             </article>
-            <article class="feature-card text-rise-group" style="--i: 2">
-              <span class="editorial-no" aria-hidden="true">03</span>
+            <article class="feature-card text-rise-group" style="--i: 1">
+              <span class="editorial-no" aria-hidden="true">02</span>
               <h3>事業所内で共有する</h3>
+              <p class="feature-tag">標準</p>
               <p class="description"><span class="copy-line">お知らせや資料を掲示板で共有。</span><span class="copy-line">必要な情報を職員みんなに。</span></p>
               <ul class="feature-details" aria-label="掲示板で共有できる内容">
                 <li>お知らせ</li>
                 <li>資料・リンク</li>
               </ul>
             </article>
+            <article class="feature-card text-rise-group" style="--i: 2">
+              <span class="editorial-no" aria-hidden="true">03</span>
+              <h3>やることを整理する</h3>
+              <p class="feature-tag feature-tag--option">オプション</p>
+              <p class="description"><span class="copy-line">タスクを手動で登録。</span><span class="copy-line">記録内容から自動でタスクを作ることも。</span></p>
+              <ul class="feature-details" aria-label="タスクの作り方">
+                <li>手動で登録</li>
+                <li>記録から自動作成</li>
+              </ul>
+            </article>
+            <article class="feature-card text-rise-group" style="--i: 3">
+              <span class="editorial-no" aria-hidden="true">04</span>
+              <h3>災害時の状況を共有する</h3>
+              <p class="feature-tag feature-tag--option">オプション</p>
+              <p class="description"><span class="copy-line">利用者の安否と必要な支援を共有。</span><span class="copy-line">災害時のBCP対応を支えます。</span></p>
+            </article>
+            <article class="feature-card text-rise-group" style="--i: 4">
+              <span class="editorial-no" aria-hidden="true">05</span>
+              <h3>会議の内容を議事録に</h3>
+              <p class="feature-tag feature-tag--option">オプション</p>
+              <p class="description"><span class="copy-line">職員会議の録音から、</span><span class="copy-line">話者分離し議事録を作成。</span><span class="copy-line">職員への共有も。</span></p>
+            </article>
+            <div class="feature-statement text-rise-group">
+              <p>あちこちに散らばった<br>サービスを一つに。</p>
+            </div>
           </div>
 
         </div>
