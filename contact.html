@@ -130,6 +130,10 @@
                 <span>テストパートナー応募（ケアマネ向け共同開発ツール）</span>
               </label>
               <label class="radio-item">
+                <input type="radio" name="お問い合わせ種別" value="Wonderwall FAX分割の導入相談">
+                <span>Wonderwall FAX分割の導入相談</span>
+              </label>
+              <label class="radio-item">
                 <input type="radio" name="お問い合わせ種別" value="その他">
                 <span>その他</span>
               </label>
@@ -270,7 +274,8 @@ const type = params.get('type');
 const typeMap = {
   'training': 'ICT活用講座／研修の依頼',
   'partner': 'テストパートナー応募（ケアマネ向け共同開発ツール）',
-  'monisapo': 'テストパートナー応募（ケアマネ向け共同開発ツール）'
+  'monisapo': 'テストパートナー応募（ケアマネ向け共同開発ツール）',
+  'fax': 'Wonderwall FAX分割の導入相談'
 };
 if (typeMap[type]) {
   const r = document.querySelector('input[value="' + typeMap[type] + '"]');

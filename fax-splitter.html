@@ -1,0 +1,4313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M461JNES7D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M461JNES7D');
+  </script>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add("js");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wonderwall FAX分割｜FAX・スキャンPDFを利用者ごとに分割・名前付け｜Wonderwall株式会社</title>
+  <meta name="description" content="届いたFAXやスキャンしたPDFを、AIが利用者・書類ごとに分け、事業所のルールで名前を付けて保存します。居宅介護支援事業所向け、ケアマネとの共同開発ツール（powered by MONISAPO）。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wonderwall FAX分割｜FAX・スキャンPDFを利用者ごとに分割・名前付け｜Wonderwall株式会社">
+  <meta property="og:description" content="届いたFAXやスキャンしたPDFを、AIが利用者・書類ごとに分け、事業所のルールで名前を付けて保存します。居宅介護支援事業所向け、ケアマネとの共同開発ツール（powered by MONISAPO）。">
+  <meta property="og:url" content="https://wonderwall-oita.co.jp/fax-splitter.html">
+  <meta property="og:site_name" content="Wonderwall株式会社">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://wonderwall-oita.co.jp/images/og-services.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wonderwall FAX分割｜FAX・スキャンPDFを利用者ごとに分割・名前付け｜Wonderwall株式会社">
+  <meta name="twitter:description" content="届いたFAXやスキャンしたPDFを、AIが利用者・書類ごとに分け、事業所のルールで名前を付けて保存します。居宅介護支援事業所向け、ケアマネとの共同開発ツール（powered by MONISAPO）。">
+  <meta name="twitter:image" content="https://wonderwall-oita.co.jp/images/og-services.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Lexend:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+
+  <style>
+
+    /* ===== LP 固有スタイル ===== */
+
+    /* ===== ベーススタイル（style.css がない場所でHTML単体を開いても崩れにくくする） ===== */
+    :root {
+      --green-deep: #2f4f2f;
+      --green-dark: #3f5f39;
+      --green: #78936f;
+      --green-mid: #a8bd9f;
+      --green-light: #eef5ed;
+      --green-pale: #f5faf4;
+      --white: #ffffff;
+      --bg: #f3f8f2;
+      --text: #1d1d1f;
+      --text-sub: #6e6e73;
+      --border: #dbe6d8;
+      --radius: 6px;
+      --shadow: 0 10px 28px rgba(47,79,47,0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Yu Gothic", "Meiryo", 'Zen Kaku Gothic New', sans-serif;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    img, svg { max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    p, h1, h2, h3, ul { margin: 0; }
+    br.m-break { display: none; }
+    .nowrap { white-space: nowrap; }
+    ul { padding: 0; }
+    table { font-family: inherit; }
+
+    .container {
+      width: min(100% - 48px, 1200px);
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.62);
+      border-bottom: 1px solid rgba(219,230,216,0.6);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+    }
+    .header__inner {
+      width: min(100% - 48px, 1120px);
+      height: 54px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .header__logo,
+    .footer__logo {
+      color: var(--green-deep);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .header__logo span,
+    .footer__logo span { color: var(--green); }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+    .nav a { transition: color 0.2s, opacity 0.2s; }
+    .nav a:hover { color: var(--green-deep); opacity: 1; }
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 18px;
+      border: 1.5px solid var(--green);
+      border-radius: var(--radius);
+      color: var(--green-deep) !important;
+      font-weight: 700;
+      background: var(--white);
+    }
+
+    .hamburger {
+      display: none;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+    }
+    .hamburger span {
+      display: block;
+      position: absolute;
+      left: 9px;
+      width: 22px;
+      height: 2px;
+      background: var(--green-deep);
+      transition: transform 0.2s, opacity 0.2s, top 0.2s;
+    }
+    .hamburger span:nth-child(1) { top: 12px; }
+    .hamburger span:nth-child(2) { top: 19px; }
+    .hamburger span:nth-child(3) { top: 26px; }
+    .hamburger.is-open span:nth-child(1) { top: 19px; transform: rotate(45deg); }
+    .hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .hamburger.is-open span:nth-child(3) { top: 19px; transform: rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 54px;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(255,255,255,0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 22px;
+      box-shadow: 0 16px 28px rgba(47,79,47,0.08);
+    }
+    .mobile-menu.open { display: grid; gap: 14px; }
+    .mobile-menu a { font-size: 14px; color: var(--text); }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      background: #1a2419;
+      color: rgba(255,255,255,0.82);
+      padding: 64px 0 28px;
+      background-image: linear-gradient(rgba(26,36,25,0.72), rgba(26,36,25,0.60)), url('images/footer-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 42px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer__logo { color: var(--white); font-size: 18px; margin-bottom: 12px; }
+    .footer__desc { font-size: 13px; color: rgba(255,255,255,0.64); margin-bottom: 18px; }
+    .footer__sns { display: flex; gap: 12px; }
+    .footer__sns a {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.82);
+      transition: background 0.2s;
+    }
+    .footer__sns a:hover { background: rgba(255,255,255,0.10); }
+    .footer__col-title {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .footer__links { list-style: none; display: grid; gap: 10px; }
+    .footer__links a { color: rgba(255,255,255,0.68); font-size: 13px; }
+    .footer__links a:hover { color: var(--white); }
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 24px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.48);
+    }
+    .footer__policy-link { color: rgba(255,255,255,0.62); }
+    .form-note { color: var(--text-sub); font-size: 12.5px; }
+
+    @media (max-width: 760px) {
+      .container,
+      .header__inner { width: min(100% - 32px, 1120px); }
+      .nav { display: none; }
+      .hamburger { display: block; }
+      .footer__inner { grid-template-columns: 1fr; gap: 28px; }
+      .footer__bottom { flex-direction: column; }
+    }
+
+    /* ===== powered by MONISAPO 表記 ===== */
+    .powered {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--text-sub);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+    .powered b { color: var(--green-deep); font-weight: 700; letter-spacing: 0.14em; }
+    .powered--dark { background: transparent; border-color: rgba(255,255,255,0.22); color: rgba(255,255,255,0.6); }
+    .powered--dark b { color: var(--white); }
+
+    /* ===== ヒーロー（全面写真＋グラデーション） ===== */
+    .lp-hero {
+      position: relative;
+      min-height: min(92vh, 860px);
+      display: flex;
+      align-items: center;
+      padding: 140px 0 160px;
+      text-align: center;
+      color: var(--white);
+      background: #0b120d;
+      clip-path: inset(0);
+    }
+    @keyframes heroRise {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .lp-hero .container > * { animation: heroRise 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .lp-hero .container > *:nth-child(2) { animation-delay: 0.12s; }
+    .lp-hero .container > *:nth-child(3) { animation-delay: 0.26s; }
+    .lp-hero .container > *:nth-child(4) { animation-delay: 0.36s; }
+    .lp-hero .container > *:nth-child(5) { animation-delay: 0.48s; }
+    .lp-hero .container > *:nth-child(6) { animation-delay: 0.6s; }
+    @media (prefers-reduced-motion: reduce) { .lp-hero .container > * { animation: none; } }
+    .lp-hero__label {
+      color: rgba(255,255,255,0.78);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      margin-bottom: 28px;
+    }
+    .lp-hero__title {
+      font-size: clamp(34px, 5.6vw, 72px);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+      margin-bottom: 36px;
+    }
+    .lp-hero__title em { font-style: normal; color: var(--green-mid); }
+    .lp-hero__sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      font-weight: 500;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 10px;
+    }
+    .lp-hero__note { color: rgba(255,255,255,0.66); font-size: 13px; margin-bottom: 44px; }
+    .lp-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .lp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 50px;
+      padding: 0 30px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .lp-btn--primary { background: var(--green-deep); color: var(--white); box-shadow: 0 10px 24px rgba(47,79,47,0.22); }
+    .lp-btn--primary:hover { transform: translateY(-2px); background: var(--green-dark); }
+    .lp-btn--ghost { border: 1.5px solid var(--green); color: var(--green-deep); background: var(--white); }
+    .lp-btn--ghost:hover { background: var(--green-light); }
+    .lp-hero .lp-btn--primary { background: var(--white); color: var(--green-deep); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+    .lp-hero .lp-btn--primary:hover { background: var(--green-light); }
+    .lp-hero .lp-btn--ghost { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); color: var(--white); backdrop-filter: blur(6px); }
+    .lp-hero .lp-btn--ghost:hover { background: rgba(255,255,255,0.18); }
+
+    /* ===== 実際の画面（PC＋スマホ） ===== */
+    .showcase {
+      position: relative;
+      z-index: 2;
+      margin-top: -110px;
+      padding-bottom: 8px;
+      text-align: center;
+    }
+    .devices {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+    }
+    .pc-wrap { flex: 1; min-width: 0; }
+    /* 端末の枠画像の上に実画面を重ねる（枠の画面部分の位置は％で指定） */
+    .pc, .phone { position: relative; }
+    .pc { aspect-ratio: 1536 / 1024; }
+    .phone { flex-shrink: 0; width: 22%; aspect-ratio: 836 / 1880; }
+    .device-frame {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: auto;
+      pointer-events: none;
+    }
+    .pc__screen {
+      position: absolute;
+      left: 5.46%;
+      top: 3.51%;
+      width: 89%;
+      height: 69.34%;
+      object-fit: fill;
+      border-radius: 2px;
+    }
+    .phone__screen {
+      position: absolute;
+      left: 8.5%;
+      top: 7.87%;
+      width: 83%;
+      height: 82.98%;
+      border-radius: 12% / 5.35%;
+      object-fit: fill;
+    }
+    .shot-caption { margin-top: 64px; font-size: 11.5px; color: var(--text-sub); }
+    .showcase .powered { margin-top: 18px; }
+
+
+
+    /* ヒーロー見出し：1行ずつ下から立ち上がり、2行目はきらめくグラデーション */
+    .lp-hero .container > h1 { animation: none; }
+    .lp-hero__title .line { display: block; overflow: hidden; white-space: nowrap; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+    .lp-hero__title .line > span {
+      display: inline-block; opacity: 0; transform: translateY(112%); filter: blur(5px);
+      animation: heroLine 1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+      animation-delay: calc(var(--i) * 150ms + 140ms);
+    }
+    .lp-hero__title .grad {
+      font-style: normal;
+      background: linear-gradient(90deg, #a8bd9f, #eef5ed, #a8bd9f);
+      background-size: 220% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: heroShimmer 7s linear infinite;
+    }
+    @keyframes heroLine { to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+    @keyframes heroShimmer { to { background-position: -220% 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .lp-hero__title .line > span { animation: none; opacity: 1; transform: none; filter: none; }
+      .lp-hero__title .grad { animation: none; }
+    }
+
+
+    @media (max-width: 680px) {
+      .lp-hero { min-height: 0; padding: 96px 0 140px; }
+      .lp-hero__title { font-size: clamp(30px, 10vw, 40px); letter-spacing: 0.04em; }
+      .lp-hero__sub br { display: none; }
+      .lp-hero__actions .lp-btn { width: 100%; max-width: 320px; }
+      .showcase { margin-top: -80px; }
+      .devices { flex-direction: column; align-items: center; gap: 28px; }
+      .pc-wrap { width: 100%; }
+      .phone { width: 46%; }
+      .shot-caption { margin-top: 48px; }
+    }
+
+    .ms .contact-reply { margin: 14px auto 0; font-size: 13px; color: var(--muted); }
+
+
+    /* テキストを下からふわっと浮かび上がらせる（全体共通） */
+    html.js .reveal-copy {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(6px);
+      transition:
+        opacity 0.9s ease,
+        transform 1s cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 0.9s ease;
+      transition-delay: calc(var(--rise-i, 0) * 90ms);
+    }
+    html.js .reveal-copy.is-in { opacity: 1; transform: none; filter: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html.js .reveal-copy { opacity: 1; transform: none; filter: none; transition: none; }
+    }
+
+    /* ===== 固定背景（ヒーロー写真を画面に固定し、手前のレイヤーを流す） ===== */
+    .fixed-photo {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(180deg, rgba(8,14,11,0.55) 0%, rgba(8,14,11,0.35) 45%, rgba(8,14,11,0.82) 100%),
+        url('images/fax-splitter/hero.jpg') center 42% / cover no-repeat;
+      pointer-events: none;
+    }
+    .lp-hero > .container { position: relative; z-index: 1; }
+    .photo-window {
+      position: relative;
+      clip-path: inset(0);
+      background: #0b120d;
+      min-height: 64vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 96px 24px;
+    }
+    .photo-window .fixed-photo {
+      background:
+        linear-gradient(180deg, rgba(8,14,11,0.62), rgba(8,14,11,0.5)),
+        url('images/fax-splitter/hero.jpg') center 42% / cover no-repeat;
+    }
+    .photo-window .photo-window__copy {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      max-width: none;
+      color: #fff;
+      font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+      font-size: clamp(24px, 3.6vw, 44px);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.6;
+    }
+    @media (max-width: 680px) {
+      .photo-window { min-height: 52vh; }
+      .lp-hero .fixed-photo, .photo-window .fixed-photo { background-position: 62% center; }
+    }
+
+    .footer__powered { margin: 16px 0 18px; }
+
+    /* ===== 以下、FAX分割の紹介セクション（MONISAPO 提供の原稿をサイトのグリーンに合わせ、.fx 配下にスコープ） ===== */
+.fx {
+  color-scheme: light;
+  --header-h: 64px;
+
+  --ink: #1d2420;
+  --ink-2: #3f4a40;
+  --ink-3: #5f6a60;
+  --line: #dbe6d8;
+  --line-2: #c6d6c1;
+  --bg: #ffffff;
+  --bg-soft: #f5faf4;
+  --bg-deep: #1a2419;
+
+  --accent: #4a7045;
+  --accent-deep: #2f4f2f;
+  --accent-soft: #eef5ed;
+  --accent-mist: #c8dcc2;
+
+  
+  --g1: #b4bdc9;
+  --g2: #2f4f2f;
+  --g3: #4a7045;
+  --g4: #78936f;
+  --g5: #a8bd9f;
+
+  --memo: #b4462f;
+
+  
+  --chart-before: #9dbb90;
+  --chart-after: #2f4f2f;
+
+  --radius: 16px;
+  --radius-lg: 28px;
+  --shadow: 0 30px 60px -36px rgba(20, 40, 24, 0.32), 0 2px 6px -2px rgba(20, 40, 24, 0.06);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic UI", "Meiryo", system-ui, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+.fx *, .fx *::before, .fx *::after {
+  box-sizing: border-box;
+}
+.fx {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+.fx {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt" 1;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+.fx h1, .fx h2, .fx h3 {
+  word-break: auto-phrase;
+  text-wrap: balance;
+}
+.fx h1, .fx h2, .fx h3, .fx p, .fx ol, .fx ul, .fx dl, .fx dd {
+  margin: 0;
+}
+.fx ol, .fx ul {
+  padding: 0;
+  list-style: none;
+}
+.fx a {
+  color: inherit;
+}
+.fx [id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+.fx .wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+.fx .num {
+  font-family: var(--mono);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.fx .pc-br {
+  display: none;
+}
+@media (min-width: 1200px) {
+.fx .pc-br {
+    display: inline;
+  }
+.fx .pc-lines {
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+}
+.fx .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.fx .skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 40;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(-160%);
+  transition: transform 0.2s var(--ease);
+}
+.fx .skip-link:focus {
+  transform: none;
+}
+.fx :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.fx .btn {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.fx .btn:hover {
+  background: var(--accent-deep);
+}
+.fx .btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+.fx .btn-sm {
+  min-height: 38px;
+  padding: 6px 18px;
+  font-size: 14px;
+}
+.fx .btn-lg {
+  min-height: 56px;
+  padding-inline: 32px;
+  font-size: 17px;
+}
+.fx .btn-arrow {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s var(--ease);
+}
+.fx .btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+.fx .link-line {
+  display: inline-block;
+  padding-block: 8px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-mist);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: text-decoration-color 0.25s;
+}
+.fx .link-line:hover {
+  text-decoration-color: var(--accent);
+}
+.fx .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: var(--header-h);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.fx .site-header.is-scrolled {
+  border-bottom-color: var(--line);
+}
+.fx .header-row {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.fx .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  text-decoration: none;
+}
+.fx .brand-mark {
+  width: 28px;
+  height: 28px;
+}
+.fx .brand-mark path {
+  fill: none;
+  stroke: #4a7045;
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.fx .brand-mark circle {
+  fill: #2f4f2f;
+}
+.fx .brand-mark .brand-dot {
+  fill: #8fb07f;
+}
+.fx .brand-name {
+  font-weight: 700;
+  font-size: 17px;
+  white-space: nowrap;
+}
+.fx .brand-tag {
+  white-space: nowrap;
+  padding: 1px 8px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.fx .site-nav {
+  display: flex;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 500;
+}
+.fx .site-nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.fx .site-nav a:hover {
+  color: var(--accent);
+}
+.fx .hero.scroll-film {
+  --film-min-height: 580px;
+  --film-height: max(calc(100svh - var(--header-h)), var(--film-min-height));
+  --film-fade: 180px;
+  position: relative;
+  background: #fff;
+}
+.fx .scroll-film-scene {
+  position: relative;
+  min-height: var(--film-height);
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  background: #fff;
+}
+.fx .scroll-film-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.fx .scroll-film-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, transparent calc(100% - var(--film-fade)), #fff 100%),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.97) 0%,
+      rgba(255, 255, 255, 0.93) 34%,
+      rgba(255, 255, 255, 0.6) 56%,
+      rgba(255, 255, 255, 0.16) 80%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+}
+.fx #scroll-film {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.fx .hero-inner {
+  position: relative;
+  z-index: 1;
+  padding-block: 40px 96px;
+}
+.fx .hero-copy {
+  max-width: 40rem;
+}
+.fx .hero-copy > * {
+  animation: fx-rise 1s var(--ease) both;
+  animation-delay: calc(var(--d, 0) * 1ms + 150ms);
+}
+.fx .hero-copy > :nth-child(2) {
+  --d: 120;
+}
+.fx .hero-copy > :nth-child(3) {
+  --d: 320;
+}
+.fx .hero-copy > :nth-child(4) {
+  --d: 440;
+}
+.fx .hero-copy > :nth-child(5) {
+  --d: 600;
+}
+.fx .hero-copy > :nth-child(6) {
+  --d: 760;
+}
+.fx .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-deep);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.fx .hero-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.fx .hero-title {
+  margin-top: 20px;
+  font-size: clamp(34px, 4.7vw, 60px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+}
+.fx .hero-title .line {
+  display: block;
+  white-space: nowrap;
+}
+.fx .hero-title .line-accent {
+  color: var(--accent-deep);
+}
+.fx .hero-target {
+  margin-top: 24px;
+  max-width: 29em;
+  color: var(--ink);
+  font-size: clamp(16px, 1.35vw, 19px);
+  font-weight: 700;
+  line-height: 1.7;
+}
+.fx .hero-lead {
+  margin-top: 12px;
+  max-width: 31em;
+  color: var(--ink-2);
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 500;
+}
+.fx .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 32px;
+}
+.fx .hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  color: var(--ink-3);
+  font-size: 13px;
+  font-weight: 500;
+}
+.fx .hero-meta li + li {
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line-2);
+}
+.fx .scroll-film-hint {
+  position: absolute;
+  z-index: 1;
+  bottom: 24px;
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  color: var(--ink-2);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  text-shadow: 0 1px 8px #fff;
+  transform: translateX(-50%);
+}
+.fx .hint-line {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(var(--ink-3), transparent);
+  transform-origin: top;
+  animation: fx-hint 2.2s var(--ease) infinite;
+}
+.fx .scroll-film-error {
+  position: absolute;
+  z-index: 1;
+  bottom: 16px;
+  left: 50%;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13px;
+  transform: translateX(-50%);
+}
+.fx .scroll-film-hint[hidden], .fx .scroll-film-error[hidden] {
+  display: none;
+}
+.fx .section {
+  padding-block: clamp(88px, 11vw, 144px);
+}
+.fx .section-head {
+  max-width: 44rem;
+}
+.fx .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.fx .eyebrow::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.fx .section-head h2 {
+  margin-top: 16px;
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
+.fx .lead {
+  margin-top: 20px;
+  max-width: 36em;
+  color: var(--ink-2);
+}
+html.js .fx [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+html.js .fx [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+.fx [data-live]:not(.is-live) *, .fx [data-live]:not(.is-live) *::before, .fx [data-live]:not(.is-live) *::after, .fx [data-live]:not(.is-live)::before, .fx [data-live]:not(.is-live)::after, .fx .scroll-film-scene.is-away .hint-line {
+  animation-play-state: paused !important;
+}
+@keyframes fx-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+@keyframes fx-hint {
+  0% {
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+@keyframes fx-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes fx-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 112, 69, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(74, 112, 69, 0);
+  }
+}
+@media (max-width: 1080px) {
+.fx .site-nav {
+    gap: 18px;
+  }
+}
+@media (max-width: 960px) {
+.fx .site-nav {
+    display: none;
+  }
+.fx .header-row {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 720px) {
+.fx {
+    --header-h: 56px;
+  }
+.fx .brand-tag {
+    font-size: 12px;
+  }
+.fx .btn-sm {
+    min-height: 44px;
+  }
+.fx .hero.scroll-film {
+    --film-min-height: 520px;
+    --film-fade: 120px;
+  }
+.fx .scroll-film-media::after {
+    background:
+      linear-gradient(to bottom, transparent calc(100% - var(--film-fade)), #fff 100%),
+      linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82));
+  }
+.fx .hero-inner {
+    padding-block: 24px 88px;
+  }
+.fx .hero-title {
+    font-size: clamp(29px, 8.2vw, 40px);
+  }
+.fx .hero-meta {
+    margin-top: 28px;
+    font-size: 12px;
+  }
+.fx .hero-meta li + li {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+}
+@media (max-width: 380px) {
+.fx .header-row {
+    gap: 8px;
+  }
+.fx .brand {
+    gap: 6px;
+  }
+.fx .brand-mark {
+    width: 24px;
+    height: 24px;
+  }
+.fx .brand-name {
+    font-size: 15px;
+  }
+.fx .site-header .btn-sm {
+    padding-inline: 12px;
+    font-size: 13px;
+  }
+}
+@media (pointer: coarse) {
+.fx .btn-sm {
+    min-height: 44px;
+  }
+.fx .site-nav a, .fx .footer-nav a {
+    display: inline-block;
+    padding-block: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+.fx {
+    scroll-behavior: auto;
+  }
+.fx *, .fx *::before, .fx *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+html.js .fx [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+.fx .scroll-film-hint {
+    visibility: hidden;
+  }
+}
+.fx .compare .section-head {
+  max-width: 50rem;
+}
+.fx .compare .lead {
+  max-width: none;
+}
+.fx .sorter {
+  margin-top: 56px;
+  padding: clamp(20px, 3vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%);
+  box-shadow: var(--shadow);
+}
+.fx .sorter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.fx .sorter-caption {
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+.fx .seg {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border-radius: 999px;
+  background: #e4ede1;
+}
+.fx .seg button {
+  position: relative;
+  z-index: 1;
+  min-width: 8em;
+  min-height: 44px;
+  padding: 6px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-3);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.35s var(--ease);
+}
+.fx .seg button[aria-pressed="true"] {
+  color: var(--ink);
+}
+.fx .sorter[data-state="after"] .seg button[aria-pressed="true"] {
+  color: #fff;
+}
+.fx .seg button:active {
+  transform: scale(0.98);
+}
+.fx .seg-thumb {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 4px 10px -6px rgba(20, 40, 24, 0.4);
+  transition: transform 0.5s var(--ease), background 0.5s var(--ease);
+}
+.fx .sorter[data-state="after"] .seg-thumb {
+  background: var(--accent-deep);
+  transform: translateX(100%);
+}
+.fx .sorter-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(20px, 4vw, 48px);
+  margin-top: 28px;
+}
+.fx .sorter-label {
+  color: var(--ink-3);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.fx .sorter-source {
+  position: relative;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 16px;
+  border: 1px dashed var(--line-2);
+  border-radius: 20px;
+  background: #fff;
+}
+.fx .sorter-pile {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 150px;
+  padding-inline: 12px;
+}
+.fx .sorter-note {
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+.fx .sorter[data-state="after"] .sorter-pile, .fx .sorter[data-state="after"] .sorter-note [data-when="before"] {
+  visibility: hidden;
+}
+.fx .sorter-note [data-when="after"] {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  padding: 24px 16px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+}
+.fx .sorter[data-state="after"] .sorter-note [data-when="after"] {
+  animation: fx-rise 0.8s var(--ease) both 0.3s;
+}
+.fx .sorter-note .big {
+  margin-inline: 2px;
+  color: var(--accent-deep);
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1;
+}
+.fx .pg {
+  --pw: 76px;
+  position: relative;
+  top: var(--dy, 0px);
+  flex: none;
+  width: var(--pw);
+  aspect-ratio: 1 / 1.414;
+  transform-origin: 0 0;
+}
+.fx .pg.tilt-1 { --r: -5deg; --dy: 4px; }
+.fx .pg.tilt-2 { --r: 3deg; --dy: 14px; }
+.fx .pg.tilt-3 { --r: -2deg; --dy: 0px; }
+.fx .pg.tilt-4 { --r: 6deg; --dy: 18px; }
+.fx .pg.tilt-5 { --r: 90deg; --dy: 6px; }
+.fx .pg.tilt-6 { --r: -4deg; --dy: 12px; }
+.fx .pg.tilt-7 { --r: 180deg; --dy: 2px; }
+.fx .pg.tilt-8 { --r: 4deg; --dy: 16px; }
+.fx .sorter-pile .pg {
+  --pw: min(76px, 19cqi);
+}
+.fx .sorter-pile .pg + .pg {
+  margin-left: calc(var(--pw) * -0.5);
+}
+.fx .pg-face {
+  position: absolute;
+  inset: 0;
+  padding: 12% 10% 0;
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  border-left-width: 3px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 8px 16px -10px rgba(20, 40, 24, 0.45);
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.9s var(--ease) 0.2s, border-color 0.6s var(--ease);
+}
+.fx .pg-face::after {
+  content: "";
+  position: absolute;
+  inset: 36% 12% 12%;
+  background: repeating-linear-gradient(to bottom, #dde8d9 0 1.5px, transparent 1.5px 7px);
+}
+.fx .pg-title {
+  display: block;
+  color: var(--ink-2);
+  font-size: calc(var(--pw) * 0.13);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.fx .sorter[data-state="after"] .pg-face {
+  transform: none;
+}
+.fx .sorter[data-state="after"] .pg[data-to="1"] .pg-face {
+  border-left-color: var(--g1);
+}
+.fx .sorter[data-state="after"] .pg[data-to="2"] .pg-face {
+  border-left-color: var(--g2);
+}
+.fx .sorter[data-state="after"] .pg[data-to="3"] .pg-face {
+  border-left-color: var(--g3);
+}
+.fx .sorter[data-state="after"] .pg[data-to="4"] .pg-face {
+  border-left-color: var(--g4);
+}
+.fx .sorter[data-state="after"] .pg[data-to="5"] .pg-face {
+  border-left-color: var(--g5);
+}
+.fx .sorter-result {
+  display: grid;
+}
+.fx .sorter-result > * {
+  grid-area: 1 / 1;
+}
+.fx .sorter-todo {
+  align-self: center;
+  transition: opacity 0.4s var(--ease), visibility 0.4s;
+}
+.fx .sorter-todo ol {
+  margin-top: 12px;
+  counter-reset: todo;
+}
+.fx .sorter-todo li {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: 15px;
+  counter-increment: todo;
+}
+.fx .sorter-todo li::before {
+  content: counter(todo, decimal-leading-zero);
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.fx .times {
+  margin-left: auto;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #e4ede1;
+  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.fx .sorter[data-state="after"] .sorter-todo {
+  opacity: 0;
+  visibility: hidden;
+}
+.fx .sg {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding-block: 10px;
+  border-top: 1px solid var(--line);
+  transition: border-color 0.4s;
+}
+.fx .sg:first-child {
+  border-top-color: transparent;
+}
+.fx .sg-pages {
+  display: flex;
+  min-height: calc(38px * 1.414);
+}
+.fx .sg-pages .pg {
+  --pw: 38px;
+  top: 0;
+}
+.fx .sg-pages .pg + .pg {
+  margin-left: -20px;
+}
+.fx .sg-pages .pg-title {
+  visibility: hidden;
+}
+.fx .sg-meta {
+  transition: opacity 0.5s var(--ease) 0.4s;
+}
+.fx .sg-name {
+  min-height: 1.6em;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.fx .sg-rest {
+  visibility: hidden;
+}
+.fx .sg-name.is-typing .sg-typed::after {
+  content: "";
+  display: inline-block;
+  width: 1.5px;
+  height: 1em;
+  margin-left: 2px;
+  margin-right: -3.5px; 
+  background: var(--accent);
+  vertical-align: -2px;
+  animation: fx-blink 0.9s steps(1) infinite;
+}
+.fx .sg-sub {
+  margin-top: 2px;
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.fx .sorter[data-state="before"] .sg {
+  border-top-color: transparent;
+}
+.fx .sorter[data-state="before"] .sg-meta {
+  opacity: 0;
+  transition-delay: 0s;
+}
+.fx .sorter[data-state="before"] [data-when="after"]:not(.sorter-foot), .fx .sorter[data-state="after"] [data-when="before"]:not(.sorter-todo, .fx .sorter-note > *) {
+  display: none;
+}
+.fx .sorter[data-state="before"] .sorter-foot {
+  visibility: hidden;
+}
+.fx .sorter-foot {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--accent-deep);
+  font-weight: 700;
+}
+.fx .sorter[data-state="after"] .sorter-foot {
+  animation: fx-rise 0.8s var(--ease) both 0.6s;
+}
+html:not(.js) .fx .sorter-result > * {
+  grid-area: auto;
+}
+html:not(.js) .fx .sorter .sg-meta {
+  opacity: 1;
+}
+html:not(.js) .fx .seg {
+  display: none;
+}
+.fx .timechart {
+  margin: 48px 0 0;
+  padding: clamp(20px, 3vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.fx .tc-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-bottom: 20px;
+}
+.fx .tc-title {
+  font-weight: 700;
+}
+.fx .tc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+.fx .tc-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.fx .tc-key {
+  width: 14px;
+  height: 10px;
+  border-radius: 0 3px 3px 0;
+}
+.fx .tc-key.is-before, .fx .tc-bar.is-before {
+  background: var(--chart-before);
+}
+.fx .tc-key.is-after, .fx .tc-bar.is-after {
+  background: var(--chart-after);
+}
+.fx .tc-bar.is-before {
+  --r: 1;
+}
+.fx .tc-row.is-one .tc-bar.is-after {
+  --r: calc(2 / 15);
+}
+.fx .tc-row.is-ten .tc-bar.is-after {
+  --r: calc(15 / 150);
+}
+.fx .tc-row {
+  display: grid;
+  grid-template-columns: 11em minmax(0, 1fr) 10em;
+  align-items: center;
+  gap: 16px 28px;
+  padding-block: 24px;
+  border-top: 1px solid var(--line);
+}
+.fx .tc-label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.fx .tc-label span {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 500;
+}
+.fx .tc-bars {
+  display: grid;
+  gap: 10px;
+}
+.fx .tc-line {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+.fx .tc-series {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 700;
+}
+.fx .tc-track {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.fx .tc-bar {
+  flex: none;
+  width: calc((100% - 5.5em) * var(--r));
+  min-width: 6px;
+  height: 20px;
+  border-radius: 0 4px 4px 0;
+  transform-origin: left center;
+  transition: transform 1.1s var(--ease);
+}
+.fx .tc-bar.is-after {
+  transition-delay: 0.35s;
+}
+html.js .fx .timechart:not(.is-in) .tc-bar {
+  transform: scaleX(0);
+}
+.fx .tc-val {
+  flex: none;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.fx .tc-bar.is-after + .tc-val {
+  font-size: 19px;
+}
+.fx .tc-delta {
+  justify-self: end;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.fx .tc-note {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.7;
+}
+@media (max-width: 860px) {
+.fx .sorter-stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 720px) {
+.fx .sorter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+.fx .seg button {
+    min-width: 0;
+  }
+.fx .sorter-pile {
+    min-height: 116px;
+  }
+.fx .sg {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 12px;
+  }
+.fx .sg-pages .pg {
+    --pw: 30px;
+  }
+.fx .sg-pages .pg + .pg {
+    margin-left: -16px;
+  }
+.fx .sg-pages {
+    min-height: calc(30px * 1.414);
+  }
+.fx .sg-name {
+    font-size: 13px;
+  }
+.fx .tc-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+.fx .tc-line {
+    grid-template-columns: 4.8em minmax(0, 1fr);
+    gap: 8px;
+  }
+.fx .tc-delta {
+    justify-self: start;
+  }
+}
+.fx .flow {
+  background: linear-gradient(180deg, var(--bg-soft) 0%, #fff 100%);
+}
+.fx .steps {
+  display: grid;
+  gap: clamp(72px, 9vw, 120px);
+  margin-top: 64px;
+}
+.fx .step {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+}
+.fx .step:nth-child(even) {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+}
+.fx .step:nth-child(even) .step-text {
+  order: 2;
+}
+.fx .step-no {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+.fx .step-no .num {
+  padding: 2px 10px;
+  border: 1px solid var(--accent-mist);
+  border-radius: 999px;
+  font-size: 12px;
+}
+.fx .step h3 {
+  margin-top: 16px;
+  font-size: clamp(22px, 2.3vw, 28px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+.fx .step-text > p:not(.step-no) {
+  margin-top: 16px;
+  color: var(--ink-2);
+}
+.fx .ticks {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.fx .ticks li {
+  position: relative;
+  padding-left: 24px;
+}
+.fx .ticks li::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 2px;
+  width: 10px;
+  height: 6px;
+  border-bottom: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+  transform: rotate(-45deg);
+}
+.fx .bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(32px, 4vw, 48px) clamp(20px, 2.4vw, 32px);
+  margin-top: 56px;
+}
+.fx .feat {
+  grid-column: span 5;
+}
+.fx .feat.is-wide {
+  grid-column: span 7;
+}
+.fx .feat h3 {
+  margin-top: 22px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.fx .feat > p {
+  max-width: 36em;
+  margin-top: 8px;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+.fx .trust {
+  background: var(--bg-deep);
+  color: #e4ede1;
+}
+.fx .trust-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(40px, 6vw, 96px);
+}
+.fx .trust .eyebrow {
+  color: #a9c79c;
+}
+.fx .trust .lead {
+  color: #a9b8a5;
+}
+.fx .trust-list li {
+  padding-block: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.fx .trust-list li:first-child {
+  padding-top: 8px;
+  border-top: 0;
+}
+.fx .trust-list h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.fx .trust-list p {
+  margin-top: 8px;
+  color: #a9b8a5;
+  font-size: 15px;
+}
+.fx .cta-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: end;
+  gap: 40px;
+}
+.fx .cta h2 {
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+}
+.fx .cta-side {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+.fx .cta-env {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+.fx .site-footer {
+  padding-block: 40px 44px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-3);
+  font-size: 13px;
+}
+.fx .footer-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 20px 40px;
+}
+.fx .footer-brand {
+  color: var(--ink);
+  font-weight: 700;
+}
+.fx .footer-about p + p {
+  margin-top: 4px;
+}
+.fx .footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+.fx .footer-nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+@media (max-width: 860px) {
+.fx .footer-nav {
+    gap: 0 20px;
+  }
+.fx .footer-nav a {
+    display: inline-block;
+    padding-block: 10px;
+  }
+}
+.fx .footer-nav a:hover {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.fx .footer-copy {
+  grid-column: 1 / -1;
+  font-size: 12px;
+}
+@media (max-width: 860px) {
+.fx .step, .fx .step:nth-child(even), .fx .trust-grid, .fx .cta-grid, .fx .footer-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+.fx .step:nth-child(even) .step-text {
+    order: 0;
+  }
+.fx .feat, .fx .feat.is-wide {
+    grid-column: 1 / -1;
+  }
+}
+.fx .batch {
+  padding-top: 0;
+}
+.fx .batch-wrap {
+  padding-top: clamp(64px, 8vw, 104px);
+  border-top: 1px solid var(--line);
+}
+.fx .batch-wrap .section-head {
+  max-width: none;
+}
+.fx .batch-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+  margin-top: 48px;
+}
+.fx .batch-points {
+  display: grid;
+  gap: 14px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.fx .batch-points li {
+  position: relative;
+  padding-left: 24px;
+}
+.fx .batch-points li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  width: 10px;
+  height: 6px;
+  border-bottom: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+  transform: rotate(-45deg);
+}
+.fx .batch-visual {
+  padding: clamp(18px, 2.4vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.fx .bt-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+.fx .bt-title {
+  font-weight: 700;
+}
+.fx .bt-mix {
+  display: flex;
+  gap: 6px;
+}
+.fx .bt-mix > span {
+  padding: 1px 10px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 700;
+}
+.fx .bt-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+.fx .bt-tab {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 10px 10px 8px;
+  border: 1px solid var(--line);
+  border-bottom-width: 3px;
+  border-radius: 10px;
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+.fx .bt-id {
+  font-size: 12px;
+  font-weight: 700;
+}
+.fx .bt-file {
+  overflow: hidden;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fx .bt-state {
+  display: grid;
+  align-items: center;
+  min-height: 18px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.fx .bt-state > * {
+  grid-area: 1 / 1;
+  visibility: hidden;
+}
+.fx .bt-wait {
+  color: var(--ink-3);
+}
+.fx .bt-done {
+  color: var(--accent-deep);
+}
+.fx .bt-run {
+  height: 4px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--line);
+}
+.fx .bt-run span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+  animation: fx-bt-flow 1.2s ease-in-out infinite;
+}
+@keyframes fx-bt-flow {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+.fx .bt-tab:not(.is-run) .bt-run span {
+  animation: none;
+}
+.fx .bt-tab.is-wait .bt-wait, .fx .bt-tab.is-run .bt-run, .fx .bt-tab.is-done .bt-done {
+  visibility: visible;
+}
+.fx .bt-tab.is-run {
+  border-color: var(--accent-mist);
+  background: var(--accent-soft);
+}
+.fx .bt-tab.is-done {
+  border-bottom-color: var(--accent);
+}
+.fx .bt-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.fx .bt-summary {
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.fx .bt-save {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--ink-3);
+  font-weight: 700;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease);
+}
+.fx .batch-visual.is-all-done .bt-save {
+  background: var(--ink);
+  color: #fff;
+}
+.fx .hero-meta .is-key {
+  color: var(--accent-deep);
+  font-weight: 700;
+}
+.fx .todo-foot {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line-2);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+@media (max-width: 860px) {
+.fx .batch-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 560px) {
+.fx .bt-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.fx .rename-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 88px);
+}
+.fx .rename-text {
+  order: 2;
+}
+.fx .rename-text .batch-points {
+  margin-top: 28px;
+}
+.fx .rename-visual {
+  padding: clamp(18px, 2.4vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.fx .rn-head, .fx .rn-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: 16px;
+}
+.fx .rn-head {
+  padding-bottom: 10px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.fx .rn-list li {
+  padding-block: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.fx .rn-from {
+  position: relative;
+  overflow: hidden;
+  padding-right: 22px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fx .rn-from::after {
+  content: "→";
+  position: absolute;
+  right: 0;
+  color: var(--line-2);
+}
+.fx .rn-to {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.8s var(--ease);
+}
+.fx .rn-list li.is-done .rn-to {
+  clip-path: inset(0 0 0 0);
+}
+.fx .rn-list li.is-done .rn-from {
+  text-decoration: line-through;
+  text-decoration-color: var(--line-2);
+}
+html:not(.js) .fx .rn-to {
+  clip-path: none;
+}
+.fx .faq {
+  background: var(--bg-soft);
+}
+.fx .faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: start;
+  gap: clamp(32px, 5vw, 72px);
+}
+.fx .faq-list {
+  border-top: 1px solid var(--line-2);
+}
+.fx .faq-item {
+  border-bottom: 1px solid var(--line-2);
+}
+.fx .faq-item summary {
+  position: relative;
+  display: block;
+  padding: 20px 44px 20px 0;
+  font-weight: 700;
+  line-height: 1.6;
+  list-style: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.fx .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.fx .faq-item summary:hover {
+  color: var(--accent-deep);
+}
+.fx .faq-item summary::before, .fx .faq-item summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink-2);
+  transition: transform 0.3s var(--ease);
+}
+.fx .faq-item summary::after {
+  transform: rotate(90deg);
+}
+.fx .faq-item[open] summary::after {
+  transform: rotate(0deg);
+}
+.fx .faq-item p {
+  padding: 0 44px 22px 0;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+@media (max-width: 860px) {
+.fx .rename-grid, .fx .faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+.fx .rename-text {
+    order: 0;
+  }
+}
+@media (max-width: 560px) {
+.fx .rn-head {
+    display: none;
+  }
+.fx .rn-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+.fx .rn-from::after {
+    content: none;
+  }
+.fx .faq-item summary {
+    padding-right: 36px;
+  }
+.fx .faq-item p {
+    padding-right: 0;
+  }
+}
+.fx .pv {
+  padding-bottom: 0;
+}
+.fx .pv-frame {
+  margin: 40px 0 0;
+}
+.fx .pv-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg-soft) url("20260927-fax-splitter-pv-poster.jpg") center / cover no-repeat;
+  box-shadow: var(--shadow);
+}
+.fx .pv-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fx .pv-toggle {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 18px 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(26, 36, 25, 0.74);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: background 0.2s, transform 0.2s var(--ease);
+}
+.fx .pv-toggle:hover {
+  background: rgba(26, 36, 25, 0.9);
+}
+.fx .pv-toggle:active {
+  transform: scale(0.97);
+}
+.fx .pv-toggle:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+.fx .pv-toggle svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.fx .pv-icon-play {
+  fill: currentColor;
+}
+.fx .pv-icon-pause {
+  display: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+.fx .pv-media.is-playing .pv-icon-play {
+  display: none;
+}
+.fx .pv-media.is-playing .pv-icon-pause {
+  display: block;
+}
+@media (max-width: 560px) {
+.fx .pv-frame {
+    margin-top: 28px;
+  }
+.fx .pv-media {
+    border-radius: 18px;
+  }
+.fx .pv-toggle {
+    right: 10px;
+    bottom: 10px;
+    padding: 6px 14px 6px 10px;
+    font-size: 12px;
+  }
+}
+.fx .mock {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.fx .mock svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.fx .mock-bar {
+  display: flex;
+  gap: 6px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.fx .mock-tab {
+  padding: 3px 12px;
+  border-radius: 999px;
+  color: var(--ink-3);
+  font-weight: 700;
+}
+.fx .mock-tab.is-on {
+  background: var(--ink);
+  color: #fff;
+}
+.fx .chip {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+.fx .chip-line {
+  border: 1px solid var(--line-2);
+  background: #fff;
+  color: var(--ink-2);
+}
+.fx .drop {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin: 18px;
+  padding: 32px 20px;
+  border: 1.5px dashed var(--accent-mist);
+  border-radius: 16px;
+  background: var(--accent-soft);
+  text-align: center;
+}
+.fx .drop-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 14px 24px -16px rgba(20, 40, 24, 0.5);
+  color: var(--accent-deep);
+  animation: fx-drop-in 3.8s var(--ease) infinite;
+}
+.fx .drop-file-name {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.fx .drop-file-size {
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.fx .drop-text {
+  color: var(--ink-2);
+  font-weight: 700;
+}
+.fx .drop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.fx .queue {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 18px 18px;
+}
+.fx .queue-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-bottom: 2px solid var(--line);
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 700;
+}
+.fx .queue-tab.is-done {
+  border-bottom-color: var(--accent);
+  color: var(--ink);
+}
+.fx .queue-bar {
+  width: 56px;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--line);
+}
+.fx .queue-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  animation: fx-progress 3.8s var(--ease) infinite;
+}
+@keyframes fx-drop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-36px) rotate(-5deg);
+  }
+  22%,
+  78% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes fx-progress {
+  from {
+    transform: scaleX(0.08);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.fx .mock-review {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr) minmax(0, 1.3fr);
+  min-height: 300px;
+}
+.fx .rv-pages {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border-right: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+.fx .rv-pg {
+  width: 30px;
+  aspect-ratio: 1 / 1.414;
+  border: 1px solid var(--line-2);
+  border-left: 3px solid var(--c);
+  border-radius: 3px;
+  background: #fff;
+  animation: fx-pick 8s steps(1) infinite;
+  animation-delay: calc(var(--i) * 1s);
+}
+@keyframes fx-pick {
+  0% {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  12.5% {
+    outline: 2px solid transparent;
+  }
+}
+.fx .rv-main {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 12px;
+}
+.fx .rv-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.fx .rv-tools span {
+  padding: 1px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink-2);
+  font-size: 11px;
+}
+.fx .rv-sheet {
+  position: relative;
+  aspect-ratio: 1 / 1.1;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+}
+.fx .rv-sheet-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+}
+.fx .rv-sheet-lines {
+  position: absolute;
+  inset: 36px 12px 12px;
+  background: repeating-linear-gradient(to bottom, var(--line) 0 1.5px, transparent 1.5px 9px);
+}
+.fx .rv-split {
+  justify-self: start;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--accent-deep);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+.fx .rv-out {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 6px;
+  padding: 12px;
+  border-left: 1px solid var(--line);
+}
+.fx .rv-pg:nth-child(1) { --i: 0; --c: var(--g1); }
+.fx .rv-pg:nth-child(2) { --i: 1; --c: var(--g2); }
+.fx .rv-pg:nth-child(3) { --i: 2; --c: var(--g2); }
+.fx .rv-pg:nth-child(4) { --i: 3; --c: var(--g3); }
+.fx .rv-pg:nth-child(5) { --i: 4; --c: var(--g3); }
+.fx .rv-pg:nth-child(6) { --i: 5; --c: var(--g3); }
+.fx .rv-pg:nth-child(7) { --i: 6; --c: var(--g4); }
+.fx .rv-pg:nth-child(8) { --i: 7; --c: var(--g5); }
+.fx .rv-out li:nth-child(1) { --c: var(--g1); }
+.fx .rv-out li:nth-child(2) { --c: var(--g2); }
+.fx .rv-out li:nth-child(3) { --c: var(--g3); }
+.fx .rv-out li:nth-child(4) { --c: var(--g4); }
+.fx .rv-out li:nth-child(5) { --c: var(--g5); }
+.fx .rv-out li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--c);
+  border-radius: 8px;
+}
+.fx .rv-out li.is-current {
+  border-color: var(--accent-mist);
+  border-left-color: var(--c);
+  background: var(--accent-soft);
+}
+.fx .rv-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fx .rv-count {
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.fx .rv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent-deep);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.fx .rv-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: fx-breathe 2s ease-in-out infinite;
+}
+.fx .mock-save {
+  padding: 18px;
+}
+.fx .sv-target {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--bg-soft);
+}
+.fx .sv-opt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 9px;
+  color: var(--ink-3);
+  font-weight: 700;
+}
+.fx .sv-opt.is-on {
+  background: #fff;
+  box-shadow: 0 4px 10px -6px rgba(20, 40, 24, 0.4);
+  color: var(--accent-deep);
+}
+.fx .sv-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-top: 12px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.fx .sv-remember {
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+}
+.fx .sv-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 8px;
+}
+.fx .sv-list li:nth-child(3) { --i: 1; }
+.fx .sv-list li:nth-child(4) { --i: 2; }
+.fx .sv-list li:nth-child(5) { --i: 3; }
+.fx .sv-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+}
+.fx .sv-check {
+  position: relative;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--line-2);
+  border-radius: 50%;
+  animation: fx-saved 6s var(--ease) infinite;
+  animation-delay: calc(var(--i, 0) * 0.5s);
+}
+.fx .sv-check::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 7px;
+  height: 4px;
+  border-bottom: 1.5px solid #fff;
+  border-left: 1.5px solid #fff;
+  transform: rotate(-45deg);
+}
+@keyframes fx-saved {
+  0%,
+  8% {
+    border-color: var(--line-2);
+    background: #fff;
+  }
+  14%,
+  88% {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+  100% {
+    border-color: var(--line-2);
+    background: #fff;
+  }
+}
+.fx .sv-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fx .sv-tag {
+  flex: none;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 700;
+}
+.fx .sv-list li.is-skip .sv-name {
+  color: var(--ink-3);
+}
+.fx .sv-list li.is-skip .sv-check {
+  border-style: dashed;
+  animation: none;
+}
+.fx .sv-foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.fx .sv-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+}
+@media (max-width: 560px) {
+.fx .mock-review {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+.fx .rv-out {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+.fx .rv-sheet {
+    aspect-ratio: 1 / 0.8;
+  }
+}
+.fx .feat-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  padding: clamp(24px, 3vw, 40px);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg-soft);
+}
+.fx .feat-visual svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.fx .feat-visual[data-name-rule] {
+  align-content: center;
+  gap: 16px;
+}
+.fx .nr-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.fx .nr-chip {
+  padding: 6px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition: opacity 0.4s var(--ease), color 0.4s;
+}
+.fx .nr-chip.is-off {
+  color: var(--ink-3);
+  text-decoration: line-through;
+  opacity: 0.45;
+}
+.fx .nr-opts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+.fx .nr-opts b {
+  color: var(--ink-2);
+}
+.fx .nr-dot {
+  width: 3px;
+  height: 3px;
+  margin-inline: 6px;
+  border-radius: 50%;
+  background: var(--line-2);
+}
+.fx .nr-out {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 12px 18px;
+  border: 1px solid var(--accent-mist);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 16px 30px -22px rgba(20, 40, 24, 0.5);
+  color: var(--accent-deep);
+}
+.fx .nr-out span {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  word-break: break-all;
+  transition: opacity 0.3s var(--ease);
+}
+.fx .nr-out.is-swapping span {
+  opacity: 0;
+}
+.fx .orient {
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.fx .orient-case {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+.fx .orient-pg {
+  position: relative;
+  display: block;
+  width: 64px;
+  aspect-ratio: 1 / 1.414;
+  padding: 8px 7px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 10px 18px -12px rgba(20, 40, 24, 0.5);
+  font-size: 9px;
+  font-weight: 700;
+}
+.fx .orient-pg::after {
+  content: "";
+  position: absolute;
+  inset: 30% 12% 12%;
+  background: repeating-linear-gradient(to bottom, #dde8d9 0 1.5px, transparent 1.5px 6px);
+}
+.fx .orient-pg.is-auto {
+  animation: fx-upright 4.8s var(--ease) infinite;
+}
+.fx .orient-pg.is-hold {
+  transform: rotate(-90deg);
+}
+.fx .orient-pg.is-hold::before {
+  content: "要確認";
+  position: absolute;
+  top: -10px;
+  right: -26px;
+  z-index: 1;
+  padding: 0 6px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--accent-deep);
+  font-size: 10px;
+  transform: rotate(90deg);
+}
+.fx .orient-caption {
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+}
+@keyframes fx-upright {
+  0%,
+  18% {
+    transform: rotate(180deg);
+  }
+  42%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.fx .ex-doc {
+  position: relative;
+  display: grid;
+  width: min(100%, 340px);
+  padding: 8px 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 16px 30px -22px rgba(20, 40, 24, 0.5);
+}
+.fx .ex-row {
+  display: grid;
+  grid-template-columns: 4.5em minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 13px;
+}
+.fx .ex-row + .ex-row {
+  border-top: 1px solid var(--line);
+}
+.fx .ex-row dt {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+.fx .ex-row dd {
+  overflow: hidden;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fx .ex-row.is-drop dd {
+  color: var(--ink-3);
+  text-decoration: line-through;
+}
+.fx .ex-row.is-hit dd {
+  color: var(--accent-deep);
+  white-space: normal;
+}
+.fx .ex-from, .fx .ex-to {
+  display: block;
+}
+.fx .ex-from {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+.fx .ex-tag {
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 700;
+}
+.fx .ex-row.is-hit .ex-tag {
+  background: var(--accent-deep);
+  color: #fff;
+}
+.fx .ex-scan {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 36px;
+  background: linear-gradient(180deg, transparent, rgba(74, 112, 69, 0.1), transparent);
+  animation: fx-scan 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes fx-scan {
+  0% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(160px);
+  }
+}
+.fx .ms-strip {
+  --ms-w: clamp(44px, 6vw, 64px);
+  --ms-gap: 10px;
+  position: relative;
+  display: flex;
+  gap: var(--ms-gap);
+  padding-block: 28px 12px;
+}
+.fx .ms-pg {
+  position: relative;
+  width: var(--ms-w);
+  aspect-ratio: 1 / 1.414;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 10px 18px -14px rgba(20, 40, 24, 0.5);
+}
+.fx .ms-pg::after {
+  content: "";
+  position: absolute;
+  inset: 22% 14% 14%;
+  background: repeating-linear-gradient(to bottom, #dde8d9 0 1.5px, transparent 1.5px 6px);
+}
+.fx .ms-memo {
+  position: absolute;
+  top: 6%;
+  left: 8%;
+  z-index: 1;
+  color: var(--memo);
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.fx .ms-cut {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(3 * (var(--ms-w) + var(--ms-gap)) - var(--ms-gap) / 2 - 1px);
+  width: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  animation: fx-cut 5.6s var(--ease) infinite;
+}
+.fx .ms-cut span {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--accent-deep);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+@keyframes fx-cut {
+  0%,
+  40% {
+    transform: none;
+  }
+  55%,
+  92% {
+    transform: translateX(calc(2 * (var(--ms-w) + var(--ms-gap))));
+  }
+  100% {
+    transform: none;
+  }
+}
+@media (max-width: 560px) {
+.fx .ms-strip {
+    --ms-gap: 6px;
+  }
+}
+@media (max-width: 400px) {
+.fx .ms-strip {
+    --ms-w: 34px;
+  }
+}
+    /* 明るい写真なので、記録支援ページと同じ暗さになるよう重ねる色を濃くする */
+    .fixed-photo {
+      background:
+        linear-gradient(180deg, rgba(8,14,11,0.74) 0%, rgba(8,14,11,0.62) 45%, rgba(8,14,11,0.9) 100%),
+        url('images/fax-splitter/hero.jpg') center 70% / cover no-repeat;
+    }
+    .photo-window .fixed-photo {
+      background:
+        linear-gradient(180deg, rgba(8,14,11,0.76), rgba(8,14,11,0.7)),
+        url('images/fax-splitter/hero.jpg') center 70% / cover no-repeat;
+    }
+    .lp-hero :is(h1, p), .photo-window__copy, .fx :is(h2, h3, p, li, summary) { word-break: auto-phrase; }
+    @media (max-width: 680px) {
+      .photo-window .photo-window__copy { font-size: clamp(19px, 5.4vw, 26px); letter-spacing: 0.06em; }
+    }
+    /* ===== 15秒でわかる：ページ上のアニメーション ===== */
+    .fx .pvx-section { padding-top: clamp(88px, 10vw, 128px); }
+    .fx .pvx-frame { margin: 0; }
+    .fx .pvx {
+      --g0: #8a968a; --g1: #4a7045; --g2: #3f7d86; --g3: #b0783a;
+      --g0-bg: #f3f5f2; --g1-bg: #eef5ed; --g2-bg: #eaf4f5; --g3-bg: #fbf3e8;
+      position: relative;
+      overflow: hidden;
+      container-type: inline-size;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 1px 1px, rgba(74,112,69,0.10) 1px, transparent 1.5px) 0 0 / 22px 22px,
+        linear-gradient(180deg, #fbfdfa, #f2f7f1);
+      box-shadow: var(--shadow);
+      color: var(--ink);
+    }
+    .fx .pvx p { margin: 0; max-width: none; }
+    .fx .pvx em { font-style: normal; color: var(--accent); }
+    .fx .pvx-brand { position: absolute; left: 3.2cqw; top: 2.8cqw; font-size: 1.25cqw; font-weight: 700; color: var(--accent-deep); letter-spacing: 0.04em; z-index: 5; transition: opacity .5s; }
+    .fx .pvx-brand span { font-weight: 500; color: var(--ink-3); margin-left: .3em; }
+    .fx .pvx-h { font-size: 3.4cqw; font-weight: 700; line-height: 1.35; letter-spacing: 0.02em; }
+    .fx .pvx-small { font-size: 1.5cqw; color: var(--ink-2); }
+
+    /* 各場面の文字は、出番のときだけ浮かび上がる */
+    .fx .pvx-copy, .fx .pvx-names, .fx .pvx-safe {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(2cqw);
+      transition: opacity .7s ease, transform .9s cubic-bezier(.2,.7,.2,1);
+      pointer-events: none;
+    }
+    .fx .pvx-copy--mix { right: 8cqw; top: 50%; margin-top: -6cqw; }
+    .fx .pvx-file { display: inline-block; margin-top: 2cqw; padding: .6cqw 1.4cqw; border: 1px solid var(--line); border-radius: 99px; background: #fff; font-size: 1.2cqw; font-weight: 700; }
+    .fx .pvx-file span { font-weight: 400; color: var(--ink-3); margin-left: .6em; }
+    .fx .pvx-copy--split { left: 0; right: 0; top: 11cqw; text-align: center; }
+    .fx .pvx-badge { display: inline-block; margin-bottom: 1.2cqw; padding: .5cqw 1.4cqw; border-radius: 99px; background: var(--accent); color: #fff; font-size: 1.3cqw; font-weight: 700; }
+    .fx .pvx[data-scene="1"] .pvx-copy--mix,
+    .fx .pvx[data-scene="2"] .pvx-copy--split,
+    .fx .pvx[data-scene="3"] .pvx-copy--split,
+    .fx .pvx[data-scene="4"] .pvx-names,
+    .fx .pvx[data-scene="5"] .pvx-safe { opacity: 1; transform: none; }
+    .fx .pvx[data-scene="1"] .pvx-copy--mix { transition-delay: .5s; }
+
+    /* 書類：束（場面1）→ 一列（場面2）→ 利用者ごとに色分け（場面3） */
+    .fx .pvx-pages { position: absolute; inset: 0; }
+    .fx .pvx-pg {
+      position: absolute;
+      width: 7.4cqw;
+      aspect-ratio: 210 / 280;
+      left: calc(20cqw + var(--i) * 0.9cqw);
+      top: calc(50% - 6cqw + var(--i) * 0.5cqw);
+      transform: rotate(var(--r));
+      border: 1.5px solid #cfd8cc;
+      border-radius: 3px;
+      background:
+        repeating-linear-gradient(180deg, transparent 0 0.9cqw, #e3e9e1 0.9cqw 1.05cqw) 0.8cqw 3.2cqw / calc(100% - 1.6cqw) 55% no-repeat,
+        #fff;
+      box-shadow: 0 1cqw 2cqw -1cqw rgba(20,40,24,.25);
+      transition: left 1s cubic-bezier(.2,.7,.2,1), top 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1), border-color .5s, background-color .5s, opacity .6s;
+      transition-delay: calc(var(--i) * 45ms);
+    }
+    .fx .pvx-pg b { display: block; margin: .8cqw .6cqw 0; padding: .2cqw; border: 1px solid #cfd8cc; font-size: .72cqw; font-weight: 700; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .fx .pvx[data-scene="2"] .pvx-pg,
+    .fx .pvx[data-scene="3"] .pvx-pg {
+      left: calc(5.3cqw + var(--i) * 8.8cqw + var(--grp) * 0.9cqw);
+      top: 26cqw;
+      transform: none;
+    }
+    .fx .pvx-pg.g0 { --grp: 0; } .fx .pvx-pg.g1 { --grp: 1; } .fx .pvx-pg.g2 { --grp: 2; } .fx .pvx-pg.g3 { --grp: 3; }
+    .fx .pvx[data-scene="2"] .pvx-pg { left: calc(8cqw + var(--i) * 8.6cqw); }
+    .fx .pvx[data-scene="3"] .pvx-pg.g0 { border-color: var(--g0); background-color: var(--g0-bg); }
+    .fx .pvx[data-scene="3"] .pvx-pg.g1 { border-color: var(--g1); background-color: var(--g1-bg); }
+    .fx .pvx[data-scene="3"] .pvx-pg.g2 { border-color: var(--g2); background-color: var(--g2-bg); }
+    .fx .pvx[data-scene="3"] .pvx-pg.g3 { border-color: var(--g3); background-color: var(--g3-bg); }
+    .fx .pvx[data-scene="4"] .pvx-pg,
+    .fx .pvx[data-scene="5"] .pvx-pg { opacity: 0; top: 30cqw; transform: none; left: calc(8cqw + var(--i) * 8.6cqw); transition-delay: 0s; }
+
+    .fx .pvx-tag, .fx .pvx-cut { position: absolute; opacity: 0; transform: translateY(1cqw); transition: opacity .5s, transform .6s cubic-bezier(.2,.7,.2,1); }
+    .fx .pvx-tag {
+      left: calc(5.3cqw + var(--at) * 8.8cqw + var(--g) * 0.9cqw);
+      top: 22.4cqw;
+      padding: .35cqw 1.1cqw;
+      border: 1.5px solid currentColor;
+      border-radius: 99px;
+      background: #fff;
+      font-size: 1.3cqw;
+      font-weight: 700;
+    }
+    .fx .pvx-tag::before { content: ""; display: inline-block; width: .7cqw; height: .7cqw; margin-right: .5cqw; border-radius: 50%; background: currentColor; vertical-align: .15cqw; }
+    .fx .pvx-tag.g0 { color: var(--g0); } .fx .pvx-tag.g1 { color: var(--g1); } .fx .pvx-tag.g2 { color: var(--g2); } .fx .pvx-tag.g3 { color: var(--g3); }
+    .fx .pvx-cut {
+      left: calc(5.3cqw + var(--at) * 8.8cqw + var(--g) * 0.9cqw - 1.15cqw);
+      top: 24.6cqw;
+      height: 14.6cqw;
+      border-left: 2px dashed var(--accent);
+    }
+    .fx .pvx[data-scene="3"] .pvx-tag,
+    .fx .pvx[data-scene="3"] .pvx-cut { opacity: 1; transform: none; }
+    .fx .pvx[data-scene="3"] .pvx-tag { transition-delay: calc(.15s + var(--at) * 40ms); }
+
+    .fx .pvx-legend { display: none; position: absolute; left: 5cqw; right: 5cqw; bottom: 8cqw; flex-wrap: wrap; gap: 2cqw; opacity: 0; transform: translateY(2cqw); transition: opacity .5s .2s, transform .6s .2s; }
+    .fx .pvx-legend span { font-size: 3cqw; font-weight: 700; padding: .8cqw 2.4cqw; border: 1.5px solid currentColor; border-radius: 99px; background: #fff; }
+    .fx .pvx-legend .g0 { color: var(--g0); } .fx .pvx-legend .g1 { color: var(--g1); } .fx .pvx-legend .g2 { color: var(--g2); } .fx .pvx-legend .g3 { color: var(--g3); }
+
+    /* ファイル名 */
+    .fx .pvx-names { inset: 0; display: grid; grid-template-columns: 30cqw 1fr; align-items: center; gap: 3cqw; padding: 0 5cqw 0 7cqw; }
+    .fx .pvx-chips { display: flex; gap: .8cqw; margin-top: 2cqw; }
+    .fx .pvx-chips span { padding: .4cqw 1.1cqw; border-radius: 99px; background: var(--accent); color: #fff; font-size: 1.15cqw; font-weight: 700; }
+    .fx .pvx-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4cqw; }
+    .fx .pvx-list li {
+      display: grid; grid-template-columns: 3.6cqw 1fr; grid-template-rows: auto auto; column-gap: 1.6cqw;
+      align-items: center;
+      padding: 1.2cqw 1.6cqw;
+      border-left: .45cqw solid var(--g0);
+      border-radius: 1cqw;
+      background: #fff;
+      box-shadow: 0 1cqw 2.4cqw -1.6cqw rgba(20,40,24,.3);
+    }
+    .fx .pvx-list li.g1 { border-left-color: var(--g1); } .fx .pvx-list li.g2 { border-left-color: var(--g2); } .fx .pvx-list li.g3 { border-left-color: var(--g3); }
+    .fx .pvx-ic { grid-row: 1 / 3; width: 3cqw; aspect-ratio: 3/4; border: 1px solid #cfd8cc; border-radius: 2px; background: repeating-linear-gradient(180deg, transparent 0 .5cqw, #e3e9e1 .5cqw .6cqw) .4cqw .8cqw / calc(100% - .8cqw) 60% no-repeat, #fff; }
+    .fx .pvx-name { font-size: 1.75cqw; font-weight: 700; white-space: nowrap; min-height: 1.4em; }
+    .fx .pvx-name.is-typing::after { content: ""; display: inline-block; width: 2px; height: 1em; margin-left: 2px; background: var(--accent); vertical-align: -.1em; animation: fx-pvxBlink .7s steps(2) infinite; }
+    .fx .pvx-list small { font-size: 1.05cqw; color: var(--ink-3); }
+    @keyframes fx-pvxBlink { 50% { opacity: 0; } }
+
+    /* 保存しない */
+    .fx .pvx-safe { inset: 0; display: grid; place-content: center; justify-items: center; gap: 1cqw; text-align: center; }
+    .fx .pvx-lock { width: 9cqw; aspect-ratio: 1; display: grid; place-items: center; margin-bottom: 1.2cqw; border-radius: 50%; background: var(--accent-soft); box-shadow: 0 0 0 1.6cqw rgba(74,112,69,.06); }
+    .fx .pvx-lock svg { width: 4.4cqw; fill: none; stroke: var(--accent-deep); stroke-width: 1.6; stroke-linejoin: round; }
+
+    /* 進み具合と一時停止 */
+    .fx .pvx-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(74,112,69,.12); z-index: 6; }
+    .fx .pvx-progress span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .05s linear; }
+    .fx .pvx-toggle {
+      display: block; margin: 16px auto 0; padding: 8px 20px;
+      border: 1px solid var(--line); border-radius: 99px; background: #fff;
+      font: inherit; font-size: 13px; font-weight: 700; color: var(--accent-deep); cursor: pointer;
+    }
+
+    /* スマホ：縦長の画面に組み替える */
+    @container (max-width: 640px) {
+      .fx .pvx-h { font-size: 6.4cqw; }
+      .fx .pvx-small { font-size: 3.4cqw; }
+      .fx .pvx-brand { font-size: 3.2cqw; left: 5cqw; top: 5cqw; }
+      .fx .pvx-copy--mix { left: 6cqw; right: 6cqw; top: 14cqw; margin: 0; text-align: left; }
+      .fx .pvx-file { font-size: 3cqw; padding: 1.2cqw 2.8cqw; }
+      .fx .pvx-copy--split { top: 14cqw; }
+      .fx .pvx-badge { font-size: 3cqw; padding: 1cqw 3cqw; }
+      .fx .pvx-pg { width: 17cqw; left: calc(28cqw + var(--i) * 2cqw); top: calc(62cqw + var(--i) * 1cqw); }
+      .fx .pvx-pg b { font-size: 1.7cqw; margin: 1.8cqw 1.2cqw 0; }
+      .fx .pvx[data-scene="2"] .pvx-pg, .fx .pvx[data-scene="3"] .pvx-pg,
+      .fx .pvx[data-scene="4"] .pvx-pg, .fx .pvx[data-scene="5"] .pvx-pg{
+        left: calc(5cqw + var(--c) * 18.2cqw);
+        top: calc(46cqw + var(--rw) * 36cqw);
+      }
+      .fx .pvx-tag, .fx .pvx-cut { display: none; }
+      .fx .pvx-legend { display: flex; }
+      .fx .pvx[data-scene="3"] .pvx-legend { opacity: 1; transform: none; }
+      .fx .pvx-names { grid-template-columns: 1fr; align-content: center; gap: 5cqw; padding: 0 6cqw; }
+      .fx .pvx-chips { gap: 1.6cqw; margin-top: 3cqw; }
+      .fx .pvx-chips span { font-size: 2.8cqw; padding: .8cqw 2.4cqw; }
+      .fx .pvx-list { gap: 2.4cqw; }
+      .fx .pvx-list li { grid-template-columns: 7cqw 1fr; column-gap: 3cqw; padding: 2.4cqw 3cqw; border-left-width: 1cqw; border-radius: 2cqw; }
+      .fx .pvx-ic { width: 6cqw; }
+      .fx .pvx-name { font-size: 3.1cqw; white-space: normal; }
+      .fx .pvx-list small { font-size: 2.4cqw; }
+      .fx .pvx-lock { width: 20cqw; }
+      .fx .pvx-lock svg { width: 10cqw; }
+    }
+    @media (max-width: 680px) {
+      .fx .pvx { aspect-ratio: 4 / 5; border-radius: 18px; }
+    }
+    .fx { background: #fff; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">Wonder<span>wall</span>.inc</a>
+    <nav class="nav">
+      <a href="index.html">TOP</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="care.html">Care</a>
+      <a href="news.html">News</a>
+      <a href="works.html">Works</a>
+      <a href="contact.html" class="btn-nav">相談する</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">TOP</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="care.html">Care</a>
+  <a href="news.html">News</a>
+  <a href="works.html">Works</a>
+  <a href="contact.html" class="btn-nav">相談する（無料）</a>
+</div>
+
+<!-- ヒーロー -->
+<section class="lp-hero">
+  <div class="fixed-photo" aria-hidden="true"></div>
+  <div class="container">
+    <p class="lp-hero__label">Wonderwall FAX分割</p>
+    <h1 class="lp-hero__title"><span class="line" style="--i: 0"><span>FAXの仕分けは、</span></span><span class="line" style="--i: 1"><span><em class="grad">AIにまかせて。</em></span></span></h1>
+    <p class="lp-hero__sub">届いたFAXも、スキャンした書類の束も、<br>利用者・書類ごとのPDFに。</p>
+    <p class="lp-hero__note">インターネットFAXや複合機でFAXをPDFで受け取っている、居宅介護支援事業所のためのツールです。</p>
+    <div class="lp-hero__actions">
+      <a href="contact.html?type=fax" class="lp-btn lp-btn--primary">導入を相談する →</a>
+      <a href="#compare" class="lp-btn lp-btn--ghost">作業時間をくらべる</a>
+    </div>
+    <span class="powered powered--dark">powered by <b>MONISAPO</b></span>
+  </div>
+</section>
+
+<main class="fx" id="main">
+      <!-- ========== 15秒でわかる（紹介動画をページ上のアニメーションで再構成） ========== -->
+      <section class="section pvx-section" id="movie" aria-labelledby="pvx-title">
+        <div class="wrap">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">流れでわかる</p>
+            <h2 id="pvx-title">混ざったFAXが、<br />利用者ごとのPDFになるまで。</h2>
+          </div>
+          <figure class="pvx-frame" data-reveal>
+            <div class="pvx" data-pvx data-scene="1" role="img" aria-label="混ざったFAXをAIが利用者ごとに分割し、ファイル名を自動で付ける流れのアニメーション。書類の中身はサーバーに保存されません。">
+              <p class="pvx-brand" aria-hidden="true">Wonderwall <span>FAX分割</span></p>
+
+              <!-- 1〜3: 書類の束 → 並ぶ → 利用者ごとに色分け -->
+              <div class="pvx-copy pvx-copy--mix" aria-hidden="true">
+                <p class="pvx-h">利用者も帳票も、<br /><em>混ざったFAX。</em></p>
+                <p class="pvx-file">受信FAX.pdf <span>10ページ</span></p>
+              </div>
+              <div class="pvx-copy pvx-copy--split" aria-hidden="true">
+                <p class="pvx-badge">✦ AI解析</p>
+                <p class="pvx-h"><em>利用者ごと</em>に、自動で分割。</p>
+              </div>
+              <div class="pvx-pages" aria-hidden="true">
+                <span class="pvx-pg g0" style="--i:0;--c:0;--rw:0;--r:-8deg"><b>FAX送付状</b></span>
+                <span class="pvx-pg g1" style="--i:1;--c:1;--rw:0;--r:5deg"><b>サービス提供票</b></span>
+                <span class="pvx-pg g1" style="--i:2;--c:2;--rw:0;--r:-3deg"><b>提供票別表</b></span>
+                <span class="pvx-pg g1" style="--i:3;--c:3;--rw:0;--r:9deg"><b>提供票別表</b></span>
+                <span class="pvx-pg g2" style="--i:4;--c:4;--rw:0;--r:-11deg"><b>居宅サービス計画書（1）</b></span>
+                <span class="pvx-pg g2" style="--i:5;--c:0;--rw:1;--r:4deg"><b>居宅サービス計画書（2）</b></span>
+                <span class="pvx-pg g2" style="--i:6;--c:1;--rw:1;--r:-6deg"><b>週間サービス計画表</b></span>
+                <span class="pvx-pg g3" style="--i:7;--c:2;--rw:1;--r:7deg"><b>サービス提供票</b></span>
+                <span class="pvx-pg g3" style="--i:8;--c:3;--rw:1;--r:-2deg"><b>提供票別表</b></span>
+                <span class="pvx-pg g3" style="--i:9;--c:4;--rw:1;--r:10deg"><b>提供票別表</b></span>
+                <span class="pvx-tag g0" style="--at:0;--g:0">送付状</span>
+                <span class="pvx-tag g1" style="--at:1;--g:1">利用者A</span>
+                <span class="pvx-tag g2" style="--at:4;--g:2">利用者B</span>
+                <span class="pvx-tag g3" style="--at:7;--g:3">利用者C</span>
+                <span class="pvx-cut" style="--at:1;--g:1"></span>
+                <span class="pvx-cut" style="--at:4;--g:2"></span>
+                <span class="pvx-cut" style="--at:7;--g:3"></span>
+                <p class="pvx-legend"><span class="g0">送付状</span><span class="g1">利用者A</span><span class="g2">利用者B</span><span class="g3">利用者C</span></p>
+              </div>
+
+              <!-- 4: ファイル名 -->
+              <div class="pvx-names" aria-hidden="true">
+                <div class="pvx-names__lead">
+                  <p class="pvx-h">ファイル名も、<br /><em>自動で。</em></p>
+                  <p class="pvx-chips"><span>被保険者名</span><span>帳票種別</span><span>対象月</span></p>
+                </div>
+                <ol class="pvx-list">
+                  <li class="g0"><span class="pvx-ic"></span><span class="pvx-name" data-name="FAX送付状（9.25）.pdf"></span><small>1ページ</small></li>
+                  <li class="g1"><span class="pvx-ic"></span><span class="pvx-name" data-name="利用者A　サービス提供票　R8.10（9.25）.pdf"></span><small>3ページ</small></li>
+                  <li class="g2"><span class="pvx-ic"></span><span class="pvx-name" data-name="利用者B　居宅サービス計画書　R8.10（9.24）.pdf"></span><small>3ページ</small></li>
+                  <li class="g3"><span class="pvx-ic"></span><span class="pvx-name" data-name="利用者C　サービス提供票　R8.10（9.25）.pdf"></span><small>3ページ</small></li>
+                </ol>
+              </div>
+
+              <!-- 5: 保存しない -->
+              <div class="pvx-safe" aria-hidden="true">
+                <span class="pvx-lock"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" /><rect x="9" y="11" width="6" height="5" rx="1" /><path d="M10 11V9.5a2 2 0 0 1 4 0V11" /></svg></span>
+                <p class="pvx-small">アップロードしたPDFも、解析結果も、</p>
+                <p class="pvx-h"><em>サーバーに保存されません。</em></p>
+              </div>
+
+              <span class="pvx-progress" aria-hidden="true"><span></span></span>
+            </div>
+            <button type="button" class="pvx-toggle" data-pvx-toggle>一時停止</button>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ========== いまと、使ったあと ========== -->
+      <section class="section compare" id="compare" aria-labelledby="compare-title">
+        <div class="wrap">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">くらべてみる</p>
+            <h2 id="compare-title">15分の作業が、2分に。</h2>
+            <p class="lead">FAXを受け取ったら、編集ソフトで開いて分けて、赤字を入れて、名前を付けて保存する。<br />その作業が、FAX分割ならひとつの画面で終わります。</p>
+          </div>
+
+          <figure class="timechart" data-reveal>
+            <figcaption class="tc-head">
+              <span class="tc-title">作業時間の比較</span>
+              <span class="tc-legend">
+                <span><span class="tc-key is-before" aria-hidden="true"></span>いま</span>
+                <span><span class="tc-key is-after" aria-hidden="true"></span>FAX分割を使ったあと</span>
+              </span>
+            </figcaption>
+            <div class="tc-row is-one">
+              <p class="tc-label">1ファイル<span>FAX 1通ぶん</span></p>
+              <div class="tc-bars" aria-hidden="true">
+                <div class="tc-line"><span class="tc-series">いま</span><span class="tc-track"><span class="tc-bar is-before"></span><span class="tc-val"><span class="num">15</span>分</span></span></div>
+                <div class="tc-line"><span class="tc-series">使ったあと</span><span class="tc-track"><span class="tc-bar is-after"></span><span class="tc-val"><span class="num">2</span>分</span></span></div>
+              </div>
+              <p class="tc-delta"><span class="num">13</span>分短縮</p>
+            </div>
+            <div class="tc-row is-ten">
+              <p class="tc-label">10ファイル<span>取り込みもまとめて1回</span></p>
+              <div class="tc-bars" aria-hidden="true">
+                <div class="tc-line"><span class="tc-series">いま</span><span class="tc-track"><span class="tc-bar is-before"></span><span class="tc-val"><span class="num">2.5</span>時間</span></span></div>
+                <div class="tc-line"><span class="tc-series">使ったあと</span><span class="tc-track"><span class="tc-bar is-after"></span><span class="tc-val"><span class="num">15</span>分</span></span></div>
+              </div>
+              <p class="tc-delta"><span class="num">2</span>時間<span class="num">15</span>分短縮</p>
+            </div>
+            <div class="visually-hidden">
+              <table>
+                <caption>作業時間の比較</caption>
+                <thead><tr><th scope="col">件数</th><th scope="col">いま</th><th scope="col">FAX分割を使ったあと</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">1ファイル</th><td>15分</td><td>2分</td></tr>
+                  <tr><th scope="row">10ファイル</th><td>2.5時間</td><td>15分</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="tc-note">※ 導入前後の作業時間の比較例です。書類の枚数・内容や作業環境によって変わります。バーの長さは、件数ごとに「いま」の時間を基準にしています。</p>
+          </figure>
+
+          <div class="sorter" data-sorter data-state="before" data-reveal>
+            <div class="sorter-bar">
+              <p class="sorter-caption">
+                例：FAX <span class="num">1</span>通に、利用者<span class="num">3</span>人分・<span class="num">8</span>ページ
+              </p>
+              <div class="seg" role="group" aria-label="表示の切り替え">
+                <span class="seg-thumb" aria-hidden="true"></span>
+                <button type="button" data-sorter-set="before" aria-pressed="true">いま</button>
+                <button type="button" data-sorter-set="after" aria-pressed="false">使ったあと</button>
+              </div>
+            </div>
+
+            <div class="sorter-stage">
+              <div class="sorter-source">
+                <p class="sorter-label">届いたFAX（PDF 1つ）</p>
+                <div class="sorter-pile" data-slot="pile">
+                  <div class="pg tilt-1" aria-hidden="true" data-to="1"><div class="pg-face"><span class="pg-title">送付状</span></div></div>
+                  <div class="pg tilt-2" aria-hidden="true" data-to="2"><div class="pg-face"><span class="pg-title">提供票</span></div></div>
+                  <div class="pg tilt-3" aria-hidden="true" data-to="2"><div class="pg-face"><span class="pg-title">別表</span></div></div>
+                  <div class="pg tilt-4" aria-hidden="true" data-to="3"><div class="pg-face"><span class="pg-title">計画書 1</span></div></div>
+                  <div class="pg tilt-5" aria-hidden="true" data-to="3"><div class="pg-face"><span class="pg-title">計画書 2</span></div></div>
+                  <div class="pg tilt-6" aria-hidden="true" data-to="3"><div class="pg-face"><span class="pg-title">計画書 3</span></div></div>
+                  <div class="pg tilt-7" aria-hidden="true" data-to="4"><div class="pg-face"><span class="pg-title">保険証</span></div></div>
+                  <div class="pg tilt-8" aria-hidden="true" data-to="5"><div class="pg-face"><span class="pg-title">負担割合</span></div></div>
+                </div>
+                <p class="sorter-note">
+                  <span data-when="before">横向き・逆さまのページもまざっています</span>
+                  <span data-when="after"><span><span class="num big">8</span>ページが <span class="num big">5</span>つのPDFに</span></span>
+                </p>
+              </div>
+
+              <div class="sorter-result">
+                <div class="sorter-todo" data-when="before">
+                  <p class="sorter-label">このあと、手でやること</p>
+                  <ol>
+                    <li>1枚ずつめくって、だれの・どの書類かを見分ける</li>
+                    <li>横向き・逆さまのページを回して直す</li>
+                    <li>編集ソフトで、利用者・書類ごとにページを切り出す<span class="times">×5</span></li>
+                    <li>必要なページに、編集ソフトで赤字を入れる</li>
+                    <li>「氏名・書類名・対象月」を打ち込む<span class="times">×5</span></li>
+                    <li>保存先を開いて、1つずつ保存する<span class="times">×5</span></li>
+                  </ol>
+                  <p class="todo-foot">これを、FAXやスキャンが1通来るたびに、はじめから。</p>
+                </div>
+
+                <ol class="sorter-groups" aria-label="分けられたPDF">
+                  <li class="sg">
+                    <div class="sg-pages" data-slot="1"></div>
+                    <div class="sg-meta">
+                      <p class="sg-name" data-name="送付状（9.26）.pdf">送付状（9.26）.pdf</p>
+                      <p class="sg-sub">送付状は利用者の書類にまぜず、別のファイルに</p>
+                    </div>
+                  </li>
+                  <li class="sg">
+                    <div class="sg-pages" data-slot="2"></div>
+                    <div class="sg-meta">
+                      <p class="sg-name" data-name="利用者A　サービス提供票　R8.10（9.26）.pdf">利用者A　サービス提供票　R8.10（9.26）.pdf</p>
+                      <p class="sg-sub"><span class="num">2</span>ページ・提供票と別表をひとつに</p>
+                    </div>
+                  </li>
+                  <li class="sg">
+                    <div class="sg-pages" data-slot="3"></div>
+                    <div class="sg-meta">
+                      <p class="sg-name" data-name="利用者B　居宅サービス計画書　R8.10（9.24）.pdf">利用者B　居宅サービス計画書　R8.10（9.24）.pdf</p>
+                      <p class="sg-sub"><span class="num">3</span>ページ・横向きのページは向きを直して</p>
+                    </div>
+                  </li>
+                  <li class="sg">
+                    <div class="sg-pages" data-slot="4"></div>
+                    <div class="sg-meta">
+                      <p class="sg-name" data-name="利用者C　介護保険証（9.12）.pdf">利用者C　介護保険証（9.12）.pdf</p>
+                      <p class="sg-sub">同じ人でも、書類がちがえば別のファイルに</p>
+                    </div>
+                  </li>
+                  <li class="sg">
+                    <div class="sg-pages" data-slot="5"></div>
+                    <div class="sg-meta">
+                      <p class="sg-name" data-name="利用者C　負担割合証　R8.8〜R9.7.pdf">利用者C　負担割合証　R8.8〜R9.7.pdf</p>
+                      <p class="sg-sub">有効期間もファイル名に</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <p class="sorter-foot" data-when="after">あなたがやるのは、この一覧を確かめて「一括保存」を押すことだけ。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== まとめて処理（10件） ========== -->
+      <section class="section batch" id="batch" aria-labelledby="batch-title">
+        <div class="wrap batch-wrap">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">まとめて処理</p>
+            <h2 id="batch-title">10件まとめて入れて、<br />終わったものから確かめる。</h2>
+            <p class="lead">PDFの取り込みも1回で済むので、10ファイルなら2.5時間かかっていた作業が15分に。朝たまったFAXも、スキャンした書類の束も、1件ずつ入れて待つ必要はありません。</p>
+          </div>
+          <div class="batch-grid">
+            <ul class="batch-points" data-reveal>
+              <li>一度に<span class="num">10</span>件まで選べる。FAXとスキャンがまざっていても同じように処理</li>
+              <li>1件ずつ別のタブに結果が並び、終わったタブから確かめ・直しができる</li>
+              <li>「全タブ一括保存」で、すべてのタブの結果を一度に保存</li>
+              <li>11件目からは「全タブクリア」をして、次の10件へ。回数の上限はありません</li>
+            </ul>
+
+            <div class="batch-visual" data-live data-batch data-reveal>
+              <div class="bt-head" aria-hidden="true">
+                <p class="bt-title">選んだPDF <span class="num">10</span>件</p>
+                <p class="bt-mix"><span>FAX <span class="num">6</span></span><span>スキャン <span class="num">4</span></span></p>
+              </div>
+              <ol class="bt-tabs" aria-hidden="true">
+                <li class="bt-tab is-done"><span class="bt-id">自1</span><span class="bt-file">fax_0926_0812.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">5</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-done"><span class="bt-id">自2</span><span class="bt-file">scan_計画書_01.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">3</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-done"><span class="bt-id">自3</span><span class="bt-file">fax_0926_0845.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">2</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-done"><span class="bt-id">自4</span><span class="bt-file">fax_0926_0932.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">4</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-run"><span class="bt-id">自5</span><span class="bt-file">scan_提供票_02.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">6</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-run"><span class="bt-id">自6</span><span class="bt-file">fax_0926_1004.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">3</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-wait"><span class="bt-id">自7</span><span class="bt-file">scan_保険証_03.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">2</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-wait"><span class="bt-id">自8</span><span class="bt-file">fax_0926_1015.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">5</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-wait"><span class="bt-id">自9</span><span class="bt-file">fax_0926_1102.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">3</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+                <li class="bt-tab is-wait"><span class="bt-id">自10</span><span class="bt-file">scan_アセスメント_04.pdf</span><span class="bt-state"><span class="bt-done">済/<span class="num">4</span>個</span><span class="bt-run"><span></span></span><span class="bt-wait">待機</span></span></li>
+              </ol>
+              <div class="bt-foot" aria-hidden="true">
+                <p class="bt-summary">済 <span class="num" data-bt-count="done">4</span>件・処理中 <span class="num" data-bt-count="run">2</span>件・待機 <span class="num" data-bt-count="wait">4</span>件</p>
+                <span class="bt-save">全タブ一括保存</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== 分割しないFAXの名前付け ========== -->
+      <section class="section rename" id="rename" aria-labelledby="rename-title">
+        <div class="wrap rename-grid">
+          <div class="rename-text" data-reveal>
+            <div class="section-head">
+              <p class="eyebrow">ふつうのFAXにも</p>
+              <h2 id="rename-title">分けないFAXも、<br />まとめて名前付け。</h2>
+              <p class="lead">利用者が1人だけのFAXでも、取り込むだけで「氏名・書類名・対象月」の名前が付きます。受信したときの名前のまま並んでいるファイルを、10件まとめて読み込んで、名前をそろえて保存できます。</p>
+            </div>
+            <ul class="batch-points">
+              <li>名前の付け方は、事業所で決めたファイル名ルールどおり</li>
+              <li>送付状が付いているFAXは、送付状を別のファイルに</li>
+              <li>付いた名前は、保存する前に1件ずつ直せる</li>
+            </ul>
+          </div>
+
+          <div class="rename-visual" data-live data-rename data-reveal>
+            <div class="rn-head" aria-hidden="true"><span>受信したときの名前</span><span>取り込んだあと</span></div>
+            <ol class="rn-list" aria-hidden="true">
+                <li class="is-done"><span class="rn-from">FAX_20260926_081204.pdf</span><span class="rn-to">利用者A　サービス提供票　R8.10（9.26）.pdf</span></li>
+                <li class="is-done"><span class="rn-from">FAX_20260926_084517.pdf</span><span class="rn-to">利用者B　居宅サービス計画書　R8.10（9.24）.pdf</span></li>
+                <li class="is-done"><span class="rn-from">FAX_20260926_093022.pdf</span><span class="rn-to">利用者C　介護保険証（9.12）.pdf</span></li>
+                <li class="is-done"><span class="rn-from">FAX_20260926_101540.pdf</span><span class="rn-to">利用者D　負担割合証　R8.8〜R9.7.pdf</span></li>
+                <li class="is-done"><span class="rn-from">FAX_20260926_110308.pdf</span><span class="rn-to">利用者E　基本情報（9.25）.pdf</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <div class="photo-window" aria-hidden="true">
+        <div class="fixed-photo"></div>
+        <p class="photo-window__copy reveal-copy">入れる。確かめる。保存する。</p>
+      </div>
+
+      <!-- ========== 使い方 ========== -->
+      <section class="section flow" id="flow" aria-labelledby="flow-title">
+        <div class="wrap">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">使い方</p>
+            <h2 id="flow-title">やることは、3つだけ。</h2>
+            <p class="lead">PCのブラウザで開いて、FAXやスキャンのPDFを入れるところから始めます。</p>
+          </div>
+
+          <ol class="steps">
+            <li class="step" data-reveal>
+              <div class="step-text">
+                <p class="step-no"><span class="num">01</span>入れる</p>
+                <h3>FAXやスキャンのPDFを、まとめて入れる</h3>
+                <p>ドラッグするだけ。FAXで届いたPDFも、複合機でスキャンしたPDFも同じように扱えます。Google Drive から選ぶこともできます。</p>
+                <ul class="ticks">
+                  <li>一度に <span class="num">10</span>件まで。1件ずつ別のタブに結果が並ぶ</li>
+                  <li>1件 <span class="num">20</span>MB・<span class="num">60</span>ページまで</li>
+                  <li>スキャンは <span class="num">200</span>dpi 以上がおすすめ</li>
+                </ul>
+              </div>
+              <div class="step-visual" data-live>
+                <div class="mock mock-drop" aria-hidden="true">
+                  <div class="mock-bar"><span class="mock-tab is-on">自動分割</span><span class="mock-tab">手動分割</span></div>
+                  <div class="drop">
+                    <div class="drop-file">
+                      <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /></svg>
+                      <span class="drop-file-name">fax_0926_0932.pdf</span>
+                      <span class="drop-file-size">8p</span>
+                    </div>
+                    <p class="drop-text">自動分割用PDFをここへドラッグ</p>
+                    <div class="drop-actions"><span class="chip">ファイルを選ぶ</span><span class="chip chip-line">Google Driveから選択</span></div>
+                  </div>
+                  <div class="queue">
+                    <span class="queue-tab is-done">自1 済/5個</span>
+                    <span class="queue-tab is-run">自2 <span class="queue-bar"><span></span></span></span>
+                    <span class="queue-tab">自3 待機</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="step" data-reveal>
+              <div class="step-text">
+                <p class="step-no"><span class="num">02</span>確かめる</p>
+                <h3>分け方の案と、付いた名前を確かめる</h3>
+                <p>ページの一覧、中身のプレビュー、できあがるファイルの一覧が並びます。AIが自信のないファイルには「要確認」が付きます。</p>
+                <ul class="ticks">
+                  <li>このページの後ろで分ける／選んだPDFをまとめる</li>
+                  <li>向きを回す・名前を直す・赤字でメモする</li>
+                </ul>
+              </div>
+              <div class="step-visual" data-live>
+                <div class="mock mock-review" aria-hidden="true">
+                  <div class="rv-pages">
+                    <span class="rv-pg"></span>
+                    <span class="rv-pg"></span>
+                    <span class="rv-pg"></span>
+                    <span class="rv-pg"></span>
+                    <span class="rv-pg"></span>
+                    <span class="rv-pg"></span>
+                    <span class="rv-pg"></span>
+                    <span class="rv-pg"></span>
+                  </div>
+                  <div class="rv-main">
+                    <div class="rv-tools"><span>左90°</span><span>右90°</span><span>拡大</span></div>
+                    <div class="rv-sheet">
+                      <span class="rv-sheet-title">居宅サービス計画書（2）</span>
+                      <span class="rv-sheet-lines"></span>
+                    </div>
+                    <span class="rv-split">このページの後ろで分ける</span>
+                  </div>
+                  <ul class="rv-out">
+                    <li><span class="rv-name">送付状（9.26）</span><span class="rv-count">1p</span></li>
+                    <li><span class="rv-name">利用者A　サービス提供票</span><span class="rv-count">2p</span></li>
+                    <li class="is-current"><span class="rv-name">利用者B　居宅サービス計画書</span><span class="rv-count">3p</span></li>
+                    <li><span class="rv-name">利用者C　介護保険証</span><span class="rv-badge">要確認</span></li>
+                    <li><span class="rv-name">利用者C　負担割合証</span><span class="rv-count">1p</span></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <li class="step" data-reveal>
+              <div class="step-text">
+                <p class="step-no"><span class="num">03</span>保存する</p>
+                <h3>決めた保存先へ、まとめて保存</h3>
+                <p>保存先は、PCのフォルダか Google Drive のフォルダを選べます。一度指定した保存先フォルダは次回も引き継がれるので、毎回フォルダを選び直す必要はありません。</p>
+                <ul class="ticks">
+                  <li>保存先フォルダは、次に開いたときもそのまま</li>
+                  <li>同じ名前のファイルは上書きせず、連番を付けて保存</li>
+                  <li>送付状は一括保存から外しておける</li>
+                </ul>
+              </div>
+              <div class="step-visual" data-live>
+                <div class="mock mock-save" aria-hidden="true">
+                  <div class="sv-target">
+                    <span class="sv-opt is-on">
+                      <svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+                      PCのフォルダ
+                    </span>
+                    <span class="sv-opt">
+                      <svg viewBox="0 0 24 24"><path d="M8.5 4h7l5.5 9.5-3.5 6h-11L3 13.5z" /><path d="M8.5 4 14 13.5h7M3 13.5h11l-3.5 6" /></svg>
+                      Google Drive
+                    </span>
+                  </div>
+                  <p class="sv-path"><span>書類 / FAX受信 / 2026-10</span><span class="sv-remember">前回のフォルダ</span></p>
+                  <ul class="sv-list">
+                    <li class="is-skip"><span class="sv-check"></span><span class="sv-name">送付状（9.26）.pdf</span><span class="sv-tag">除外</span></li>
+                    <li><span class="sv-check"></span><span class="sv-name">利用者A　サービス提供票　R8.10（9.26）.pdf</span></li>
+                    <li><span class="sv-check"></span><span class="sv-name">利用者B　居宅サービス計画書　R8.10（9.24）_002.pdf</span><span class="sv-tag">既存あり</span></li>
+                    <li><span class="sv-check"></span><span class="sv-name">利用者C　介護保険証（9.12）.pdf</span></li>
+                    <li><span class="sv-check"></span><span class="sv-name">利用者C　負担割合証　R8.8〜R9.7.pdf</span></li>
+                  </ul>
+                  <div class="sv-foot"><span class="sv-btn">一括保存（4件）</span></div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ========== 機能 ========== -->
+      <section class="section features" id="features" aria-labelledby="features-title">
+        <div class="wrap">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">機能</p>
+            <h2 id="features-title">細かいところまで、<br />事業所のやり方に合わせて。</h2>
+          </div>
+
+          <div class="bento">
+            <article class="feat is-wide" data-reveal>
+              <div class="feat-visual" data-live data-name-rule>
+                <div class="nr-chips" aria-hidden="true">
+                  <span class="nr-chip" data-key="name">被保険者名</span>
+                  <span class="nr-chip" data-key="type">書類の種類</span>
+                  <span class="nr-chip" data-key="month">対象月</span>
+                  <span class="nr-chip" data-key="issue">発行日</span>
+                </div>
+                <p class="nr-opts" aria-hidden="true">区切り <b data-nr-sep>全角スペース</b><span class="nr-dot"></span>年月 <b data-nr-date>R表記</b></p>
+                <p class="nr-out" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /></svg>
+                  <span data-nr-out>利用者A　サービス提供票　R8.10（9.26）.pdf</span>
+                </p>
+              </div>
+              <h3>ファイル名のルールを、事業所で決める</h3>
+              <p class="pc-lines">入れる項目、並び順、区切り文字、和暦・西暦の書き方を選べます。<br class="pc-br" />「様」を付ける、苗字だけにする、連番を付けるといった細かい決まりにも。</p>
+            </article>
+
+            <article class="feat" data-reveal>
+              <div class="feat-visual orient" data-live aria-hidden="true">
+                <div class="orient-case">
+                  <span class="orient-pg is-auto"><span>計画書</span></span>
+                  <span class="orient-caption">はっきり分かる<br />→ 自動で直す</span>
+                </div>
+                <div class="orient-case">
+                  <span class="orient-pg is-hold"><span>計画書</span></span>
+                  <span class="orient-caption">判断に迷う<br />→ そのまま確認へ</span>
+                </div>
+              </div>
+              <h3>ページの向きを、そろえる</h3>
+              <p class="pc-lines">分けたあと、向きがはっきり分かるページは自動で正しい向きに。<br class="pc-br" />迷うページは勝手に回さず、あなたの確認に回します。</p>
+            </article>
+
+            <article class="feat" data-reveal>
+              <div class="feat-visual exclude" data-live aria-hidden="true">
+                <dl class="ex-doc">
+                  <div class="ex-row is-hit"><dt>被保険者</dt><dd><span class="ex-from">＊＊ ＊＊</span><span class="ex-to">利用者A</span></dd><span class="ex-tag">読み替え</span></div>
+                  <div class="ex-row is-drop"><dt>担当</dt><dd>職員名（ケアマネ）</dd><span class="ex-tag">除外</span></div>
+                  <div class="ex-row is-drop"><dt>宛先</dt><dd>自事業所名</dd><span class="ex-tag">除外</span></div>
+                  <span class="ex-scan"></span>
+                </dl>
+              </div>
+              <h3>職員や自事業所の名前と、まちがえない</h3>
+              <p>職員・ケアマネの名前や自分の事業所名を登録しておくと、利用者名や相手先の事業所名として使いません。「＊＊ ＊＊」のように伏せ字（マスキング）になった利用者名も、読み替えを設定しておけば正しい名前でファイル名に入ります。</p>
+            </article>
+
+            <article class="feat is-wide" data-reveal>
+              <div class="feat-visual manual" data-live aria-hidden="true">
+                <div class="ms-strip">
+                  <span class="ms-pg"></span>
+                  <span class="ms-pg"></span>
+                  <span class="ms-pg"><span class="ms-memo">10/3 再送済</span></span>
+                  <span class="ms-pg"></span>
+                  <span class="ms-pg"></span>
+                  <span class="ms-pg"></span>
+                  <span class="ms-cut"><span>ここで分ける</span></span>
+                </div>
+              </div>
+              <h3>むずかしいPDFは、見ながら手で分ける</h3>
+              <p>AIでは分けにくいPDFは「手動分割」で。ページを見ながら境目を指定し、向き・ファイル名・赤字のメモまで、その場で整えて保存できます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="photo-window" aria-hidden="true">
+        <div class="fixed-photo"></div>
+        <p class="photo-window__copy reveal-copy">安心は、仕組みでつくる。</p>
+      </div>
+
+      <!-- ========== 安心 ========== -->
+      <section class="section trust" id="trust" aria-labelledby="trust-title">
+        <div class="wrap trust-grid">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">安心して使うために</p>
+            <h2 id="trust-title">書類の中身は、<br />残さない。</h2>
+            <p class="lead">利用者の個人情報が載った書類を扱うからこそ、どこに何が送られ、何が残らないのかをはっきりさせています。</p>
+          </div>
+          <ul class="trust-list">
+            <li data-reveal>
+              <h3>アプリのサーバーに保存しない</h3>
+              <p class="pc-lines">入れたPDF、読み取った文字、分けた結果の中身は、アプリのサーバーに保存しません。</p>
+            </li>
+            <li data-reveal>
+              <h3>AIに送るのは、分け方の案をつくるときだけ</h3>
+              <p>自動分割では、分け方の案をつくるためにPDFをAIの解析へ送ります。分けたPDFの書き出しは、お使いのブラウザの中で行います。</p>
+            </li>
+            <li data-reveal>
+              <h3>使える人を、あらかじめ決めておく</h3>
+              <p>管理者が許可したアカウントだけがログインできます。</p>
+            </li>
+            <li data-reveal>
+              <h3>保存先は、自分で選ぶ</h3>
+              <p>PCのフォルダ、ブラウザのダウンロード、または自分で選んだ Google Drive のフォルダ。Google Drive との接続はその場かぎりで、ページを読み込み直すと切れます。</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========== よくある質問 ========== -->
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div class="wrap faq-grid">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">よくある質問</p>
+            <h2 id="faq-title">導入前に、<br />よく聞かれること。</h2>
+          </div>
+          <div class="faq-list" data-reveal>
+            <details class="faq-item">
+              <summary>インターネットFAXのサービスですか？</summary>
+              <p>いいえ。FAXを送ったり受けたりする機能はありません。いまお使いの複合機やインターネットFAXで受け取ったFAXを、PDFのまま取り込んで分割・名前付けするツールです。紙で届いたFAXも、スキャンしてPDFにすれば使えます。FAX番号や契約を変える必要はありません。</p>
+            </details>
+            <details class="faq-item">
+              <summary>スキャンしたPDFでも使えますか？</summary>
+              <p>はい。FAXで届いたPDFと同じように、複合機などでスキャンしたPDFも分割・名前付けできます。文字を読み取りやすくするため、200dpi以上でのスキャンをおすすめします。</p>
+            </details>
+            <details class="faq-item">
+              <summary>利用者が1人だけのFAXでも使えますか？</summary>
+              <p>はい。分割が必要ないFAXでも、取り込むだけで事業所のルールどおりに名前が付くので、受信したFAXの名前付けにも使えます。送付状が付いている場合は、送付状を別のファイルにします。</p>
+            </details>
+            <details class="faq-item">
+              <summary>一度に何件まで処理できますか？</summary>
+              <p>一度に10件まで入れられます。11件目からは「全タブクリア」をしたあとに次の10件を入れられ、回数の上限はありません。1件あたり20MB・60ページまでのPDFに対応しています。</p>
+            </details>
+            <details class="faq-item">
+              <summary>AIの分け方がまちがっていたら？</summary>
+              <p>画面上で、ページを分ける・まとめる・向きを回す・名前を直すことができます。AIが自信のないファイルには「要確認」が付きます。AIでは分けにくいPDFは、ページを見ながら手で分ける「手動分割」も使えます。</p>
+            </details>
+            <details class="faq-item">
+              <summary>書類の中身は保存されますか？</summary>
+              <p>入れたPDF、読み取った文字、分けた結果の中身は、アプリのサーバーに保存しません。自動分割では、分け方の案をつくるためにPDFをAIの解析へ送ります。</p>
+            </details>
+            <details class="faq-item">
+              <summary>スマートフォンやタブレットでも使えますか？</summary>
+              <p>PC専用です。Windows 11 または Mac のPCでお使いください（ブラウザは Google Chrome 最新版をおすすめしています）。スマートフォンやタブレットには対応していません。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== 最後の案内 ========== -->
+      <section class="section cta" aria-labelledby="cta-title">
+        <div class="wrap cta-grid" data-reveal>
+          <h2 id="cta-title">手元のFAXで、<br />試してみませんか。</h2>
+          <div class="cta-side">
+            <a class="btn btn-lg" href="contact.html?type=fax">
+              導入を相談する
+              <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <p>デモのご希望も、お問い合わせフォームで受け付けています。</p>
+            <p class="cta-env">対応環境：Windows 11 または Mac の PC（Google Chrome 最新版を推奨）。スマートフォン・タブレットには対応していません。</p>
+          </div>
+        </div>
+      </section>
+</main>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">Wonder<span>wall</span></div>
+        <p class="footer__desc">介護の現場に、仕組みと余白を。</p>
+        <p class="footer__powered"><span class="powered powered--dark">powered by <b>MONISAPO</b></span></p>
+        <div class="footer__sns">
+          <a href="https://x.com/Wonderwall_0801" target="_blank" rel="noopener" aria-label="X（旧Twitter）">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/wonderwall40801/?hl=ja" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">サービス</div>
+        <ul class="footer__links">
+          <li><a href="services.html">サービス一覧</a></li>
+          <li><a href="about.html">会社概要</a></li>
+          <li><a href="care.html">居宅介護支援</a></li>
+          <li><a href="care-partner.html">Wonderwall 記録支援</a></li>
+          <li><a href="fax-splitter.html">Wonderwall FAX分割</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copyright">© 2026 Wonderwall株式会社. All rights reserved.</div>
+      <a href="privacy.html" class="footer__policy-link">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+<script>
+  /* ===== 15秒でわかる：場面を順に切り替える（画面に入っているときだけ再生） ===== */
+  (function () {
+    var stage = document.querySelector('[data-pvx]');
+    if (!stage) return;
+    var toggle = document.querySelector('[data-pvx-toggle]');
+    var bar = stage.querySelector('.pvx-progress span');
+    var names = [].slice.call(stage.querySelectorAll('.pvx-name'));
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    // 各場面の始まり（ミリ秒）。最後の値が1周の長さ
+    var CUES = [0, 3400, 5800, 9600, 16400, 20400];
+    var t = 0, last = 0, raf = 0, inView = false, userPaused = false, typer = 0;
+
+    var fillNames = function () { names.forEach(function (n) { n.textContent = n.dataset.name; n.classList.remove('is-typing'); }); };
+    var typeNames = function () {
+      clearTimeout(typer);
+      names.forEach(function (n) { n.textContent = ''; });
+      var i = 0, c = 0;
+      var tick = function () {
+        var n = names[i]; if (!n) return;
+        c += 1; n.textContent = n.dataset.name.slice(0, c); n.classList.add('is-typing');
+        if (c >= n.dataset.name.length) { n.classList.remove('is-typing'); i += 1; c = 0; }
+        typer = setTimeout(tick, 36);
+      };
+      typer = setTimeout(tick, 500);
+    };
+    var sceneAt = function (ms) { for (var s = CUES.length - 2; s >= 0; s--) if (ms >= CUES[s]) return s + 1; return 1; };
+    var show = function (scene) {
+      if (stage.dataset.scene === String(scene)) return;
+      stage.dataset.scene = String(scene);
+      if (scene === 4) typeNames(); else if (scene < 4) { clearTimeout(typer); names.forEach(function (n) { n.textContent = ''; }); }
+    };
+    var frame = function () {
+      var now = Date.now();
+      if (last) t = (t + (now - last)) % CUES[CUES.length - 1];
+      last = now;
+      show(sceneAt(t));
+      bar.style.width = (t / CUES[CUES.length - 1] * 100) + '%';
+    };
+    var sync = function () {
+      var play = inView && !userPaused && !reduce.matches && !document.hidden;
+      clearInterval(raf); last = 0;
+      if (play) raf = setInterval(frame, 50); else clearTimeout(typer);
+      toggle.textContent = play ? '一時停止' : '再生する';
+      toggle.hidden = reduce.matches;
+      if (!play && stage.dataset.scene === '4') fillNames();
+    };
+    // 動きを減らす設定では、分けたあとのファイル名の場面で止めておく
+    if (reduce.matches) { show(4); fillNames(); }
+    toggle.addEventListener('click', function () { userPaused = !userPaused; sync(); });
+    var check = function () {
+      var r = stage.getBoundingClientRect(), vh = window.innerHeight;
+      var seen = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+      var now = seen > Math.min(r.height, vh) * 0.4;
+      if (now !== inView) { inView = now; sync(); }
+    };
+    new IntersectionObserver(check, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }).observe(stage);
+    addEventListener('scroll', check, { passive: true });
+    addEventListener('resize', check);
+    check();
+    document.addEventListener('visibilitychange', sync);
+    reduce.addEventListener('change', function () { if (reduce.matches) { show(4); fillNames(); } sync(); });
+    // 確認用：?pvx=3 のように場面を固定して表示
+    var hold = new URLSearchParams(location.search).get('pvx');
+    if (hold) { userPaused = true; show(+hold); fillNames(); }
+  })();
+</script>
+<script>
+  /* ===== ハンバーガーメニュー ===== */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.querySelector('.hamburger').classList.toggle('is-open');
+  }
+  /* ===== 写真の窓の一言を、画面に入ったら浮かび上がらせる ===== */
+  (function () {
+    var els = document.querySelectorAll('.reveal-copy');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+<script>
+// Wonderwall FAX分割 ページの動き（紙のスクロール演出は別ファイル）。
+// スクロール量の監視はせず、IntersectionObserver で画面に入った要素だけを動かす。
+(() => {
+  const doc = document;
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const EASE = "cubic-bezier(.16, 1, .3, 1)";
+  const SORTER_AUTOPLAY_DELAY_MS = 1100;
+  const TYPE_INTERVAL_MS = 26;
+  const NAME_RULE_INTERVAL_MS = 3200;
+
+  // 位置が変わる要素を、変更前の位置から滑らかに動かす（FLIP）。
+  const flip = (elements, mutate, { duration = 760, stagger = 45 } = {}) => {
+    const before = new Map(elements.map((el) => [el, el.getBoundingClientRect()]));
+    // 連打されたときは、途中の動きを止めてから今の見た目の位置を起点にする。
+    for (const el of elements) {
+      for (const running of el.getAnimations()) {
+        if (running.constructor === Animation) running.cancel();
+      }
+    }
+    mutate();
+    if (reduceMotion.matches) return;
+    elements.forEach((el, index) => {
+      const from = before.get(el);
+      const to = el.getBoundingClientRect();
+      if (!to.width || !from.width) return;
+      const dx = from.left - to.left;
+      const dy = from.top - to.top;
+      const scale = from.width / to.width;
+      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(scale - 1) < 0.01) return;
+      el.animate(
+        [{ transform: `translate(${dx}px, ${dy}px) scale(${scale})` }, { transform: "none" }],
+        { duration, delay: index * stagger, easing: EASE, fill: "backwards" },
+      );
+    });
+  };
+
+  // 要素の threshold 割合が見えたとき、または画面の半分を占めたとき（縦に長い要素向け）に一度だけ呼ぶ。
+  const onceVisible = (el, threshold, callback) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const seen = entries.some(
+          (entry) =>
+            entry.isIntersecting &&
+            (entry.intersectionRatio >= threshold || entry.intersectionRect.height >= innerHeight * 0.5),
+        );
+        if (!seen) return;
+        observer.disconnect();
+        callback();
+      },
+      { threshold: [0, 0.1, 0.2, 0.3, 0.4, threshold] },
+    );
+    observer.observe(el);
+  };
+
+  // ---------- 表示されたら浮かび上がる ----------
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add("is-in");
+        revealObserver.unobserve(entry.target);
+      }
+    },
+    { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
+  );
+  for (const el of doc.querySelectorAll("[data-reveal]")) revealObserver.observe(el);
+
+  // ---------- 画面内のときだけ常時アニメーションを動かす ----------
+  const liveObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) entry.target.classList.toggle("is-live", entry.isIntersecting);
+    },
+    { threshold: 0.15 },
+  );
+  for (const el of doc.querySelectorAll("[data-live]")) liveObserver.observe(el);
+
+  // ---------- ヘッダーの下線（ヒーローを過ぎたら）と、ヒーローが画面外のときの案内の動きの停止 ----------
+  const header = doc.querySelector(".site-header");
+  const heroScene = doc.querySelector(".scroll-film-scene");
+  if (header && heroScene) {
+    new IntersectionObserver(
+      ([entry]) => {
+        header.classList.toggle("is-scrolled", entry.intersectionRatio < 0.9);
+        heroScene.classList.toggle("is-away", !entry.isIntersecting);
+      },
+      { threshold: [0, 0.9] },
+    ).observe(heroScene);
+  }
+
+  // ---------- 15秒の紹介動画: 画面に半分入ったら音なしで再生し、外れたら止める ----------
+  // 「動きを減らす」設定では自動再生しない。利用者が止めたら、再び押すまで自動では再生しない。
+  // 読み込めなかったら、それ以降は表示を変えない（「読み込めませんでした」のまま押せなくする）。
+  const setupPv = (box) => {
+    const video = box.querySelector("video");
+    const toggle = box.querySelector("[data-pv-toggle]");
+    const label = box.querySelector("[data-pv-label]");
+    let userPaused = false;
+    let failed = false;
+
+    const sync = () => {
+      if (failed) return;
+      const playing = !video.paused && !video.ended;
+      box.classList.toggle("is-playing", playing);
+      label.textContent = playing ? "一時停止" : "動画を再生";
+    };
+    const tryPlay = () => {
+      if (failed) return;
+      const result = video.play();
+      if (result) result.catch(sync);
+    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          if (!video.paused) video.pause();
+          return;
+        }
+        if (!userPaused && !reduceMotion.matches) tryPlay();
+      },
+      { threshold: 0.5 },
+    );
+    const fail = () => {
+      failed = true;
+      observer.disconnect();
+      video.pause();
+      box.classList.remove("is-playing");
+      label.textContent = "動画を読み込めませんでした";
+      toggle.disabled = true;
+    };
+
+    video.addEventListener("play", sync);
+    video.addEventListener("pause", sync);
+    // 画面幅が合わない候補も error を出すので、最後の候補の error（どれも読めなかった）だけを失敗とみなす。
+    video.querySelector("source:last-of-type").addEventListener("error", fail);
+    toggle.addEventListener("click", () => {
+      if (failed) return;
+      userPaused = !video.paused;
+      if (userPaused) video.pause();
+      else tryPlay();
+    });
+    observer.observe(box);
+    sync();
+  };
+
+  // ---------- 比較: 1 通の FAX が利用者ごとに分かれる ----------
+  // できあがるファイル名を、1 文字ずつ打ち込むように表示する。
+  // まだ打っていない文字も見えない形で置いておき、行数が変わって下の段がずれないようにする。
+  const typedParts = (text, count) => {
+    const typed = doc.createElement("span");
+    typed.className = "sg-typed";
+    typed.textContent = text.slice(0, count);
+    const rest = doc.createElement("span");
+    rest.className = "sg-rest";
+    rest.textContent = text.slice(count);
+    return [typed, rest];
+  };
+
+  const createNameTyper = (names) => {
+    let timer = 0;
+
+    const stop = () => {
+      clearTimeout(timer);
+      for (const el of names) el.classList.remove("is-typing");
+    };
+    const typeAt = (nameIndex, charCount) => {
+      const el = names[nameIndex];
+      if (!el) return;
+      const text = el.dataset.name;
+      const done = charCount >= text.length;
+      el.classList.toggle("is-typing", !done);
+      el.replaceChildren(...typedParts(text, charCount));
+      const next = done ? () => typeAt(nameIndex + 1, 1) : () => typeAt(nameIndex, charCount + 1);
+      timer = setTimeout(next, TYPE_INTERVAL_MS);
+    };
+    const start = (delay) => {
+      stop();
+      if (reduceMotion.matches) {
+        for (const el of names) el.textContent = el.dataset.name;
+        return;
+      }
+      for (const el of names) el.replaceChildren(...typedParts(el.dataset.name, 0));
+      timer = setTimeout(() => typeAt(0, 1), delay);
+    };
+
+    return { start, stop };
+  };
+
+  const setupSorter = (sorter) => {
+    const pile = sorter.querySelector('[data-slot="pile"]');
+    const pages = [...sorter.querySelectorAll(".pg")];
+    const buttons = [...sorter.querySelectorAll("[data-sorter-set]")];
+    const typer = createNameTyper([...sorter.querySelectorAll("[data-name]")]);
+    let userTouched = false;
+
+    const setState = (state) => {
+      if (sorter.dataset.state === state) return;
+      flip(pages, () => {
+        sorter.dataset.state = state;
+        for (const page of pages) {
+          const slot = state === "after" ? sorter.querySelector(`[data-slot="${page.dataset.to}"]`) : pile;
+          slot.append(page);
+        }
+      });
+      for (const button of buttons) {
+        button.setAttribute("aria-pressed", String(button.dataset.sorterSet === state));
+      }
+      if (state === "after") typer.start(pages.length * 45 + 520);
+      else typer.stop();
+    };
+
+    for (const button of buttons) {
+      button.addEventListener("click", () => {
+        userTouched = true;
+        setState(button.dataset.sorterSet);
+      });
+    }
+
+    onceVisible(sorter.querySelector(".sorter-stage"), 0.55, () => {
+      setTimeout(() => {
+        if (!userTouched) setState("after");
+      }, SORTER_AUTOPLAY_DELAY_MS);
+    });
+  };
+
+  // ---------- くり返し動く見本 ----------
+  // 見本は DEMO_CYCLES 周すると最後の状態で止まる（ずっと動き続けないように）。
+  // 画面内にあり、タブが表に出ていて、「動きを減らす」設定でないときだけ進める。
+  const DEMO_CYCLES = 2;
+
+  // step は 1 刻み進め、最後まで見せ終えたら true を返す。そこでタイマーを止める。
+  const runDemo = (box, intervalMs, step) => {
+    const timer = setInterval(() => {
+      if (reduceMotion.matches || doc.hidden || !box.classList.contains("is-live")) return;
+      if (step()) clearInterval(timer);
+    }, intervalMs);
+  };
+
+  // ---------- まとめて処理: 10件が順に処理され、全部済むと一括保存できる ----------
+  // 同時に処理するのは 2 件まで（アプリの既定値と同じ）。数字は見本用の所要時間（刻み数）。
+  const BATCH_TICK_MS = 650;
+  const BATCH_MAX_RUNNING = 2;
+  const BATCH_DURATIONS = [3, 4, 2, 3, 5, 3, 2, 4, 3, 4];
+  const BATCH_HOLD_TICKS = 5;
+
+  const batchStatusOf = (tab) =>
+    tab.classList.contains("is-done") ? "done" : tab.classList.contains("is-run") ? "run" : "wait";
+  const isBatchDone = (items) => items.every((item) => item.status === "done");
+  const initialBatch = () => BATCH_DURATIONS.map(() => ({ status: "wait", left: 0 }));
+
+  // 1 刻み進めた新しい状態を返す（元の配列は変えない）。
+  const advanceBatch = (current) => {
+    const progressed = current.map((item) =>
+      item.status === "run" ? { status: item.left <= 1 ? "done" : "run", left: item.left - 1 } : item,
+    );
+    let running = progressed.filter((item) => item.status === "run").length;
+    return progressed.map((item, index) => {
+      if (item.status !== "wait" || running >= BATCH_MAX_RUNNING) return item;
+      running += 1;
+      return { status: "run", left: BATCH_DURATIONS[index] };
+    });
+  };
+
+  const setupBatch = (box) => {
+    const tabs = [...box.querySelectorAll(".bt-tab")];
+    const counters = [...box.querySelectorAll("[data-bt-count]")];
+    let items = tabs.map((tab, index) => ({ status: batchStatusOf(tab), left: Math.ceil(BATCH_DURATIONS[index] / 2) }));
+    let hold = 0;
+    // HTML は途中まで済んだ状態から始まるので、最初に全部済むまでは周回に数えない。
+    let cycles = -1;
+
+    const render = () => {
+      items.forEach((item, index) => {
+        tabs[index].classList.toggle("is-wait", item.status === "wait");
+        tabs[index].classList.toggle("is-run", item.status === "run");
+        tabs[index].classList.toggle("is-done", item.status === "done");
+      });
+      const count = (status) => items.filter((item) => item.status === status).length;
+      for (const counter of counters) counter.textContent = String(count(counter.dataset.btCount));
+      box.classList.toggle("is-all-done", isBatchDone(items));
+    };
+
+    const step = () => {
+      if (isBatchDone(items)) {
+        hold += 1;
+        if (hold < BATCH_HOLD_TICKS) return false;
+        hold = 0;
+        items = initialBatch();
+        render();
+        return false;
+      }
+      items = advanceBatch(items);
+      if (isBatchDone(items)) cycles += 1;
+      render();
+      return cycles >= DEMO_CYCLES;
+    };
+
+    runDemo(box, BATCH_TICK_MS, step);
+  };
+
+  // ---------- 名前付け: 受信したときの名前が、1件ずつルールどおりの名前に置き換わる ----------
+  // HTML は全件置き換え済みの状態。動きを減らす設定のときはそのまま見せる。
+  const RENAME_TICK_MS = 900;
+  const RENAME_HOLD_TICKS = 4;
+
+  const setupRename = (box) => {
+    const rows = [...box.querySelectorAll(".rn-list li")];
+    const apply = (count) => {
+      rows.forEach((row, index) => row.classList.toggle("is-done", index < count));
+    };
+    let doneCount = reduceMotion.matches ? rows.length : 0;
+    let cycles = 0;
+    apply(doneCount);
+    reduceMotion.addEventListener("change", () => {
+      if (reduceMotion.matches) apply(rows.length);
+    });
+
+    runDemo(box, RENAME_TICK_MS, () => {
+      doneCount = doneCount >= rows.length + RENAME_HOLD_TICKS ? 0 : doneCount + 1;
+      if (doneCount === rows.length) cycles += 1;
+      apply(Math.min(doneCount, rows.length));
+      return cycles >= DEMO_CYCLES;
+    });
+  };
+
+  // ---------- 機能: ファイル名のルールが入れ替わる ----------
+  const NAME_RULE_PRESETS = [
+    {
+      order: ["name", "type", "month", "issue"],
+      sep: "全角スペース",
+      date: "R表記",
+      out: "利用者A　サービス提供票　R8.10（9.26）.pdf",
+    },
+    {
+      order: ["type", "name", "month"],
+      sep: "アンダースコア",
+      date: "R表記・苗字＋様",
+      out: "サービス提供票_利用者A様_R8.10.pdf",
+    },
+    {
+      order: ["month", "name", "type"],
+      sep: "ハイフン",
+      date: "西暦ドット・連番",
+      out: "2026.10-利用者A-サービス提供票-001.pdf",
+    },
+  ];
+
+  const setupNameRule = (box) => {
+    const chipBox = box.querySelector(".nr-chips");
+    const chips = [...chipBox.children];
+    const out = box.querySelector("[data-nr-out]");
+    const outRow = out.parentElement;
+    const sep = box.querySelector("[data-nr-sep]");
+    const date = box.querySelector("[data-nr-date]");
+    let index = 0;
+    let steps = 0;
+
+    const apply = (preset) => {
+      flip(chips, () => {
+        const byKey = new Map(chips.map((chip) => [chip.dataset.key, chip]));
+        const onChips = preset.order.map((key) => byKey.get(key));
+        const offChips = chips.filter((chip) => !preset.order.includes(chip.dataset.key));
+        for (const chip of [...onChips, ...offChips]) {
+          chip.classList.toggle("is-off", offChips.includes(chip));
+          chipBox.append(chip);
+        }
+      }, { duration: 620, stagger: 30 });
+      sep.textContent = preset.sep;
+      date.textContent = preset.date;
+      outRow.classList.add("is-swapping");
+      setTimeout(() => {
+        out.textContent = preset.out;
+        outRow.classList.remove("is-swapping");
+      }, reduceMotion.matches ? 0 : 300);
+    };
+    // 1 周 = すべてのルールを見せて最初のルールに戻るまで。止まるときは最初のルール（HTML と同じ）になる。
+    runDemo(box, NAME_RULE_INTERVAL_MS, () => {
+      index = (index + 1) % NAME_RULE_PRESETS.length;
+      apply(NAME_RULE_PRESETS[index]);
+      steps += 1;
+      return steps >= NAME_RULE_PRESETS.length * DEMO_CYCLES;
+    });
+  };
+
+  // ---------- 見本の準備: 1 つが失敗しても、ほかの見本は動かす ----------
+  // 失敗はブラウザのエラー報告（reportError、無い環境では非同期に投げ直す）へ渡し、握りつぶさない。
+  const report = (error) => {
+    if (typeof reportError === "function") {
+      reportError(error);
+      return;
+    }
+    setTimeout(() => {
+      throw error;
+    });
+  };
+  const setupEach = (selector, setup) => {
+    const el = doc.querySelector(selector);
+    if (!el) return;
+    try {
+      setup(el);
+    } catch (error) {
+      report(error);
+    }
+  };
+
+  setupEach("[data-pv]", setupPv);
+  setupEach("[data-sorter]", setupSorter);
+  setupEach("[data-batch]", setupBatch);
+  setupEach("[data-rename]", setupRename);
+  setupEach("[data-name-rule]", setupNameRule);
+})();
+
+</script>
+</body>
+</html>
