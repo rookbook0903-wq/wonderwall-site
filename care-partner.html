@@ -3366,7 +3366,96 @@ html.js .ms .reveal-copy {
       .ms .feature-triad--six .feature-card:last-of-type { border-bottom: 1px solid var(--line); }
       .ms .feature-statement { padding: 40px 0 32px; }
     }
+    .ms .section-faq { padding-block: 96px; }
+    .ms .faq-list { margin-top: 40px; border-top: 1px solid var(--line); }
+    .ms .faq-item {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .ms .faq-item h3 {
+      display: flex;
+      gap: 14px;
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(18px, 1.7vw, 21px);
+      font-weight: 900;
+      line-height: 1.5;
+    }
+    .ms .faq-item h3 span { flex: none; color: var(--blue); font-family: var(--font-latin); }
+    .ms .faq-item p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 1.85; }
+    @media (max-width: 700px) {
+      .ms .section-faq { padding-block: 72px; }
+      .ms .faq-list { margin-top: 28px; }
+      .ms .faq-item { grid-template-columns: 1fr; gap: 10px; padding: 24px 0; }
+    }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "どんなサービスですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "居宅介護支援事業所のケアマネジャー向けの業務支援ツールです。音声入力・録音・メモから支援経過や担当者会議の記録をAIで整え、オプションのRPA自動転記で介護ソフトへの入力まで自動化できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "介護ソフトへの転記を自動化できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。オプションのRPA自動転記を使うと、AIで整えた支援経過などの記録を、手入力の代わりに介護ソフトへ自動で転記します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "利用にPCは必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "記録はスマホでもPCでも作成可能です。RPA転記は事業所のPCで行います。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "RPAに未対応の介護ソフトでも使えますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。音声入力・AI整形だけでも導入でき、整えた記録をコピーして使えます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "複数人の会議も記録できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。音声記録では複数人の会話を録音し、話者分離を活用して記録を作れます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "入力内容はAIの学習に使われますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。音声や記録、生成した内容をAIモデルの学習には利用しません。外部AIも学習に使われないサービス・契約を選定し利用しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "RPA自動転記に対応している介護ソフトはどれですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "対応する介護ソフトは順次拡大中です。お使いの介護ソフトで使えるかは、お問い合わせください。"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -3853,6 +3942,45 @@ html.js .ms .reveal-copy {
             <article class="customization-row text-rise-group" style="--i: 2">
               <h3>使う機能も。</h3>
               <p class="description"><span class="copy-line">記録づくりだけでも。</span><span class="copy-line">タスク・掲示板・RPAまで組み合わせても。</span></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== faq ========== -->
+      <section class="section section-faq" id="faq" aria-labelledby="faq-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2 class="section-title" id="faq-title">よくあるご質問</h2>
+          </div>
+          <div class="faq-list">
+            <article class="faq-item reveal">
+              <h3><span aria-hidden="true">Q.</span>どんなサービスですか？</h3>
+              <p>居宅介護支援事業所のケアマネジャー向けの業務支援ツールです。音声入力・録音・メモから支援経過や担当者会議の記録をAIで整え、オプションのRPA自動転記で介護ソフトへの入力まで自動化できます。</p>
+            </article>
+            <article class="faq-item reveal">
+              <h3><span aria-hidden="true">Q.</span>介護ソフトへの転記を自動化できますか？</h3>
+              <p>はい。オプションのRPA自動転記を使うと、AIで整えた支援経過などの記録を、手入力の代わりに介護ソフトへ自動で転記します。</p>
+            </article>
+            <article class="faq-item reveal">
+              <h3><span aria-hidden="true">Q.</span>利用にPCは必要ですか？</h3>
+              <p>記録はスマホでもPCでも作成可能です。RPA転記は事業所のPCで行います。</p>
+            </article>
+            <article class="faq-item reveal">
+              <h3><span aria-hidden="true">Q.</span>RPAに未対応の介護ソフトでも使えますか？</h3>
+              <p>はい。音声入力・AI整形だけでも導入でき、整えた記録をコピーして使えます。</p>
+            </article>
+            <article class="faq-item reveal">
+              <h3><span aria-hidden="true">Q.</span>複数人の会議も記録できますか？</h3>
+              <p>はい。音声記録では複数人の会話を録音し、話者分離を活用して記録を作れます。</p>
+            </article>
+            <article class="faq-item reveal">
+              <h3><span aria-hidden="true">Q.</span>入力内容はAIの学習に使われますか？</h3>
+              <p>いいえ。音声や記録、生成した内容をAIモデルの学習には利用しません。外部AIも学習に使われないサービス・契約を選定し利用しています。</p>
+            </article>
+            <article class="faq-item reveal">
+              <h3><span aria-hidden="true">Q.</span>RPA自動転記に対応している介護ソフトはどれですか？</h3>
+              <p>対応する介護ソフトは順次拡大中です。お使いの介護ソフトで使えるかは、お問い合わせください。</p>
             </article>
           </div>
         </div>
